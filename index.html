@@ -1,71 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Vanilla JavaScript vs underscore and lodash</title>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JavaScript vs underscore and lodash</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="helpers/menu.js"></script>
 </head>
 <body class="l-page">
-	<header class="l-header">
-		<h1>Vanilla JavaScript vs Underscore and Lodash</h1>
-	</header>
-	<aside class="l-toc">
-		<ul>
-			<li>test-1</li>
-			<li>test-2</li>
-			<li>test-3</li>
-			<li>test-4</li>
-			<li>test-5</li>
-			<li>test-6</li>
-			<li>test-7</li>
-			<li>test-8</li>
-			<li>test-9</li>
-			<li>test-10</li>
-			<li>test-11</li>
-			<li>test-12</li>
-			<li>test-13</li>
-			<li>test-14</li>
-			<li>test-15</li>
-			<li>test-16</li>
-			<li>test-17</li>
-			<li>test-18</li>
-			<li>test-19</li>
-			<li>test-20</li>
-			<li>test-21</li>
-			<li>test-22</li>
-			<li>test-23</li>
-			<li>test-24</li>
-			<li>test-25</li>
-			<li>test-26</li>
-			<li>test-27</li>
-			<li>test-28</li>
-			<li>test-29</li>
-			<li>test-30</li>
-			<li>test-31</li>
-			<li>test-32</li>
-			<li>test-33</li>
-			<li>test-34</li>
-			<li>test-35</li>
-			<li>test-36</li>
-			<li>test-37</li>
-			<li>test-38</li>
-			<li>test-39</li>
-			<li>test-40</li>
-			<li>test-41</li>
-			<li>test-42</li>
-			<li>test-43</li>
-			<li>test-44</li>
-			<li>test-45</li>
-			<li>test-46</li>
-			<li>test-47</li>
-			<li>test-48</li>
-			<li>test-49</li>
-			<li>test-50</li>
-		</ul>
-	</aside>
-	<main class="l-content">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quaerat, cupiditate vitae rerum velit dicta quae repellendus ullam explicabo ea, esse a. Suscipit quidem commodi molestias quisquam quibusdam, reiciendis est provident necessitatibus numquam, modi architecto quasi beatae odio! Delectus illo, iure dolor itaque perferendis, natus aperiam nulla! Quas dolores a voluptate, quo, aspernatur veniam neque ratione quibusdam eum similique aliquid? Consectetur consequatur, aliquam, enim, eaque dolorem aspernatur nemo aut error tempora quos provident fuga dolore inventore corrupti? Quos, vitae saepe ab reprehenderit voluptates. Quos deleniti tempore quaerat maiores aliquid quam asperiores magni? Recusandae quo in et inventore quas quam nulla quibusdam dicta. Accusamus iste est, at vitae. Provident voluptatum officia, magnam, autem placeat recusandae tempore suscipit pariatur quo adipisci eligendi aliquid magni qui consequuntur deserunt totam sunt distinctio! Sint dolorem dolore necessitatibus obcaecati fugiat repudiandae reprehenderit aut ab, assumenda distinctio esse officia labore aspernatur fugit hic magnam in quis impedit consequuntur rerum accusamus sunt ipsum quisquam. Officia beatae facilis consectetur libero deleniti accusantium repudiandae consequatur voluptatibus hic ducimus a, corrupti tempore placeat animi quisquam in voluptates repellat saepe commodi veniam consequuntur, reprehenderit optio. Reiciendis fuga harum veniam magni aliquam dolorum nam quod rem soluta labore! Et est veniam, autem rem doloremque porro nulla officiis odio ex ut quia, assumenda. Voluptas placeat fuga necessitatibus repellendus autem enim, impedit, aut quisquam sit in distinctio beatae quidem, amet nobis harum doloremque qui quis incidunt, quasi sed totam. Doloribus quaerat aliquid nemo, mollitia at, cumque tempore in. Natus eveniet aliquid iusto culpa facere fuga id ratione exercitationem praesentium non consectetur beatae distinctio, veritatis ad nam cupiditate! Laboriosam odit voluptatem quibusdam porro eligendi? Excepturi, facere quia dolorem voluptates, accusantium veniam. Odio maiores, odit, vel iusto earum libero vitae laborum perspiciatis cumque tempore, vero architecto, possimus unde doloremque ipsa voluptatibus! Odit mollitia maiores similique consectetur veritatis!
-	</main>
+  <header class="l-header">
+    <h1>Vanilla JavaScript vs Underscore and Lodash</h1>
+  </header>
+  <aside class="l-toc">
+
+  </aside>
+  <main class="l-content">
+    <h2>Ссылки на библиотеки</h2>
+    <ul>
+      <li><a href="https://lodash.com">lodash.js</a></li>
+      <li><a href="https://underscorejs.org">underscore.js</a></li>
+    </ul>
+    <h2>Методы "Array"</h2>
+    <h3>_.chunk</h3>
+    <p>Создает массив элементов, разбитых на группы по размеру длины. Если массив не может быть разделен равномерно, последним фрагментом будут оставшиеся элементы.</p>
+    <h4>Lodash</h4>
+    <pre><code>
+_.chunk(['a', 'b', 'c', 'd'], 2);
+// => [['a', 'b'], ['c', 'd']]
+_.chunk(['a', 'b', 'c', 'd'], 3);
+// => [['a', 'b', 'c'], ['d']]
+    </code></pre>
+    <h4>Underscore</h4>
+    <pre><code>
+_.chunk(['a', 'b', 'c', 'd'], 2);
+// => [['a', 'b'], ['c', 'd']]
+_.chunk(['a', 'b', 'c', 'd'], 3);
+// => [['a', 'b', 'c'], ['d']]
+    </code></pre>
+    <h4>Vanilla JavaScript</h4>
+    <pre><code>
+function chunk(arr, sizeChunk = 1) {
+  const result = [[]];
+  let index = 0;
+  let size = sizeChunk;
+  arr.forEach(el => {
+    if(size <= 0) {
+      size = sizeChunk;
+      index++;
+      result[index] = [];
+    }
+    result[index].push(el);
+    size--;
+  });
+  return result;
+}
+
+chunk(['a', 'b', 'c', 'd'], 2);
+// => [['a', 'b'], ['c', 'd']]
+chunk(['a', 'b', 'c', 'd'], 3);
+// => [['a', 'b', 'c'], ['d']]
+    </code></pre>
+  </main>
 </body>
 </html>
