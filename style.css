@@ -5,5 +5,36 @@
 }
 
 body {
-	background: red;
+	font-family: Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+/* Layout */
+.l-page {
+	display: grid;
+	grid-template-columns: 310px 1fr;
+	grid-template-rows: 64px 1fr;
+	grid-template-areas: "header header"
+											 "sidebar content";
+}
+.l-header {
+	position: fixed;
+	z-index: 1;
+	background-color: #FFF;
+	box-shadow: 0 0 2.25rem #9da5ab;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	padding-left: 15px;
+	width: 100%;
+	grid-area: header;
+}
+.l-header h1 {
+	line-height: 1em;
+}
+.l-toc {
+	grid-area: sidebar;
+	padding: 15px 15px 30px 15px;
+}
+.l-content {
+	grid-area: content;
+	padding-top: 15px;
 }
