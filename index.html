@@ -79,8 +79,25 @@ _.compact([0, 1, false, 2, '', undefined, null, NaN]);
 function compact(arr) {
   return arr.filter(elem => Boolean(elem) != false);
 }
-compact([0, 1, false, 2, '', undefined, null, NaN])
+compact([0, 1, false, 2, '', undefined, null, NaN]);
 // => [ 1, 2 ]
+    </code></pre>
+
+    <h3><a href="#concat"></a>_.concat</h3>
+    <p>Создает новый массив, объединяющий массив с любыми дополнительными массивами и/или значениями.</p>
+    <h4>Lodash</h4>
+    <pre><code class="language-js">
+const arr = [1];
+_.concat(arr, 2, [3], [[4]]);
+// => [ 1, 2, 3, [ 4 ]]
+    </code></pre>
+    <h4>Vanilla JavaScript</h4>
+    <pre><code class="language-js">
+const arr = [1];
+[...arr, 2, ...[3], ...[[4]]];
+// => [ 1, 2, 3, [ 4 ]]
+arr.concat(2, [3], [[4]]);
+// => [ 1, 2, 3, [ 4 ]]
     </code></pre>
   </main>
   <script type="text/babel" src="script.js">
