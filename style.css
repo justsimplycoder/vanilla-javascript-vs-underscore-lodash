@@ -23,8 +23,23 @@ main h4 {
 	padding: .5em 1.5rem .3em 1.5rem;
 }
 
+main h2 {
+	padding-bottom: 0em;
+}
+
+main h3 {
+	background: #e8e8e8;
+	line-height: 1em;
+	padding-top: .6em;
+	padding-bottom: .6em;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	font-size: 1.3rem;
+}
+
 main h4 {
 	font-style: italic;
+	margin-top: .5em;
 }
 
 main p {
@@ -60,8 +75,14 @@ pre code.hljs {
 }
 .l-toc {
 	grid-area: sidebar;
-	padding: 28px 15px 30px 15px;
+	padding: 28px 15px;
 	border-right: 1px solid #ccc;
+	--top-margin: 64px;
+	height: calc(100vh - var(--top-margin));
+	margin-top: var(--top-margin);
+	overflow-x: auto;
+	position: fixed;
+	width: 310px;
 }
 .l-content {
 	grid-area: content;
