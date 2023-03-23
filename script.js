@@ -2,7 +2,7 @@ function Menu() {
 	return (
 		<ul className="menu">
 			{MENU[0].content.map(item => {
-				return <li key={item.key}><a href={item.href}>{item.name}</a></li>
+				return <li key={item.key}><a href={'#' + item.name}>{'_.' + item.name}</a></li>
 			})}
 		</ul>
 	)
