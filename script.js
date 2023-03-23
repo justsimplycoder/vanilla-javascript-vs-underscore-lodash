@@ -1,6 +1,6 @@
 function Menu() {
 	return (
-		<ul>
+		<ul className="menu">
 			{MENU[0].content.map(item => {
 				return <li key={item.key}><a href={item.href}>{item.name}</a></li>
 			})}

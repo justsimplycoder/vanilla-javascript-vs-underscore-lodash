@@ -5,12 +5,35 @@
 }
 
 body {
-	font-family: Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+a {
+	color: #3492ff;
+}
+
+a:hover {
+	color: #0071B5;
+}
+
+main h2,
+main h3,
+main h4 {
+	font-weight: normal;
+	padding: .5em 1.5rem .3em 1.5rem;
+}
+
+main h4 {
+	font-style: italic;
+}
+
+main p {
+	padding: .5em 1.5rem;
 }
 
 pre code.hljs {
 	font-size: 1.4em !important;
-	padding: 0 1.5em 0 1.5em !important;
+	padding: 0 1.5rem 0 1.5rem !important;
 }
 /* Layout */
 .l-page {
@@ -37,9 +60,23 @@ pre code.hljs {
 }
 .l-toc {
 	grid-area: sidebar;
-	padding: 15px 15px 30px 15px;
+	padding: 28px 15px 30px 15px;
+	border-right: 1px solid #ccc;
 }
 .l-content {
 	grid-area: content;
 	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+/* Modules */
+.menu ul {
+	padding-left: 2.1rem;
+}
+.menu li {
+	list-style: none;
+	padding-bottom: .2rem;
+}
+.menu li a {
+	text-decoration: none;
 }
