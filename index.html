@@ -21,6 +21,7 @@
   </aside>
   <main class="l-content">
     <h2>Методы "Array"</h2>
+
     <h3><a href="#chunk"></a>_.chunk</h3>
     <p>Создает массив элементов, разбитых на группы по размеру длины. Если массив не может быть разделен равномерно, последним фрагментом будут оставшиеся элементы.</p>
     <h4>Lodash</h4>
@@ -59,6 +60,27 @@ chunk(['a', 'b', 'c', 'd'], 2);
 // => [['a', 'b'], ['c', 'd']]
 chunk(['a', 'b', 'c', 'd'], 3);
 // => [['a', 'b', 'c'], ['d']]
+    </code></pre>
+
+    <h3><a href="#compact"></a>_.compact</h3>
+    <p>Создает массив, в котором удалены все ложные значения. Значения false, null, 0, '', undefined и NaN являются ложными.</p>
+    <h4>Lodash</h4>
+    <pre><code class="language-js">
+_.compact([0, 1, false, 2, '', undefined, null, NaN]);
+// => [ 1, 2 ]
+    </code></pre>
+    <h4>Underscore</h4>
+    <pre><code class="language-js">
+_.compact([0, 1, false, 2, '', undefined, null, NaN]);
+// => [ 1, 2 ]
+    </code></pre>
+    <h4>Vanilla JavaScript</h4>
+    <pre><code class="language-js">
+function compact(arr) {
+  return arr.filter(elem => Boolean(elem) != false);
+}
+compact([0, 1, false, 2, '', undefined, null, NaN])
+// => [ 1, 2 ]
     </code></pre>
   </main>
   <script type="text/babel" src="script.js">
