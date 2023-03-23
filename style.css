@@ -7,6 +7,11 @@
 body {
 	font-family: Segoe UI,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
+
+pre code.hljs {
+	font-size: 1.4em !important;
+	padding: 0 1.5em 0 1.5em !important;
+}
 /* Layout */
 .l-page {
 	display: grid;

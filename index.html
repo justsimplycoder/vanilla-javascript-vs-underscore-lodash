@@ -9,6 +9,8 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
 </head>
 <body class="l-page">
   <header class="l-header">
@@ -27,21 +29,21 @@
     <h3><a href="#chunk"></a>_.chunk</h3>
     <p>Создает массив элементов, разбитых на группы по размеру длины. Если массив не может быть разделен равномерно, последним фрагментом будут оставшиеся элементы.</p>
     <h4>Lodash</h4>
-    <pre><code>
+    <pre><code class="language-js">
 _.chunk(['a', 'b', 'c', 'd'], 2);
 // => [['a', 'b'], ['c', 'd']]
 _.chunk(['a', 'b', 'c', 'd'], 3);
 // => [['a', 'b', 'c'], ['d']]
     </code></pre>
     <h4>Underscore</h4>
-    <pre><code>
+    <pre><code class="language-js">
 _.chunk(['a', 'b', 'c', 'd'], 2);
 // => [['a', 'b'], ['c', 'd']]
 _.chunk(['a', 'b', 'c', 'd'], 3);
 // => [['a', 'b', 'c'], ['d']]
     </code></pre>
     <h4>Vanilla JavaScript</h4>
-    <pre><code>
+    <pre><code class="language-js">
 function chunk(arr, sizeChunk = 1) {
   const result = [[]];
   let index = 0;

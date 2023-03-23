@@ -10,3 +10,5 @@ function Menu() {
 
 const toc = ReactDOM.createRoot(document.getElementById('toc'));
 toc.render(<Menu />);
+
+hljs.highlightAll();
