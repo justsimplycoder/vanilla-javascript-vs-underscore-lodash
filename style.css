@@ -6,6 +6,7 @@
 
 body {
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	height: 100vh;
 }
 
 a {
@@ -57,6 +58,7 @@ pre code.hljs {
 	grid-template-rows: 64px 1fr;
 	grid-template-areas: "header header"
 											 "sidebar content";
+	height: 100vh;
 }
 .l-header {
 	position: fixed;
