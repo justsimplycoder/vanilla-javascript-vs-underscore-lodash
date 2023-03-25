@@ -187,15 +187,42 @@ differenceWith(arr1, arr2, equalObject);
     {
       "key": "0:6",
       "name": "drop",
-      "description": "",
+      "description": "Создает срез массива с n элементами, отброшенными с самого начала.",
       "lodash": `
-
+_.drop(arr);
+// => [ 4, 3, 2, 1 ]
+_.drop(arr, 2);
+// => [ 3, 2, 1 ]
+_.drop(arr, 5);
+// => []
+_.drop(arr, 0);
+// => [ 5, 4, 3, 2, 1 ]
       `,
       "underscore": `
+_.drop(arr);
+// => [ 4, 3, 2, 1 ]
+_.drop(arr, 2);
+// => [ 3, 2, 1 ]
+_.drop(arr, 5);
+// => []
+_.drop(arr, 0);
+// => [ 5, 4, 3, 2, 1 ]
 
+// alias
+_.rest(arr);
+// => [ 4, 3, 2, 1 ]
+_.tail(arr);
+// => [ 4, 3, 2, 1 ]
       `,
       "vanillaJavaScript": `
-
+arr.slice(1);
+// => [ 4, 3, 2, 1 ]
+arr.slice(2);
+// => [ 3, 2, 1 ]
+arr.slice(5);
+// => []
+arr.slice();
+// => [ 5, 4, 3, 2, 1 ]
       `
     },
     {
