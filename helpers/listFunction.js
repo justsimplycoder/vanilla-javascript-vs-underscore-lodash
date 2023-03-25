@@ -138,15 +138,50 @@ differenceBy([{'x' : 2}, {'x': 1}], [{'x': 1}], 'x');
     {
       "key": "0:5",
       "name": "differenceWith",
-      "description": "",
+      "description": "Этот метод подобен _.difference, за исключением того, что он принимает компаратор, который вызывается для сравнения элементов массива со значениями.",
       "lodash": `
-
+const arr1 = [{'x':1, 'y':2}, {'x':2, 'y':1}];
+const arr2 = [{'x':1, 'y':2}];
+_.differenceWith(arr1, arr2, _.isEqual)
+// => [{ 'x': 2, 'y': 1 }]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
 
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+function differenceWith(obj1, obj2, callback) {
+  var arr = [];
+
+  for(let elem of obj2) {
+    let isEqualObject = false;
+    for(let item of obj1) {
+      if(!callback(elem, item)) {
+        arr.push(item);
+      }
+    }
+  }
+
+  return arr;
+}
+
+const arr1 = [{'x':1, 'y':2}, {'x':2, 'y':1}];
+const arr2 = [{'x':1, 'y':2}];
+differenceWith(arr1, arr2, equalObject);
+// => [{ 'x': 2, 'y': 1 }]
       `
     },
     {
