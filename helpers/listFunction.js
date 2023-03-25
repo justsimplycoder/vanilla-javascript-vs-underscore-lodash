@@ -106,15 +106,33 @@ difference([2, 1, 4], [2, 3, 5])
     {
       "key": "0:4",
       "name": "differenceBy",
-      "description": "",
+      "description": "Этот метод подобен _.difference, за исключением того, что он принимает итерацию, которая вызывается для каждого элемента массива и значений для создания критерия, по которому они сравниваются.",
       "lodash": `
-
+_.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+// => [ 1.2 ]
+_.differenceBy([{'x' : 2}, {'x': 1}], [{'x': 1}], 'x');
+// => [ { x: 2 } ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function differenceBy(arr, value, comprator) {
+  return arr.filter(function(elem) {
+    return !value.find(function(item) {
+      if(typeof comprator === 'function') {
+        return comprator(item) === comprator(elem);
+      } if (typeof comprator === 'string') {
+        return item[comprator] === elem[comprator];
+      } else {
+        return false;
+      }
+    });
+  });
+}
 
+differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+// => [ 1.2 ]
+differenceBy([{'x' : 2}, {'x': 1}], [{'x': 1}], 'x');
+// => [ { x: 2 } ]
       `
     },
     {
