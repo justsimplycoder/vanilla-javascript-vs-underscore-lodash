@@ -407,15 +407,38 @@ dropWhile(users, ['active', false]);
     {
       "key": "0:10",
       "name": "fill",
-      "description": "",
+      "description": "Заполняет элементы массива значением от начала до конца, но не включая его.",
       "lodash": `
-
+_.fill([5, 4, 3, 2, 1], 'js');
+// => [ 'js', 'js', 'js', 'js', 'js' ]
+_.fill([5, 4, 3, 2, 1], 'js', 1, 3);
+// => [ 5, 'js', 'js', 2, 1 ]
+_.fill(Array(4), 'js');
+// => [ 'js', 'js', 'js', 'js' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+[5, 4, 3, 2, 1].fill('js');
+// => [ 'js', 'js', 'js', 'js', 'js' ]
+[5, 4, 3, 2, 1].fill('js', 1, 3);
+// => [ 5, 'js', 'js', 2, 1 ]
+Array(4).fill('js');
+// => [ 'js', 'js', 'js', 'js' ]
 
+function fill(arr, value, start=0, end=undefined) {
+  if (end === undefined) end = arr.length;
+  for(let i = start;i < end;i++) {
+    arr[i] = value;
+  }
+  return arr;
+}
+
+fill([5, 4, 3, 2, 1], 'js');
+// => [ 'js', 'js', 'js', 'js', 'js' ]
+fill([5, 4, 3, 2, 1], 'js', 1, 3);
+// => [ 5, 'js', 'js', 2, 1 ]
+fill(Array(4), 'js');
+// => [ 'js', 'js', 'js', 'js' ]
       `
     },
     {
