@@ -228,15 +228,28 @@ arr.slice();
     {
       "key": "0:7",
       "name": "dropRight",
-      "description": "",
+      "description": "Создает срез массива с n элементами, удаленными с конца.",
       "lodash": `
-
+_.dropRight(arr);
+// => [ 5, 4, 3, 2 ]
+_.dropRight(arr, 2);
+// => [ 5, 4, 3 ]
+_.dropRight(arr, 6);
+//  => []
+_.dropRight(arr, 0);
+// => [ 5, 4, 3, 2, 1 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+// es6
+arr.slice(0, -1);
+// => [ 5, 4, 3, 2 ]
+arr.slice(0, -2);
+// => [ 5, 4, 3 ]
+arr.slice(0, -6);
+//  => []
+arr.slice();
+// => [ 5, 4, 3, 2, 1 ]
       `
     },
     {
