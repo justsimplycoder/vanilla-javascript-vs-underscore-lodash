@@ -255,29 +255,153 @@ arr.slice();
     {
       "key": "0:8",
       "name": "dropRightWhile",
-      "description": "",
+      "description": "Создает срез массива, исключая элементы, удаленные с конца.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': true },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': false }
+];
 
+_.dropRightWhile(users, function(o) { return !o.active; });
+// => [ { user: 'barney', active: true } ]
+_.dropRightWhile(users, { 'user': 'pebbles', 'active': false });
+// => [ { user: 'barney', active: true }, { user: 'fred', active: false } ]
+_.dropRightWhile(users, ['active', false]);
+// => [ { user: 'barney', active: true } ]
+_.dropRightWhile(users, 'active');
+// => [
+//   { user: 'barney', active: true },
+//   { user: 'fred', active: false },
+//   { user: 'pebbles', active: false }
+// ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'active': true },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': false }
+];
 
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+function dropRightWhile(arr, condition) {
+  const arrLocal = [...arr];
+  if(typeof condition === 'function') {
+    return arrLocal.reverse().filter(condition);
+  } else if (Array.isArray(condition)) {
+    return arrLocal.reverse().filter(el => el[condition[0]] !== condition[1]);
+  } else if (typeof condition === 'object' && condition !== null){
+    return arrLocal.reverse().filter(el => !equalObject(el, condition));
+  } else if (typeof condition === 'string') {
+    console.log('sdf');
+    return arrLocal.filter(el => condition in el)
+  } else {
+    return arrLocal;
+  }
+}
+
+dropRightWhile(users, function(o) { return o.active; });
+// => [ { user: 'barney', active: true } ]
+dropRightWhile(users, { 'user': 'pebbles', 'active': false });
+// => [ { user: 'barney', active: true }, { user: 'fred', active: false } ]
+dropRightWhile(users, ['active', false]);
+// => [ { user: 'barney', active: true } ]
+dropRightWhile(users, 'active');
+// => [
+//   { user: 'barney', active: true },
+//   { user: 'fred', active: false },
+//   { user: 'pebbles', active: false }
+// ]
       `
     },
     {
       "key": "0:9",
       "name": "dropWhile",
-      "description": "",
+      "description": "Создает срез массива, исключая элементы, отброшенные с самого начала.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+_.dropWhile(users, function(o) { return !o.active; });
+// => [ { user: 'pebbles', active: true } ]
+_.dropWhile(users, { 'user': 'barney', 'active': false });
+// => [ { user: 'fred', active: false }, { user: 'pebbles', active: true } ]
+_.dropWhile(users, ['active', false]);
+// => [ { user: 'pebbles', active: true } ]
+_.dropWhile(users, 'active');
+// => [
+//   { user: 'barney', active: false },
+//   { user: 'fred', active: false },
+//   { user: 'pebbles', active: true }
+// ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
 
+function dropWhile(arr, condition) {
+  if(typeof condition === 'function') {
+    return arr.filter(condition);
+  } else if (Array.isArray(condition)) {
+    return arr.filter(el => el[condition[0]] !== condition[1]);
+  } else if (typeof condition === 'object' && condition !== null){
+    return arr.filter(el => !equalObject(el, condition));
+  } else if (typeof condition === 'string') {
+    return arr.filter(el => condition in el)
+  } else {
+    return arr;
+  }
+}
+
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
+
+dropWhile(users, function(o) { return o.active; });
+// => [ { user: 'pebbles', active: true } ]
+dropWhile(users, { 'user': 'barney', 'active': false });
+// => [ { user: 'fred', active: false }, { user: 'pebbles', active: true } ]
+dropWhile(users, 'active');
+// => [ { user: 'pebbles', active: true } ]
+dropWhile(users, ['active', false]);
+// => [
+//   { user: 'barney', active: false },
+//   { user: 'fred', active: false },
+//   { user: 'pebbles', active: true }
+// ]
       `
     },
     {
