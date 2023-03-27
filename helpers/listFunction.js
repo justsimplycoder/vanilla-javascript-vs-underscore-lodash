@@ -581,15 +581,34 @@ users.findLastIndex(o => Boolean(o.active) === true);
       "key": "0:13",
       "name": "first",
       "alias": "head",
-      "description": "",
+      "description": "Получает первый элемент массива.",
       "lodash": `
+const arr = [5, 4, 3, 2, 1];
 
+_.first(arr);
+// => 5
+_.head(arr); // alias
+// => 5
       `,
       "underscore": `
+const arr = [5, 4, 3, 2, 1];
 
+_.first(arr);
+// => 5
+_.first(arr, 2);
+// => [ 5, 4 ]
+_.head(arr); // alias
+// => 5
+_.take(arr); // alias
+// => 5
       `,
       "vanillaJavaScript": `
+const arr = [5, 4, 3, 2, 1];
 
+arr[0];
+// => 5
+arr.slice(0, 2);
+// => [ 5, 4 ]
       `
     },
     {
