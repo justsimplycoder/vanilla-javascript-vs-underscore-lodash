@@ -662,15 +662,36 @@ arr.flat(Infinity);
     {
       "key": "0:16",
       "name": "flattenDepth",
-      "description": "",
+      "description": "Рекурсивно сгладить массив до установленного уровня.",
       "lodash": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flattenDepth(arr);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+_.flattenDepth(arr, 1);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+_.flattenDepth(arr, 2);
+// => [ 1, 2, 3, [ 4 ], 5 ]
       `,
       "underscore": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flatten(arr, true);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+_.flatten(arr, 1);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+_.flatten(arr, 2);
+// => [ 1, 2, 3, [ 4 ], 5 ]
       `,
       "vanillaJavaScript": `
+const arr = [1, [2, [3, [4]], 5]];
 
+arr.flat();
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+arr.flat(1);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+arr.flat(2);
+// => [ 1, 2, 3, [ 4 ], 5 ]
       `
     },
     {
