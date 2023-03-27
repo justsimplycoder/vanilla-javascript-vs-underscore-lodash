@@ -614,15 +614,26 @@ arr.slice(0, 2);
     {
       "key": "0:14",
       "name": "flatten",
-      "description": "",
+      "description": "Выравнивает массив на один уровень в глубину.",
       "lodash": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flatten(arr);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
       `,
       "underscore": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flatten(arr, true);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
       `,
       "vanillaJavaScript": `
+const arr = [1, [2, [3, [4]], 5]];
 
+arr.flat(1);
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
+arr.flat();
+// => [ 1, 2, [ 3, [ 4 ] ], 5 ]
       `
     },
     {
