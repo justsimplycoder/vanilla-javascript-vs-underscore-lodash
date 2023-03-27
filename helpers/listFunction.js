@@ -494,15 +494,69 @@ users.findIndex(o => Boolean(o.active) === true)
     {
       "key": "0:12",
       "name": "findLastIndex",
-      "description": "",
+      "description": "Этот метод похож на _.findIndex, за исключением того, что он перебирает элементы коллекции справа налево.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+_.findLastIndex(users, function(o) { return o.user == 'barney'; });
+// => 0
+_.findLastIndex(users, { 'user': 'fred', 'active': false });
+// => 1
+_.findLastIndex(users, ['active', false]);
+// => 1
+_.findLastIndex(users, 'active');
+// => 2
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+_.findLastIndex(users, function(o) { return o.user == 'barney'; });
+// => 0
+_.findLastIndex(users, { 'user': 'fred', 'active': false });
+// => 1
+_.findLastIndex(users, ['active', false]);
+// => -1 Неправильно выводит
+_.findLastIndex(users, 'active');
+// => 2
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+users.findLastIndex(o => o.user === 'barney');
+// => 0
+users.findLastIndex(o => equalObject(o, { 'user': 'fred', 'active': false }));
+// => 1
+users.findLastIndex(o => o.active === false);
+// => 1
+users.findLastIndex(o => Boolean(o.active) === true);
+// => 2
       `
     },
     {
