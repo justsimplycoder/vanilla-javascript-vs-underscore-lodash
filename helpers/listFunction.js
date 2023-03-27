@@ -639,15 +639,24 @@ arr.flat();
     {
       "key": "0:15",
       "name": "flattenDeep",
-      "description": "",
+      "description": "Рекурсивно сглаживает массив.",
       "lodash": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flattenDeep(arr);
+// => [ 1, 2, 3, 4, 5 ]
       `,
       "underscore": `
+const arr = [1, [2, [3, [4]], 5]];
 
+_.flatten(arr);
+// => [ 1, 2, 3, 4, 5 ]
       `,
       "vanillaJavaScript": `
+const arr = [1, [2, [3, [4]], 5]];
 
+arr.flat(Infinity);
+// => [ 1, 2, 3, 4, 5 ]
       `
     },
     {
