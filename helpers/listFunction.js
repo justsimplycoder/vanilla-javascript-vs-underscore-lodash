@@ -446,6 +446,12 @@ fill(Array(4), 'js');
       "name": "findIndex",
       "description": "Этот метод подобен _.find, за исключением того, что он возвращает индекс первого элемента, предикат возвращает true вместо самого элемента.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
+
 _.findIndex(users, function(o) { return o.user == 'barney'; })
 // => 0
 _.findIndex(users, { 'user': 'fred', 'active': false })
@@ -456,6 +462,12 @@ _.findIndex(users, 'active');
 // => 2
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
+
 _.findIndex(users, function(o) { return o.user == 'barney'; })
 // => 0
 _.findIndex(users, { 'user': 'fred', 'active': false })
@@ -466,6 +478,12 @@ _.findIndex(users, 'active');
 // => 2
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
+
 function equalObject(...objects) {
   var arrEqual = objects.map(function (elem) {
     return Object.entries(elem).sort(function(a, b) {
