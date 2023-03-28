@@ -793,15 +793,18 @@ arr.slice(0, -1);
     {
       "key": "0:21",
       "name": "intersection",
-      "description": "",
+      "description": "Возвращает массив значений из первого массива, которые присутствует во втором массиве",
       "lodash": `
-
+_.intersection([2, 1], [2, 3]);
+// => [ 2 ]
       `,
       "underscore": `
-
+_.intersection([2, 1], [2, 3]);
+// => [ 2 ]
       `,
       "vanillaJavaScript": `
-
+intersection([2, 1], [2, 3]);
+// => [ 2 ]
       `
     },
     {
