@@ -770,15 +770,24 @@ arr.indexOf(4);
     {
       "key": "0:20",
       "name": "initial",
-      "description": "",
+      "description": "Возвращает все кроме последнего элемента массива",
       "lodash": `
+const arr = [1, 2, 3, 4, 5];
 
+_.initial(arr);
+// => [ 1, 2, 3, 4 ]
       `,
       "underscore": `
+const arr = [1, 2, 3, 4, 5];
 
+_.initial(arr);
+// => [ 1, 2, 3, 4 ]
       `,
       "vanillaJavaScript": `
+const arr = [1, 2, 3, 4, 5];
 
+arr.slice(0, -1);
+// => [ 1, 2, 3, 4 ]
       `
     },
     {
