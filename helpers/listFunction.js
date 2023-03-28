@@ -580,7 +580,6 @@ users.findLastIndex(o => Boolean(o.active) === true);
     {
       "key": "0:13",
       "name": "first",
-      "alias": "head",
       "description": "Получает первый элемент массива.",
       "lodash": `
 const arr = [5, 4, 3, 2, 1];
@@ -736,15 +735,36 @@ fromPairs([['x', 1], ['y', 2]]);
     {
       "key": "0:19",
       "name": "indexOf",
-      "description": "",
+      "description": "Получает индекс, по которому первое вхождение значения находится в массиве.",
       "lodash": `
+const arr = [1, 2, 1, 3, 2];
 
+_.indexOf(arr, 2);
+// => 1
+_.indexOf(arr, 2, 2);
+// => 4
+_.indexOf(arr, 4);
+// => -1
       `,
       "underscore": `
+const arr = [1, 2, 1, 3, 2];
 
+_.indexOf(arr, 2);
+// => 1
+_.indexOf(arr, 2, 2);
+// => 4
+_.indexOf(arr, 4);
+// => -1
       `,
       "vanillaJavaScript": `
+const arr = [1, 2, 1, 3, 2];
 
+arr.indexOf(2);
+// => 1
+arr.indexOf(2, 2);
+// => 4
+arr.indexOf(4);
+// => -1
       `
     },
     {
