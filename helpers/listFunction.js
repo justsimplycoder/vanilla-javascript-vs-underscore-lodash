@@ -810,15 +810,33 @@ intersection([2, 1], [2, 3]);
     {
       "key": "0:22",
       "name": "intersectionBy",
-      "description": "",
+      "description": "Этот метод подобен _.intersection, за исключением того, что он принимает итерацию, которая вызывается для каждого элемента каждого массива, чтобы сгенерировать критерий, по которому они сравниваются. ",
       "lodash": `
-
+_.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+// => [ { x: 1 } ]
+_.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+// => [ 2.1 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function intersectionBy(arr, value, comprator) {
+  return arr.filter(function(elem) {
+    return value.find(function(item) {
+      if (typeof comprator === 'string') {
+        return item[comprator] === elem[comprator];
+      } else if (typeof comprator === 'function') {
+        return comprator(elem) === comprator(item);
+      } else {
+        return false;
+      }
+    });
+  });
+}
 
+intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+// => [ { x: 1 } ]
+intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+// => [ 2.1 ]
       `
     },
     {
