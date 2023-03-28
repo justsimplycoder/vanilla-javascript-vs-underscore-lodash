@@ -697,15 +697,26 @@ arr.flat(2);
     {
       "key": "0:17",
       "name": "fromPairs",
-      "description": "",
+      "description": "Возвращает объект, состоящий из пар ключ-значение",
       "lodash": `
-
+_.fromPairs([['x', 1], ['y', 2]]);
+// =>  { x: 1, y: 2 }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+Object.fromEntries([['x', 1], ['y', 2]]);
+// =>  { x: 1, y: 2 }
 
+function fromPairs(arr) {
+  let obj = {};
+  for(let el of arr){
+    obj[el[0]] = el[1];
+  }
+  return obj;
+}
+
+fromPairs([['x', 1], ['y', 2]]);
+// =>  { x: 1, y: 2 }
       `
     },
     {
