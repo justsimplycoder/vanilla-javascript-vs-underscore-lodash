@@ -1033,15 +1033,29 @@ pullAll(arr, ['a', 'c']);
     {
       "key": "0:30",
       "name": "pullAllBy",
-      "description": "",
+      "description": "Этот метод подобен _.pullAll, за исключением того, что он принимает итерацию, которая вызывается для каждого элемента массива и значений для создания критерия, по которому они сравниваются.",
       "lodash": `
+var arr = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
 
+_.pullAllBy(arr, [{ 'x': 1 }, { 'x': 3 }], 'x');
+// => [ { x: 2 } ]
       `,
       "underscore": `
 
       `,
       "vanillaJavaScript": `
+var arr = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
 
+function pullAllBy(arr, value, comprator) {
+  return arr.filter(function(elem) {
+    return !value.find(function(item) {
+      return item[comprator] === elem[comprator];
+    });
+  });
+}
+
+pullAllBy(arr, [{ 'x': 1 }, { 'x': 3 }], 'x');
+// => [ { x: 2 } ]
       `
     },
     {
