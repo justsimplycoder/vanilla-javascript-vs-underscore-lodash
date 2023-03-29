@@ -965,15 +965,21 @@ arr.lastIndexOf(2, 2);
     {
       "key": "0:27",
       "name": "nth",
-      "description": "",
+      "description": "Получает элемент с индексом n массива. Если n отрицательно, возвращается n-й элемент с конца.",
       "lodash": `
-
+_.nth(arr, 1);
+// => b
+_.nth(arr, -2);
+// => c
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+arr[1];
+// => b
+arr[arr.length - 2];
+// => c
+arr.slice(-2)[0];
+// => c
       `
     },
     {
