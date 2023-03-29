@@ -936,15 +936,30 @@ arr.slice(-2);
     {
       "key": "0:26",
       "name": "lastIndexOf",
-      "description": "",
+      "description": "Этот метод похож на _.indexOf, за исключением того, что он перебирает элементы массива справа налево.",
       "lodash": `
+const arr = [1, 2, 1, 3, 2];
 
+_.lastIndexOf(arr, 2);
+// => 4
+_.lastIndexOf(arr, 2, 2);
+// => 1
       `,
       "underscore": `
+const arr = [1, 2, 1, 3, 2];
 
+_.lastIndexOf(arr, 2);
+// => 4
+_.lastIndexOf(arr, 2, 2);
+// => 1
       `,
       "vanillaJavaScript": `
+const arr = [1, 2, 1, 3, 2];
 
+arr.lastIndexOf(2);
+// => 4
+arr.lastIndexOf(2, 2);
+// => 1
       `
     },
     {
