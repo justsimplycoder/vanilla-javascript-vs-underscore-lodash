@@ -985,15 +985,25 @@ arr.slice(-2)[0];
     {
       "key": "0:28",
       "name": "pull",
-      "description": "",
+      "description": "Удаляет все заданные значения из массива",
       "lodash": `
+const arr = ['a', 'b', 'c', 'a', 'b', 'c'];
 
+_.pull(arr, 'a', 'c');
+// => [ 'b', 'b' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const arr = ['a', 'b', 'c', 'a', 'b', 'c'];
 
+function pull(arr, ...value) {
+  return arr.filter(function(elem) {
+    return value.indexOf(elem) == -1;
+  });
+}
+
+pull(arr, 'a', 'c');
+// => [ 'b', 'b' ]
       `
     },
     {
