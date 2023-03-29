@@ -907,15 +907,30 @@ _.join(['a', 'b', 'c'], '~');
     {
       "key": "0:25",
       "name": "last",
-      "description": "",
+      "description": "Получает последний элемент массива.",
       "lodash": `
+const arr = [5, 4, 3, 2, 1];
 
+_.last(arr);
+// => 1
       `,
       "underscore": `
+const arr = [5, 4, 3, 2, 1];
 
+_.last(arr);
+// => 1
+_.last(arr, 2);
+// => [2, 1]
       `,
       "vanillaJavaScript": `
+const arr = [5, 4, 3, 2, 1];
 
+arr[arr.length - 1];
+// => 1
+arr.slice(-1)[0];
+// => 1
+arr.slice(-2);
+// => [2, 1]
       `
     },
     {
