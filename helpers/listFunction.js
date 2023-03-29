@@ -893,15 +893,15 @@ intersectionWith(arr1, arr2, equalObject);
     {
       "key": "0:24",
       "name": "join",
-      "description": "",
+      "description": "Преобразует все элементы массива в строку, разделенную разделителем.",
       "lodash": `
-
+_.join(['a', 'b', 'c'], '~');
+// => a~b~c
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+['a', 'b', 'c'].join('~');
+// => a~b~c
       `
     },
     {
