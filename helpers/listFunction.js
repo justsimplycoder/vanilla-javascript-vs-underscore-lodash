@@ -1095,13 +1095,35 @@ array2 = array2.filter(el => !equalObject(el, { 'x': 3, 'y': 4 }))
       "name": "pullAt",
       "description": "",
       "lodash": `
+var arr = ['a', 'b', 'c', 'd'];
+var pulled = _.pullAt(arr, [1, 3]);
 
+console.log("arr", arr);
+// => arr [ 'a', 'c' ]
+console.log('pulled', pulled);
+// => pulled [ 'b', 'd' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var arr = ['a', 'b', 'c', 'd'];
 
+function pullAt(arr, value) {
+  var array = [];
+  value[0]++; // необходимо для правельной работы цикла
+  // за каждый проход создаётся массив искомых элементов и уменьшается исходный
+  value.forEach((elem, index) => {
+    array.push(arr[elem - 1]);
+    arr.splice(elem - 1, 1);
+  });
+  return array;
+}
+
+var pulled = pullAt(arr, [1, 3]);
+
+console.log("arr", arr);
+// => arr [ 'a', 'c' ]
+console.log('pulled', pulled);
+// => pulled [ 'b', 'd' ]
       `
     },
     {
