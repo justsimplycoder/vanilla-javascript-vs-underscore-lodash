@@ -1009,15 +1009,25 @@ pull(arr, 'a', 'c');
     {
       "key": "0:29",
       "name": "pullAll",
-      "description": "",
+      "description": "Этот метод похож на _.pull, за исключением того, что он принимает массив значений для удаления.",
       "lodash": `
+const arr = ['a', 'b', 'c', 'a', 'b', 'c'];
 
+_.pullAll(arr, ['a', 'c']);
+// => [ 'b', 'b' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const arr = ['a', 'b', 'c', 'a', 'b', 'c'];
 
+function pull(arr, ...value) {
+  return arr.filter(function(elem) {
+    return value.indexOf(elem) == -1;
+  });
+}
+
+pullAll(arr, ['a', 'c']);
+// => [ 'b', 'b' ]
       `
     },
     {
