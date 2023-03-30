@@ -1221,15 +1221,19 @@ sortedIndex([10, 30, 50, 60, 70], 80);
     {
       "key": "0:37",
       "name": "sortedIndexBy",
-      "description": "",
+      "description": "Этот метод подобен _.sortedIndex, за исключением того, что он принимает итерацию, которая вызывается для значения и каждого элемента массива для вычисления их ранжирования сортировки.",
       "lodash": `
-
+_.sortedIndexBy([{'x': 3}, {'x': 4}, {'x': 5}], {'x': 4}, 'x');
+// => 1
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function sortedIndexBy(arr, value, prop) {
+  return arr.findIndex(elem => elem[prop] == value[prop]);
+}
 
+sortedIndexBy([{'x': 3}, {'x': 4}, {'x': 5}], {'x': 4}, 'x');
+// => 1
       `
     },
     {
