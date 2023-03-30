@@ -1129,15 +1129,32 @@ console.log('pulled', pulled);
     {
       "key": "0:33",
       "name": "remove",
-      "description": "",
+      "description": "Удаляет все элементы из массива, для которого предикат возвращает истину, и возвращает массив удаленных элементов.",
       "lodash": `
+const arr = [1, 2, 3, 4];
+const evens = lod.remove(arr, n => n % 2 == 0);
 
+console.log(evens);
+// => [ 2, 4 ]
+console.log(arr);
+// => [ 1, 3 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const arr = [1, 2, 3, 4];
+const evens2 = arr2.filter(function(elem, index, arr) {
+  if(elem % 2 == 0){
+    arr.splice(index, 1);
+    return true;
+  } else {
+    return false;
+  }
+});
 
+console.log(evens);
+// => [ 2, 4 ]
+console.log(arr);
+// => [ 1, 3 ]
       `
     },
     {
