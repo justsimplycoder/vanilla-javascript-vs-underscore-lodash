@@ -1267,15 +1267,33 @@ _.sortedLastIndex([4, 5, 5, 5, 6], 5);
     {
       "key": "0:40",
       "name": "sortedLastIndexBy",
-      "description": "",
+      "description": "Этот метод похож на _.sortedLastIndex, за исключением того, что он принимает итерацию, которая вызывается для значения и каждого элемента массива для вычисления их ранжирования сортировки.",
       "lodash": `
+var objects = [{ 'x': 4 }, { 'x': 5 }, { 'x': 5 }, { 'x': 6 }];
 
+_.sortedLastIndexBy(objects, { 'x': 5 }, function(o) { return o.x; });
+// => 3
+_.sortedLastIndexBy(objects, { 'x': 5 }, 'x');
+// => 3
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var objects = [{ 'x': 4 }, { 'x': 5 }, { 'x': 5 }, { 'x': 6 }];
 
+function sortedLastIndexBy(arr, value, comparator) {
+  if (typeof comparator === 'function') {
+    return 1 + arr.findLastIndex(el => comparator(el) === comparator(value))
+  } else if (typeof comparator === 'string') {
+    return 1 + arr.findLastIndex(el => value[comparator] === el[comparator])
+  } else {
+    return false;
+  }
+}
+
+sortedLastIndexBy(objects, { 'x': 5 }, function(o) { return o.x; });
+// => 3
+sortedLastIndexBy(objects, { 'x': 5 }, 'x');
+// => 3
       `
     },
     {
