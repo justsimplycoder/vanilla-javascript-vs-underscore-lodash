@@ -1188,15 +1188,34 @@ _.slice([1, 2, 3, 4], 1, 2);
     {
       "key": "0:36",
       "name": "sortedIndex",
-      "description": "",
+      "description": "Использует двоичный поиск для определения наименьшего индекса, по которому значение должно быть вставлено в массив, чтобы сохранить его порядок сортировки.",
       "lodash": `
-
+_.sortedIndex([10, 30, 50, 60, 70], 40);
+// => 2
+_.sortedIndex([10, 30, 50, 60, 70], 80);
+// => 5
       `,
       "underscore": `
-
+_.sortedIndex([10, 30, 50, 60, 70], 40);
+// => 2
+_.sortedIndex([10, 30, 50, 60, 70], 80);
+// => 5
       `,
       "vanillaJavaScript": `
+function sortedIndex(arr, value) {
+  const length = arr.length;
+  for(let i = 0, j = 1; i < length; i++, j++){
+    if(arr[i] <= value && value <= arr[j] || length === j) {
+      return j;
+    }
+  }
+  return arr;
+}
 
+sortedIndex([10, 30, 50, 60, 70], 40);
+// => 2
+sortedIndex([10, 30, 50, 60, 70], 80);
+// => 5
       `
     },
     {
