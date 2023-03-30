@@ -1160,15 +1160,15 @@ console.log(arr);
     {
       "key": "0:34",
       "name": "reverse",
-      "description": "",
+      "description": "Переворачивает массив таким образом, что первый элемент становится последним, второй элемент становится предпоследним и так далее.",
       "lodash": `
-
+_.reverse([1, 2, 3, 4]);
+// => [ 4, 3, 2, 1 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2, 3, 4].reverse();
+// => [ 4, 3, 2, 1 ]
       `
     },
     {
