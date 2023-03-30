@@ -1176,13 +1176,13 @@ _.reverse([1, 2, 3, 4]);
       "name": "slice",
       "description": "",
       "lodash": `
-
+_.slice([1, 2, 3, 4], 1, 2);
+// => [2]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2, 3, 4].slice(1, 2);
+// => [2]
       `
     },
     {
