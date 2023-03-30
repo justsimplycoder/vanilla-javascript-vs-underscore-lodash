@@ -1239,15 +1239,15 @@ sortedIndexBy([{'x': 3}, {'x': 4}, {'x': 5}], {'x': 4}, 'x');
     {
       "key": "0:38",
       "name": "sortedIndexOf",
-      "description": "",
+      "description": "Этот метод похож на _.indexOf, за исключением того, что он выполняет двоичный поиск в отсортированном массиве.",
       "lodash": `
-
+_.sortedIndexOf([4, 5, 5, 5, 6], 5);
+// => 1
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[4, 5, 5, 5, 6].indexOf(5);
+// => 1
       `
     },
     {
