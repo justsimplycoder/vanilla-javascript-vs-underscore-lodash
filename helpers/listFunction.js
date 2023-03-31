@@ -1313,15 +1313,17 @@ _.sortedLastIndexOf([4, 5, 5, 5, 6], 5);
     {
       "key": "0:42",
       "name": "sortedUniq",
-      "description": "",
+      "description": "Этот метод похож на _.uniqBy, за исключением того, что он разработан и оптимизирован для отсортированных массивов.",
       "lodash": `
-
+const arr = [1, 1, 2, 2, 3, 4, 4];
+_.sortedUniq(arr);
+// => [ 1, 2, 3, 4 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+const arr = [1, 1, 2, 2, 3, 4, 4];
+[...new Set(arr)];
+// => [ 1, 2, 3, 4 ]
       `
     },
     {
