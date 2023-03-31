@@ -1299,15 +1299,15 @@ sortedLastIndexBy(objects, { 'x': 5 }, 'x');
     {
       "key": "0:41",
       "name": "sortedLastIndexOf",
-      "description": "",
+      "description": "Этот метод похож на _.lastIndexOf, за исключением того, что он выполняет двоичный поиск в отсортированном массиве.",
       "lodash": `
-
+_.sortedLastIndexOf([4, 5, 5, 5, 6], 5);
+// => 3
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[4, 5, 5, 5, 6].lastIndexOf(5);
+// => 3
       `
     },
     {
