@@ -1329,15 +1329,23 @@ const arr = [1, 1, 2, 2, 3, 4, 4];
     {
       "key": "0:43",
       "name": "sortedUniqBy",
-      "description": "",
+      "description": "Этот метод похож на _.uniqBy, за исключением того, что он разработан и оптимизирован для отсортированных массивов.",
       "lodash": `
-
+_.sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor);
+// => [ 1.1, 2.3 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function sortedUniqBy(arr, fn) {
+  const uniqArr = [arr[0]];
+  for (let i = 1; i < arr.length - 1; i++) {
+    if(fn(arr[i]) !== fn(arr[i - 1])) uniqArr.push(arr[i])
+  }
+  return uniqArr;
+}
 
+sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor);
+// => [ 1.1, 2.3 ]
       `
     },
     {
