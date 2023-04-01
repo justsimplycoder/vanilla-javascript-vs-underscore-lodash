@@ -1351,15 +1351,15 @@ sortedUniqBy([1.1, 1.2, 2.3, 2.4], Math.floor);
     {
       "key": "0:44",
       "name": "tail",
-      "description": "",
+      "description": "Получает все, кроме первого элемента массива.",
       "lodash": `
-
+_.tail([1, 2, 3]);
+// => [ 2, 3 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2, 3].slice(1);
+// => [ 2, 3 ]
       `
     },
     {
