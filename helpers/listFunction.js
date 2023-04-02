@@ -1409,13 +1409,24 @@ _.takeRight([1, 2, 3], 5);
     {
       "key": "0:47",
       "name": "takeRightWhile",
-      "description": "",
+      "description": "Создает срез массива с элементами, взятыми с конца",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': true },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': false }
+];
 
+_.takeRightWhile(users, function(o) { return !o.active; });
+// => [ { user: 'fred', active: false }, { user: 'pebbles', active: false } ]
+_.takeRightWhile(users, { 'user': 'pebbles', 'active': false });
+// => [ { user: 'pebbles', active: false } ]
+_.takeRightWhile(users, ['active', false]);
+// => [ { user: 'fred', active: false }, { user: 'pebbles', active: false } ]
+_.takeRightWhile(users, 'active');
+// => []
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
 
       `
