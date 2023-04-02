@@ -1496,15 +1496,94 @@ takeRightWhile(users, 'active');
     {
       "key": "0:48",
       "name": "takeWhile",
-      "description": "",
+      "description": "Создает срез массива с элементами, взятыми с самого начала. Элементы берутся до тех пор, пока предикат не вернет false.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+_.takeWhile(users, function(o) { return !o.active; });
+// => [ { user: 'barney', active: false }, { user: 'fred', active: false } ]
+_.takeWhile(users, { 'user': 'barney', 'active': false });
+// => [ { user: 'barney', active: false } ]
+_.takeWhile(users, ['active', false]);
+// => [ { user: 'barney', active: false }, { user: 'fred', active: false } ]
+_.takeWhile(users, 'active');
+// => []
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'active': false },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': true }
+];
 
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+function takeWhile(arr, condition){
+  const result = [];
+
+  if(typeof condition === 'function') {
+    for (let i = 0; i < arr.length; i++) {
+      if(condition(arr[i])) {
+        result.push(arr[i]);
+      } else {
+        break;
+      }
+    }
+  } else if (Array.isArray(condition)) {
+    for (let i = 0; i < arr.length; i++) {
+      if(arr[i][condition[0]] === condition[1]) {
+        result.push(arr[i]);
+      } else {
+        break;
+      }
+    }
+  } else if (typeof condition === 'object' && condition !== null){
+    for (let i = 0; i < arr.length; i++) {
+      if(equalObject(arr[i], condition)) {
+        result.push(arr[i]);
+      } else {
+        break;
+      }
+    }
+  } else if (typeof condition === 'string') {
+    for (let i = 0; i < arr.length; i++) {
+      if(!(condition in arr[i])) {
+        result.push(arr[i]);
+      } else {
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
+takeWhile(users, function(o) { return !o.active; });
+// => [ { user: 'barney', active: false }, { user: 'fred', active: false } ]
+takeWhile(users, { 'user': 'barney', 'active': false });
+// => [ { user: 'barney', active: false } ]
+takeWhile(users, ['active', false]);
+// => [ { user: 'barney', active: false }, { user: 'fred', active: false } ]
+takeWhile(users, 'active');
+// => []
       `
     },
     {
