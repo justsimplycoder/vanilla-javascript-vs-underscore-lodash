@@ -1709,15 +1709,20 @@ unionWith(objectsUnionWith, othersUnionWith, equalObject);
     {
       "key": "0:52",
       "name": "uniq",
-      "description": "",
+      "description": "Создает версию массива без дубликатов, используя SameValueZero для сравнения на равенство, в котором сохраняется только первое вхождение каждого элемента.",
       "lodash": `
-
+_.uniq([2, 1, 2, 3, 1]);
+// => [ 2, 1, 3 ]
       `,
       "underscore": `
-
+_.uniq([2, 1, 2, 3, 1]);
+// => [ 2, 1, 3 ]
+_.unique([2, 1, 2, 3, 1]); // alias
+// => [ 2, 1, 3 ]
       `,
       "vanillaJavaScript": `
-
+[...new Set([2, 1, 2, 3, 1])];
+// => [ 2, 1, 3 ]
       `
     },
     {
