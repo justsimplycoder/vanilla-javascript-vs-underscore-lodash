@@ -1631,15 +1631,55 @@ union([2, 3], [1, 2, 3, 4]);
     {
       "key": "0:51",
       "name": "unionWith",
-      "description": "",
+      "description": "Этот метод похож на _.unzip, за исключением того, что он принимает итерацию, чтобы указать, как следует комбинировать перегруппированные значения.",
       "lodash": `
+var objectsUnionWith = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+var othersUnionWith = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
+_.unionWith(objectsUnionWith, othersUnionWith, lod.isEqual);
+// => [ { x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 1 } ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var objectsUnionWith = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+var othersUnionWith = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+function unionWith(arr1, arr2, callback) {
+  const result = [...new Set(arr1)];
+
+  result.forEach(elArr1 => {
+    const findElement = arr2.find(elArr2 => {
+      if(callback(elArr1, elArr2) === true) {
+        return elArr2;
+      } else {
+        return undefined;
+      }
+    });
+    if(findElement !== undefined) {
+      result.push(findElement);
+    }
+  });
+
+  return result;
+}
+
+unionWith(objectsUnionWith, othersUnionWith, equalObject);
+// => [ { x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 1 } ]
       `
     },
     {
