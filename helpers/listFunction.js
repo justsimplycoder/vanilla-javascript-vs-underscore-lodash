@@ -1589,15 +1589,29 @@ takeWhile(users, 'active');
     {
       "key": "0:49",
       "name": "union",
-      "description": "",
+      "description": "Создает массив уникальных значений по порядку из всех заданных массивов, используя SameValueZero для сравнения на равенство.",
       "lodash": `
-
+_.union([2], [1, 2, 3, 4]);
+// => [ 2, 1, 3, 4 ]
+_.union([2, 3], [1, 2, 3, 4]);
+//=> [ 2, 3, 1, 4 ]
       `,
       "underscore": `
-
+_.union([2], [1, 2, 3, 4]);
+// => [ 2, 1, 3, 4 ]
+_.union([2, 3], [1, 2, 3, 4]);
+//=> [ 2, 3, 1, 4 ]
       `,
       "vanillaJavaScript": `
+function union(arr, arrInsert) {
+  let setUnionElem = new Set([...arr, ...arrInsert]);
+  return Array.from(setUnionElem);
+}
 
+union([2], [1, 2, 3, 4]);
+// => [ 2, 1, 3, 4 ]
+union([2, 3], [1, 2, 3, 4]);
+//=> [ 2, 3, 1, 4 ]
       `
     },
     {
