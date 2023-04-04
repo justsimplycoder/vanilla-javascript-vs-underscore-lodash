@@ -1728,15 +1728,45 @@ _.unique([2, 1, 2, 3, 1]); // alias
     {
       "key": "0:53",
       "name": "uniqBy",
-      "description": "",
+      "description": "Этот метод подобен _.uniq, за исключением того, что он принимает итерацию, которая вызывается для каждого элемента в массиве, чтобы сгенерировать критерий, по которому вычисляется уникальность.",
       "lodash": `
-
+_.uniqBy([2.1, 1.2, 2.3], Math.floor);
+// => [2.1, 1.2]
+_.uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+// => [{ 'x': 1 }, { 'x': 2 }] //
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const strategyUniq = {};
 
+strategyUniq.functionUniq = (arr, comparator) => {
+  const result = arr.reduce((acc, item) => {
+    if (acc.some(el => comparator(el) === comparator(item))) {
+      return acc; // если значение уже есть, то просто возвращаем аккумулятор
+    }
+    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+  }, []);
+  return result;
+}
+
+strategyUniq.stringUniq = (arr, comparator) => {
+  const result = arr.reduce((acc, item) => {
+    if (acc.some(el => el[comparator] === item[comparator])) {
+      return acc; // если значение уже есть, то просто возвращаем аккумулятор
+    }
+    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+  }, []);
+  return result;
+}
+
+function uniqBy(arr, comparator) {
+  return strategyUniq[typeof comparator + 'Uniq'](arr, comparator);
+}
+
+uniqBy([2.1, 1.2, 2.3], Math.floor);
+// => [2.1, 1.2]
+uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+// => [{ 'x': 1 }, { 'x': 2 }] //
       `
     },
     {
