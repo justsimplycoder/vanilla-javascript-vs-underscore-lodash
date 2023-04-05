@@ -1816,15 +1816,26 @@ uniqWith(objects, equalObject);
     {
       "key": "0:55",
       "name": "unzip",
-      "description": "",
+      "description": "Этот метод подобен _.zip, за исключением того, что он принимает массив сгруппированных элементов и создает массив, перегруппировывая элементы до их конфигурации до архивирования.",
       "lodash": `
-
+_.unzip([ [ 'a', 1, true ], [ 'b', 2, false ] ]);
+// => [ [ 'a', 'b' ], [ 1, 2 ], [ true, false ] ]
       `,
       "underscore": `
-
+_.unzip([ [ 'a', 1, true ], [ 'b', 2, false ] ]);
+// => [ [ 'a', 'b' ], [ 1, 2 ], [ true, false ] ]
       `,
       "vanillaJavaScript": `
+function unzip(arr) {
+  var arrUnzip = [];
+  arr[0].forEach(function (elem, index) {
+    arrUnzip.push([elem, arr[1][index]]);
+  });
+  return arrUnzip;
+}
 
+unzip([ [ 'a', 1, true ], [ 'b', 2, false ] ]);
+// => [ [ 'a', 'b' ], [ 1, 2 ], [ true, false ] ]
       `
     },
     {
