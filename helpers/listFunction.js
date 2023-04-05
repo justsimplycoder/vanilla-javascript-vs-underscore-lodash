@@ -1774,13 +1774,43 @@ uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
       "name": "uniqWith",
       "description": "",
       "lodash": `
+var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
+lod.uniqWith(objects, lod.isEqual);
+// => [ { x: 1, y: 2 }, { x: 2, y: 1 } ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
+function equalObject(...objects) {
+  var arrEqual = objects.map(function (elem) {
+    return Object.entries(elem).sort(function(a, b) {
+      if (a[0] > b[0]) {
+        return 1;
+      }
+      if (a[0] < b[0]) {
+        return -1;
+      }
+      return 0;
+    });
+  });
+  return JSON.stringify(arrEqual[0]) == JSON.stringify(arrEqual[1]);
+}
+
+function uniqWith(arr, comparator) {
+  const result = objects.reduce((acc, item) => {
+    if (acc.some(el => comparator(el, item))) {
+      return acc;
+    }
+    return [...acc, item];
+  }, []);
+
+  return result;
+}
+
+uniqWith(objects, equalObject);
+// => [ { x: 1, y: 2 }, { x: 2, y: 1 } ]
       `
     },
     {
