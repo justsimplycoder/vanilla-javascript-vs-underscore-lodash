@@ -1841,15 +1841,21 @@ unzip([ [ 'a', 1, true ], [ 'b', 2, false ] ]);
     {
       "key": "0:56",
       "name": "unzipWith",
-      "description": "",
+      "description": "Этот метод похож на _.unzip, за исключением того, что он принимает итерацию, чтобы указать, как следует комбинировать перегруппированные значения.",
       "lodash": `
-
+_.unzipWith([[1, 10, 100], [2, 20, 200]], _.add);
+// => [ 3, 30, 300 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function unzipWith(arr, callback) {
+  return arr[0].map(function (elem, index) {
+    return callback(elem, arr[1][index]);
+  });
+}
 
+unzipWith([[1, 10, 100], [2, 20, 200]], (a, b) => a + b);
+// => [ 3, 30, 300 ]
       `
     },
     {
