@@ -1861,15 +1861,22 @@ unzipWith([[1, 10, 100], [2, 20, 200]], (a, b) => a + b);
     {
       "key": "0:57",
       "name": "without",
-      "description": "",
+      "description": "Создает массив, исключая все заданные значения, используя SameValueZero для сравнения на равенство.",
       "lodash": `
-
+_.without([2, 1, 2, 3, 1, 4], 1, 2);
+// => [ 3, 4 ]
       `,
       "underscore": `
-
+_.without([2, 1, 2, 3, 1, 4], 1, 2);
+// => [ 3, 4 ]
       `,
       "vanillaJavaScript": `
+function without(arr, ...value) {
+  return arr.filter(elem => !value.includes(elem))
+}
 
+without([2, 1, 2, 3, 1, 4], 1, 2);
+// => [ 3, 4 ]
       `
     },
     {
