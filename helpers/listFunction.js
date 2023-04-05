@@ -1882,15 +1882,39 @@ without([2, 1, 2, 3, 1, 4], 1, 2);
     {
       "key": "0:58",
       "name": "xor",
-      "description": "",
+      "description": "Создает массив уникальных значений, представляющих собой симметричную разность заданных массивов.",
       "lodash": `
-
+_.xor([2, 1], [2, 3]);
+// => [ 1, 3 ]
+_.xor([2, 1, 2], [2, 3, 1]);
+// => [ 3 ]
+_.xor([2, 1, 1], [2, 3, 3]);
+// => [ 1, 3 ]
+_.xor([2, 2], [2, 4]);
+// => [ 4 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function xor(arr1, arr2) {
+  let s1 = new Set(arr1);
+  let s2 = new Set(arr2);
+  s1.forEach(elem => {
+    if(s2.has(elem)) {
+      s1.delete(elem);
+      s2.delete(elem);
+    }
+  });
+  return [...s1, ...s2];
+}
 
+xor([2, 1], [2, 3]);
+// => [ 1, 3 ]
+xor([2, 1, 2], [2, 3, 1]);
+// => [ 3 ]
+xor([2, 1, 1], [2, 3, 3]);
+// => [ 1, 3 ]
+xor([2, 2], [2, 4]);
+// => [ 4 ]
       `
     },
     {
