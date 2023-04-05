@@ -1948,15 +1948,28 @@ xor([2, 2], [2, 4]);
     {
       "key": "0:61",
       "name": "zip",
-      "description": "",
+      "description": "Создает массив сгруппированных элементов, первый из которых содержит первые элементы заданных массивов, второй из которых содержит вторые элементы заданных массивов и так далее.",
       "lodash": `
-
+_.zip(['a', 'b'], [1, 2], [true, false]);
+// => [ [ 'a', 1, true ], [ 'b', 2, false ] ]
+_.zip([1, 2], [3, 4], [5, 6], [7, 8]);
+// => [ [ 1, 3, 5, 7 ], [ 2, 4, 6, 8 ] ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function zip(...arr) {
+  var arrZip = [[], []];
+  arr.forEach(function (elem) {
+    arrZip[0].push(elem[0]);
+    arrZip[1].push(elem[1]);
+  });
+  return arrZip;
+}
 
+zip(['a', 'b'], [1, 2], [true, false]);
+// => [ [ 'a', 1, true ], [ 'b', 2, false ] ]
+zip([1, 2], [3, 4], [5, 6], [7, 8]);
+// => [ [ 1, 3, 5, 7 ], [ 2, 4, 6, 8 ] ]
       `
     },
     {
