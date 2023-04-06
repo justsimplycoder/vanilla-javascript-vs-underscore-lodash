@@ -2052,15 +2052,23 @@ zip([1, 2], [3, 4], [5, 6], [7, 8]);
     {
       "key": "0:62",
       "name": "zipObject",
-      "description": "",
+      "description": "Этот метод подобен _.fromPairs, за исключением того, что он принимает два массива, один из идентификаторов свойств и один из соответствующих значений.",
       "lodash": `
-
+_.zipObject(['b', 'a'], [1, 2]);
+// => { b: 1, a: 2 }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function zipObject(arr1, arr2) {
+  var obj = {};
+  for(let i = 0;i < arr1.length;i++) {
+    obj[arr1[i]] = arr2[i];
+  }
+  return obj;
+}
 
+zipObject(['b', 'a'], [1, 2]);
+// => { b: 1, a: 2 }
       `
     },
     {
