@@ -2165,6 +2165,384 @@ zipWith([1, 2], [10, 20], [100, 200], (acc, cur) => {
 
       `
     },
+    {
+      "key": "1:1",
+      "name": "each",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:2",
+      "name": "eachRight",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:3",
+      "name": "every",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:4",
+      "name": "filter",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:5",
+      "name": "find",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:6",
+      "name": "findLast",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:7",
+      "name": "flatMap",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:8",
+      "name": "flatMapDeep",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:9",
+      "name": "flatMapDepth",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:10",
+      "name": "forEach",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:11",
+      "name": "forEachRight",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:12",
+      "name": "groupBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:13",
+      "name": "includes",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:14",
+      "name": "invokeMap",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:15",
+      "name": "keyBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:16",
+      "name": "map",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:17",
+      "name": "orderBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:18",
+      "name": "partition",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:19",
+      "name": "reduce",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:20",
+      "name": "reduceRight",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:21",
+      "name": "reject",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:22",
+      "name": "sample",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:23",
+      "name": "sampleSize",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:24",
+      "name": "shuffle",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:25",
+      "name": "size",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:26",
+      "name": "some",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    },
+    {
+      "key": "1:27",
+      "name": "sortBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `
+    }
   ]
 },
 ];
