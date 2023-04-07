@@ -2122,15 +2122,26 @@ zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
     {
       "key": "0:64",
       "name": "zipWith",
-      "description": "",
+      "description": "Этот метод похож на _.zip, за исключением того, что он принимает итерацию, чтобы указать, как следует комбинировать сгруппированные значения",
       "lodash": `
-
+_.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
+  return a + b + c;
+});
+// => [111, 222]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function zipWith(...args) {
+  const callback = args.splice(-1, 1)[0];
+  return args.reduce(callback)
+}
 
+zipWith([1, 2], [10, 20], [100, 200], (acc, cur) => {
+  acc[0] += cur[0];
+  acc[1] += cur[1];
+  return acc;
+});
+// => [111, 222]
       `
     }
   ]
