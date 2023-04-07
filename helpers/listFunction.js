@@ -2192,15 +2192,37 @@ countBy(['one', 'two', 'three'], 'length');
     {
       "key": "1:1",
       "name": "each",
-      "description": "",
+      "description": "Перебирает элементы коллекции и вызывает iteratee для каждого элемента. Итерируемый объект вызывается с тремя аргументами: (значение, индекс|ключ, коллекция). Итерируемые функции могут выйти из итерации досрочно, явно возвращая false.",
       "lodash": `
-
+// alias
+_.forEach([1, 2], (value) => {
+  console.log(value * 2);
+});
+// => 2, 4
+_.each({ 'a': 1, 'b': 2 }, (value, key) => {
+  console.log(key);
+});
+// => a, b
       `,
       "underscore": `
-
+_.each([1, 2], (value) => {
+  console.log(value * 2);
+});
+// => 2, 4
+_.each({ 'a': 1, 'b': 2 }, (value, key, list) => {
+  console.log(key);
+});
+// => a, b
       `,
       "vanillaJavaScript": `
-
+[1, 2].forEach(value => {
+  console.log(value * 2)
+});
+// => 2, 4
+Object.keys({ 'a': 1, 'b': 2 }).forEach(key => {
+  console.log(key)
+});
+// => a, b
       `
     },
     {
