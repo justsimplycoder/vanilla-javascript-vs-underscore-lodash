@@ -2230,13 +2230,24 @@ Object.keys({ 'a': 1, 'b': 2 }).forEach(key => {
       "name": "eachRight",
       "description": "",
       "lodash": `
-
+_.forEachRight([1, 2], function(value) {
+  console.log(value);
+});
+// => 2, 1
+_.eachRight([11, 22], function(value) {
+  console.log(value);
+});
+// => 22, 11
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2].reduceRight((_, el) => console.log(el), 0);
+// => 2, 1
+let arr = [11, 22];
+for (let i = arr.length - 1; i >= 0; --i) {
+  console.log(arr[i]);
+}
+// => 22, 11
       `
     },
     {
