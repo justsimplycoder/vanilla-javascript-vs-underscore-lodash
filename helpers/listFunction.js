@@ -2154,15 +2154,39 @@ zipWith([1, 2], [10, 20], [100, 200], (acc, cur) => {
     {
       "key": "1:0",
       "name": "countBy",
-      "description": "",
+      "description": "Создает объект, состоящий из ключей, сгенерированных по результатам прохождения каждого элемента коллекции через итерацию. Соответствующее значение каждого ключа — это количество раз, когда ключ возвращался итерацией.",
       "lodash": `
-
+_.countBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': 1, '6': 2 }
+_.countBy(['one', 'two', 'three'], 'length');
+// => { '3': 2, '5': 1 }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function countBy(arr, fn) {
+  let obj = {};
+  arr.forEach(el => {
+    let key = undefined;
+    if(typeof fn === 'function') {
+      key = fn(el);
+    } else if(typeof fn === 'string'){
+      key = el[fn];
+    } else {
+      throw new Error('Неверный тип');
+    }
+    if(key in obj) {
+      obj[key]++;
+    } else {
+      obj[key] = 1;
+    }
+  });
+  return obj;
+}
 
+countBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': 1, '6': 2 }
+countBy(['one', 'two', 'three'], 'length');
+// => { '3': 2, '5': 1 }
       `
     },
     {
