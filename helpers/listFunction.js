@@ -2339,15 +2339,54 @@ users.filter(el => el['active']);
     {
       "key": "1:5",
       "name": "find",
-      "description": "",
+      "description": "Перебирает элементы коллекции, возвращая первый элемент, предикат возвращает истину для.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'age': 36, 'active': true },
+  { 'user': 'fred',    'age': 40, 'active': false },
+  { 'user': 'pebbles', 'age': 1,  'active': true }
+];
 
+_.find(users, function(o) { return o.age < 40; });
+// => { user: 'barney', age: 36, active: true }
+_.find(users, { 'age': 1, 'active': true });
+// => { user: 'pebbles', age: 1, active: true }
+_.find(users, ['active', false]);
+// => { user: 'fred', age: 40, active: false }
+_.find(users, 'active');
+// => { user: 'barney', age: 36, active: true }
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney',  'age': 36, 'active': true },
+  { 'user': 'fred',    'age': 40, 'active': false },
+  { 'user': 'pebbles', 'age': 1,  'active': true }
+];
 
+_.find(users, function(o) { return o.age < 40; });
+// => { user: 'barney', age: 36, active: true }
+_.find(users, { 'age': 1, 'active': true });
+// => { user: 'pebbles', age: 1, active: true }
+_.find(users, {'active': false});
+// => { user: 'fred', age: 40, active: false }
+_.find(users, 'active');
+// => { user: 'barney', age: 36, active: true }
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'age': 36, 'active': true },
+  { 'user': 'fred',    'age': 40, 'active': false },
+  { 'user': 'pebbles', 'age': 1,  'active': true }
+];
 
+users.find(el => el.age < 40);
+// => { user: 'barney', age: 36, active: true }
+users.find(el => el.age == 1 && el.active === true);
+// => { user: 'pebbles', age: 1, active: true }
+users.find(el => el.active === false);
+// => { user: 'fred', age: 40, active: false }
+users.find(el => el.active);
+// => { user: 'barney', age: 36, active: true }
       `
     },
     {
