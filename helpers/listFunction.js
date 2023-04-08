@@ -2289,15 +2289,51 @@ users.every(el => el['active']);
     {
       "key": "1:4",
       "name": "filter",
-      "description": "",
+      "description": "Перебирает элементы коллекции, возвращая массив всех элементов, которые предикат возвращает истинно для",
       "lodash": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': true },
+  { 'user': 'fred',   'age': 40, 'active': false }
+];
 
+_.filter(users, function(o) {return !o.active});
+// => [ { user: 'fred', age: 40, active: false } ]
+_.filter(users, { 'age': 36, 'active': true });
+// => [ { user: 'barney', age: 36, active: true } ]
+_.filter(users, ['active', false]);
+// => [ { user: 'fred', age: 40, active: false } ]
+_.filter(users, 'active');
+// => [ { user: 'barney', age: 36, active: true } ]
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': true },
+  { 'user': 'fred',   'age': 40, 'active': false }
+];
 
+_.filter(users, function(o) {return !o.active});
+// => [ { user: 'fred', age: 40, active: false } ]
+_.filter(users, { 'age': 36, 'active': true });
+// => [ { user: 'barney', age: 36, active: true } ]
+_.filter(users, {'active': false});
+// => [ { user: 'fred', age: 40, active: false } ]
+_.filter(users, 'active');
+// => [ { user: 'barney', age: 36, active: true } ]
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': true },
+  { 'user': 'fred',   'age': 40, 'active': false }
+];
 
+users.filter(el => !el.active);
+// => [ { user: 'fred', age: 40, active: false } ]
+users.filter(el => el['age'] == 36 && el['active'] === true);
+// => [ { user: 'barney', age: 36, active: true } ]
+users.filter(el => el['active'] === false);
+// => [ { user: 'fred', age: 40, active: false } ]
+users.filter(el => el['active']);
+// => [ { user: 'barney', age: 36, active: true } ]
       `
     },
     {
