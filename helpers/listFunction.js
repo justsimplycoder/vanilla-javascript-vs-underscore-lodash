@@ -2253,15 +2253,37 @@ for (let i = arr.length - 1; i >= 0; --i) {
     {
       "key": "1:3",
       "name": "every",
-      "description": "",
+      "description": "Проверяет, возвращает ли предикат истину для всех элементов коллекции. Итерация останавливается, как только предикат возвращает false.",
       "lodash": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': false },
+  { 'user': 'fred',   'age': 40, 'active': false }
+];
 
+_d.every([true, 1, null, 'yes'], Boolean);
+// => false
+_d.every(users, { 'user': 'barney', 'active': false });
+// => false
+_d.every(users, ['active', false]);
+// => true
+_d.every(users, 'active');
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': false },
+  { 'user': 'fred',   'age': 40, 'active': false }
+];
 
+[true, 1, null, 'yes'].every(Boolean);
+// => false
+users.every(el => el['user'] === 'barney' && el['active'] === false);
+// => false
+users.every(el => el['active'] === false);
+// => true
+users.every(el => el['active']);
+// => false
       `
     },
     {
