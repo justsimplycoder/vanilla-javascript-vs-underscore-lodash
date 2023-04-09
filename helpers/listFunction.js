@@ -2412,15 +2412,27 @@ findLast([1, 2, 3, 4], (n) => n % 2 === 1);
     {
       "key": "1:7",
       "name": "flatMap",
-      "description": "",
+      "description": "Создает сглаженный массив значений, пропуская каждый элемент в коллекции через итерацию и сглаживая сопоставленные результаты.",
       "lodash": `
-
+_.flatMap([1, 2], n => [n, n]);
+// => [ 1, 1, 2, 2 ]
+_.flatMap([1, [2]], n => n**2);
+// => [ 1, 4 ]
+_.flatMap([1, [2, [3]]], n => n);
+// => [ 1, 2, [ 3 ] ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function flatMap(arr, fn) {
+  return arr.map(fn).flat(1);
+}
 
+flatMap([1, 2], n => [n, n]);
+// => [ 1, 1, 2, 2 ]
+flatMap([1, [2]], n => n**2);
+// => [ 1, 4 ]
+flatMap([1, [2, [3]]], n => n);
+// => [ 1, 2, [ 3 ] ]
       `
     },
     {
