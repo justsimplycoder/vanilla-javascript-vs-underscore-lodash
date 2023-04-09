@@ -2392,15 +2392,21 @@ users.find(el => el.active);
     {
       "key": "1:6",
       "name": "findLast",
-      "description": "",
+      "description": "Этот метод похож на _.find, за исключением того, что он перебирает элементы коллекции справа налево.",
       "lodash": `
-
+_.findLast([1, 2, 3, 4], (n) => n % 2 == 1);
+// => 3
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function findLast(arr, callback) {
+  for (let i = arr.length - 1; i >= 0; --i) {
+    if(callback(arr[i])) return arr[i]
+  }
+}
 
+findLast([1, 2, 3, 4], (n) => n % 2 === 1);
+// => 3
       `
     },
     {
