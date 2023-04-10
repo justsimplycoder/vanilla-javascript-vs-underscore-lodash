@@ -2464,15 +2464,19 @@ flatMapDeep([1, [2, [3]]], n => n);
     {
       "key": "1:9",
       "name": "flatMapDepth",
-      "description": "",
+      "description": "Этот метод подобен _.flatMap, за исключением того, что он рекурсивно сглаживает сопоставленные результаты до глубины времени.",
       "lodash": `
-
+_.flatMapDepth([1, 2], n => [[[n, n]]], 2);
+// => [ [ 1, 1 ], [ 2, 2 ] ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function flatMapDepth(arr, fn, depth) {
+  return arr.map(fn).flat(depth);
+}
 
+flatMapDepth([1, 2], n => [[[n, n]]], 2);
+// => [ [ 1, 1 ], [ 2, 2 ] ]
       `
     },
     {
