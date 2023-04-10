@@ -2575,15 +2575,19 @@ Object.values({'a':1, 'b':2}).includes(1);
     {
       "key": "1:14",
       "name": "invokeMap",
-      "description": "",
+      "description": "Вызывает метод по пути каждого элемента в коллекции, возвращая массив результатов каждого вызванного метода.",
       "lodash": `
-
+_.invokeMap([[5, 1, 7], [3, 2, 1]], 'sort');
+// => [ [ 1, 5, 7 ], [ 1, 2, 3 ] ]
+_.invokeMap([123, 456], String.prototype.split, '');
+// => [ [ 1, 5, 7 ], [ 1, 2, 3 ] ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[[5, 1, 7], [3, 2, 1]].map(el => el.sort());
+// => [ [ 1, 5, 7 ], [ 1, 2, 3 ] ]
+[123, 456].map(el => new String(el).split(''));
+// => [ [ 1, 5, 7 ], [ 1, 2, 3 ] ]
       `
     },
     {
