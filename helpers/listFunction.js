@@ -2593,15 +2593,43 @@ _.invokeMap([123, 456], String.prototype.split, '');
     {
       "key": "1:15",
       "name": "keyBy",
-      "description": "",
+      "description": "Создает объект, состоящий из ключей, сгенерированных по результатам прохождения каждого элемента коллекции через итерацию.",
       "lodash": `
+var array = [
+  { 'dir': 'left', 'code': 97 },
+  { 'dir': 'right', 'code': 100 }
+];
 
+_.keyBy(array, o => String.fromCharCode(o.code));
+// => { a: { dir: 'left', code: 97 }, d: { dir: 'right', code: 100 } }
+_.keyBy(array, 'dir');
+// => { left: { dir: 'left', code: 97 }, right: { dir: 'right', code: 100 } }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var array = [
+  { 'dir': 'left', 'code': 97 },
+  { 'dir': 'right', 'code': 100 }
+];
 
+function keyBy(arr, key) {
+  let obj = {};
+  arr.forEach(el => {
+    if(typeof key === 'function') {
+      obj[key(el)] = el;
+    } else if (typeof key === 'string') {
+      obj[el[key]] = el;
+    } else {
+      throw new Error('Неверный тип');
+    }
+  });
+  return obj;
+}
+
+keyBy(array, o => String.fromCharCode(o.code));
+// => { a: { dir: 'left', code: 97 }, d: { dir: 'right', code: 100 } }
+keyBy(array, 'dir');
+// => { left: { dir: 'left', code: 97 }, right: { dir: 'right', code: 100 } }
       `
     },
     {
