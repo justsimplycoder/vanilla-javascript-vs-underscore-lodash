@@ -2548,15 +2548,28 @@ groupBy(['one', 'two', 'three'], 'length');
     {
       "key": "1:13",
       "name": "includes",
-      "description": "",
+      "description": "Проверяет, находится ли значение в коллекции.",
       "lodash": `
-
+_.includes([1, 2, 3], 1);
+// true
+_.includes([1, 2, 3], 1, 2);
+// false
+_.includes({ 'a': 1, 'b': 2 }, 1);
+// true
+_.includes('abcd', 'bc');
+// true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+// es6
+[1, 2, 3].includes(1);
+// true
+[1, 2, 3].includes(1, 2);
+// false
+Object.values({'a':1, 'b':2}).includes(1);
+// true
+'abcd'.includes('bc');
+// true
       `
     },
     {
