@@ -2510,15 +2510,39 @@ flatMapDepth([1, 2], n => [[[n, n]]], 2);
     {
       "key": "1:12",
       "name": "groupBy",
-      "description": "",
+      "description": "Создает объект, состоящий из ключей, сгенерированных по результатам прохождения каждого элемента коллекции через итерацию. Порядок сгруппированных значений определяется порядком их появления в коллекции. Соответствующее значение каждого ключа представляет собой массив элементов, отвечающих за генерацию ключа..",
       "lodash": `
-
+_.groupBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': [ 4.2 ], '6': [ 6.1, 6.3 ] }
+_.groupBy(['one', 'two', 'three'], 'length');
+// => { '3': [ 'one', 'two' ], '5': [ 'three' ] }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function groupBy(arr, iterate) {
+  let obj = {};
+  arr.forEach(el => {
+    let key = undefined;
+    if(typeof iterate === 'function') {
+      key = iterate(el);
+    } else if(typeof iterate === 'string'){
+      key = el[iterate];
+    } else {
+      throw new Error('Неверный тип');
+    }
+    if(key in obj) {
+      obj[key].push(el);
+    } else {
+      obj[key] = [el];
+    }
+  });
+  return obj;
+}
 
+groupBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': [ 4.2 ], '6': [ 6.1, 6.3 ] }
+groupBy(['one', 'two', 'three'], 'length');
+// => { '3': [ 'one', 'two' ], '5': [ 'three' ] }
       `
     },
     {
