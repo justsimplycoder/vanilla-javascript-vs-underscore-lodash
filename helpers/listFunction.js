@@ -2438,15 +2438,27 @@ flatMap([1, [2, [3]]], n => n);
     {
       "key": "1:8",
       "name": "flatMapDeep",
-      "description": "",
+      "description": "Этот метод подобен _.flatMap, за исключением того, что он рекурсивно сглаживает сопоставленные результаты.",
       "lodash": `
-
+_.flatMapDeep([1, 2], n => [n, n]);
+// => [ 1, 1, 2, 2 ]
+_.flatMapDeep([1, [2]], n => n);
+// => [ 1, 2 ]
+_.flatMapDeep([1, [2, [3]]], n => n);
+// => [ 1, 2, 3 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function flatMapDeep(arr, fn) {
+  return arr.map(fn).flat(Infinity);
+}
 
+flatMapDeep([1, 2], n => [n, n]);
+// => [ 1, 1, 2, 2 ]
+flatMapDeep([1, [2]], n => n);
+// => [ 1, 2 ]
+flatMapDeep([1, [2, [3]]], n => n);
+// => [ 1, 2, 3 ]
       `
     },
     {
