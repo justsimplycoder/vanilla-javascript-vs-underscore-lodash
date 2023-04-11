@@ -2635,15 +2635,45 @@ keyBy(array, 'dir');
     {
       "key": "1:16",
       "name": "map",
-      "description": "",
+      "description": "Создает массив значений, запуская каждый элемент в коллекции через итерацию.",
       "lodash": `
+var users = [
+  { 'user': 'barney' },
+  { 'user': 'fred' }
+];
 
+_.map([4, 8], n => n**2);
+// => [ 16, 64 ]
+_.map({ 'a': 4, 'b': 8 }, n => n**2);
+// => [ 16, 64 ]
+_.map(users, 'user');
+// => [ 'barney', 'fred' ]
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney' },
+  { 'user': 'fred' }
+];
 
+_.map([4, 8], n => n**2);
+// => [ 16, 64 ]
+_.map({ 'a': 4, 'b': 8 }, n => n**2);
+// => [ 16, 64 ]
+_.map(users, 'user');
+// => [ 'barney', 'fred' ]
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney' },
+  { 'user': 'fred' }
+];
 
+[4, 8].map(n => n * n);
+// => [ 16, 64 ]
+Object.values({ 'a': 4, 'b': 8 }).map(n => n**2);
+// => [ 16, 64 ]
+users.map(el => el.user);
+// => [ 'barney', 'fred' ]
       `
     },
     {
