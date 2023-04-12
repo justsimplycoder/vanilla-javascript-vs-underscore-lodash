@@ -2879,15 +2879,21 @@ Object.entries({ 'a': 1, 'b': 2, 'c': 1 }).reduce((acc, cur) => {
     {
       "key": "1:20",
       "name": "reduceRight",
-      "description": "",
+      "description": "Этот метод подобен _.reduce, за исключением того, что он перебирает элементы коллекции справа налево.",
       "lodash": `
-
+var array = [[0, 1], [2, 3], [4, 5]];
+_.reduceRight(array, (flattened, other) => flattened.concat(other), []);
+// => [ 4, 5, 2, 3, 0, 1 ]
       `,
       "underscore": `
-
+var array = [[0, 1], [2, 3], [4, 5]];
+_.reduceRight(array, (flattened, other) => flattened.concat(other), []);
+// => [ 4, 5, 2, 3, 0, 1 ]
       `,
       "vanillaJavaScript": `
-
+var array = [[0, 1], [2, 3], [4, 5]];
+array.reduceRight((flattened, other) => flattened.concat(other), []);
+// => [ 4, 5, 2, 3, 0, 1 ]
       `
     },
     {
