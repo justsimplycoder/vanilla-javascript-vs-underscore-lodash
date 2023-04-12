@@ -2847,15 +2847,33 @@ users.reduce((acc, cur) => {
     {
       "key": "1:19",
       "name": "reduce",
-      "description": "",
+      "description": "Сокращает коллекцию до значения, которое является накопленным результатом прохождения каждого элемента в коллекции через итерацию, где каждому последующему вызову предоставляется возвращаемое значение предыдущего.",
       "lodash": `
-
+_.reduce([1, 2], (sum, n) => sum + n, 0);
+// => 3
+_.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+  (result[value] || (result[value] = [])).push(key);
+  return result;
+}, {});
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
       `,
       "underscore": `
-
+_.reduce([1, 2], (sum, n) => sum + n, 0);
+// => 3
+_.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+  (result[value] || (result[value] = [])).push(key);
+  return result;
+}, {});
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
       `,
       "vanillaJavaScript": `
-
+[1, 2].reduce((sum, n) => sum + n);
+// => 3
+Object.entries({ 'a': 1, 'b': 2, 'c': 1 }).reduce((acc, cur) => {
+  (acc[cur[1]] || (acc[cur[1]] = [])).push(cur[0]);
+  return acc;
+}, {});
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
       `
     },
     {
