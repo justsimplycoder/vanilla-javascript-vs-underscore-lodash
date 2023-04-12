@@ -2768,15 +2768,80 @@ users.sort(function(a, b) {
     {
       "key": "1:18",
       "name": "partition",
-      "description": "",
+      "description": "Создает массив элементов, разбитых на две группы, первая из которых содержит элементы, возвращающие предикат truey for, вторая из которых содержит элементы, возвращаемые предикатом falsey for.",
       "lodash": `
+var users = [
+  { 'user': 'barney',  'age': 36, 'active': false },
+  { 'user': 'fred',    'age': 40, 'active': true },
+  { 'user': 'pebbles', 'age': 1,  'active': false }
+];
 
+_.partition(users, function(o) { return o.active; });
+// => [
+// =>   [ { user: 'fred', age: 40, active: true } ],
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'pebbles', age: 1, active: false }
+// =>   ]
+// => ]
+_.partition(users, { 'age': 1, 'active': false });
+// => [
+// =>   [ { user: 'pebbles', age: 1, active: false } ],
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'fred', age: 40, active: true }
+// =>   ]
+// => ]
+_.partition(users, ['active', false]);
+// => [
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'pebbles', age: 1, active: false }
+// =>   ],
+// =>   [ { user: 'fred', age: 40, active: true } ]
+// => ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney',  'age': 36, 'active': false },
+  { 'user': 'fred',    'age': 40, 'active': true },
+  { 'user': 'pebbles', 'age': 1,  'active': false }
+];
 
+users.reduce((acc, cur) => {
+  cur.active ? acc[0].push(cur) : acc[1].push(cur)
+  return acc;
+}, [[],[]])
+// => [
+// =>   [ { user: 'fred', age: 40, active: true } ],
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'pebbles', age: 1, active: false }
+// =>   ]
+// => ]
+users.reduce((acc, cur) => {
+  cur.age === 1 && cur.active === false ? acc[0].push(cur) : acc[1].push(cur)
+  return acc;
+}, [[],[]])
+// => [
+// =>   [ { user: 'pebbles', age: 1, active: false } ],
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'fred', age: 40, active: true }
+// =>   ]
+// => ]
+users.reduce((acc, cur) => {
+  cur.active === false ? acc[0].push(cur) : acc[1].push(cur)
+  return acc;
+}, [[],[]])
+// => [
+// =>   [
+// =>     { user: 'barney', age: 36, active: false },
+// =>     { user: 'pebbles', age: 1, active: false }
+// =>   ],
+// =>   [ { user: 'fred', age: 40, active: true } ]
+// => ]
       `
     },
     {
