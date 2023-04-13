@@ -3167,4 +3167,34 @@ users.sort(sortUserAge);
     }
   ]
 },
+{
+  "key": 2,
+  "title": "Date",
+  "visible": true,
+  "content": [
+    {
+      "key": "2:0",
+      "name": "now",
+      "description": "Получает временную метку числа миллисекунд, прошедших с эпохи Unix (1 января 1970 г., 00:00:00 UTC).",
+      "lodash": `
+_.now();
+// Метка времени в миллисекундах
+new Date(_.now());
+// Текущая дата
+      `,
+      "underscore": `
+_.now();
+// Метка времени в миллисекундах
+new Date(_.now());
+// Текущая дата
+      `,
+      "vanillaJavaScript": `
+Date.now();
+// Метка времени в миллисекундах
+new Date(Date.now());
+// Текущая дата
+      `,
+    }
+  ]
+}
 ];
