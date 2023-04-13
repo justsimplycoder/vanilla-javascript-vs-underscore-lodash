@@ -3027,15 +3027,51 @@ Object.keys({'a':1, 'b':2}).length;
     {
       "key": "1:26",
       "name": "some",
-      "description": "",
+      "description": "Проверяет, возвращает ли предикат истину для какого-либо элемента коллекции. ",
       "lodash": `
+var users = [
+  { 'user': 'barney', 'active': true },
+  { 'user': 'fred',   'active': false }
+];
 
+_.some([null, 0, 'yes', false], Boolean);
+// => true
+_.some(users, { 'user': 'barney', 'active': false });
+// => false
+_.some(users, ['active', false]);
+// => true
+_.some(users, 'active');
+// => true
       `,
       "underscore": `
+var users = [
+  { 'user': 'barney', 'active': true },
+  { 'user': 'fred',   'active': false }
+];
 
+_.some([null, 0, 'yes', false], Boolean);
+// => true
+_.some(users, o => o.user == 'barney' && o.active === false);
+// => false
+_.some(users, o => o.active === false);
+// => true
+_.some(users, o => 'active' in o);
+// => true
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney', 'active': true },
+  { 'user': 'fred',   'active': false }
+];
 
+[null, 0, 'yes', false].some(Boolean);
+// => true
+users.some(o => o.user == 'barney' && o.active === false);
+// => false
+users.some(o => o.active === false);
+// => true
+users.some(o => o['active']);
+// => true
       `
     },
     {
