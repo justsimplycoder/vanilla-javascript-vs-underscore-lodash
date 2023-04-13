@@ -3005,15 +3005,23 @@ shuffle([1, 2, 3, 4, 5, 6]);
     {
       "key": "1:25",
       "name": "size",
-      "description": "",
+      "description": "Получает размер коллекции, возвращая ее длину для значений, подобных массиву, или количество собственных перечисляемых строковых свойств с ключом для объектов.",
       "lodash": `
-
+_.size([1, 2, 3]);
+// => 3
+_.size({ 'a': 1, 'b': 2 });
+// => 2
+_.size('pebbles');
+// => 7
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2, 3].length;
+// => 3
+Object.keys({'a':1, 'b':2}).length;
+// => 2
+'pabbles'.length;
+// => 7
       `
     },
     {
