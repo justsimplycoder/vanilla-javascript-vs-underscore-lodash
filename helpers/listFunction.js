@@ -2955,15 +2955,29 @@ sample([1, 2, 3, 4]);
     {
       "key": "1:23",
       "name": "sampleSize",
-      "description": "",
+      "description": "Получает n случайных элементов по уникальным ключам из коллекции вплоть до размера коллекции.",
       "lodash": `
-
+_.sampleSize([1, 2, 3], 2);
+// => [ 2, 3 ]
+_.sampleSize([1, 2, 3], 4);
+// => [ 3, 1, 2 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function sampleSize(arr, size) {
+  if(arr.length < size) size = arr.length;
+  let setArray = new Set();
+  while(setArray.size < size) {
+    let randomIndex = Math.floor( Math.random() * (arr.length) );
+    setArray.add(arr[randomIndex]);
+  }
+  return [...setArray];
+}
 
+sampleSize([1, 2, 3], 2);
+// => [ 2, 3 ]
+sampleSize([1, 2, 3], 4);
+// => [ 3, 1, 2 ]
       `
     },
     {
