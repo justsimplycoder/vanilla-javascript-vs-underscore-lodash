@@ -2936,15 +2936,20 @@ users.filter(o => !o.active);
     {
       "key": "1:22",
       "name": "sample",
-      "description": "",
+      "description": "Получает случайный элемент из коллекции.",
       "lodash": `
-
+_.sample([1, 2, 3, 4]);
+// => 2
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function sample(arr) {
+  let randomIndex = Math.floor( Math.random( ) * (arr.length) );
+  return arr[randomIndex];
+}
 
+sample([1, 2, 3, 4]);
+// => 2
       `
     },
     {
