@@ -3077,15 +3077,92 @@ users.some(o => o['active']);
     {
       "key": "1:27",
       "name": "sortBy",
-      "description": "",
+      "description": "Создает массив элементов, отсортированных в порядке возрастания по результатам выполнения каждого элемента в коллекции через каждую итерацию.",
       "lodash": `
+var users = [
+  { 'user': 'fred',   'age': 48 },
+  { 'user': 'barney', 'age': 56 },
+  { 'user': 'fred',   'age': 40 },
+  { 'user': 'barney', 'age': 34 }
+];
 
+_.sortBy(users, [(o) => o.user ]);
+// => [
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'fred', age: 48 },
+// =>   { user: 'fred', age: 40 }
+// => ]
+_.sortBy(users, ['user', 'age']);
+// => [
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'fred', age: 40 },
+// =>   { user: 'fred', age: 48 }
+// => ]
       `,
       "underscore": `
+var users = [
+  { 'user': 'fred',   'age': 48 },
+  { 'user': 'barney', 'age': 56 },
+  { 'user': 'fred',   'age': 40 },
+  { 'user': 'barney', 'age': 34 }
+];
 
+_.sortBy(users, (o) => o.user);
+// => [
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'fred', age: 48 },
+// =>   { user: 'fred', age: 40 }
+// => ]
+_.sortBy(users, 'user');
+// => [
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'fred', age: 48 },
+// =>   { user: 'fred', age: 40 }
+// => ]
+
+// !!!Сортивровки по нескольким полям нет!!!
       `,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'fred',   'age': 48 },
+  { 'user': 'barney', 'age': 56 },
+  { 'user': 'fred',   'age': 40 },
+  { 'user': 'barney', 'age': 34 }
+];
 
+function sortUser(a, b) {
+  if (a.user > b.user) return 1;
+  if (a.user < b.user) return -1;
+  return 0;
+}
+
+users.sort(sortUser);
+// => [
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'fred', age: 48 },
+// =>   { user: 'fred', age: 40 }
+// => ]
+
+function sortUserAge(a, b) {
+  if (a.user > b.user) return 1;
+  if (a.user < b.user) return -1;
+  if (a.age > b.age) return 1;
+  if (a.age < b.age) return -1;
+  return 0;
+}
+
+users.sort(sortUserAge);
+// => [
+// =>   { user: 'barney', age: 34 },
+// =>   { user: 'barney', age: 56 },
+// =>   { user: 'fred', age: 40 },
+// =>   { user: 'fred', age: 48 }
+// => ]
       `
     }
   ]
