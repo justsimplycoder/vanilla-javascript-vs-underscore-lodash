@@ -2899,15 +2899,38 @@ array.reduceRight((flattened, other) => flattened.concat(other), []);
     {
       "key": "1:21",
       "name": "reject",
-      "description": "",
+      "description": "Противоположность _.filter; этот метод возвращает элементы коллекции, для которых предикат не возвращает истину.",
       "lodash": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': false },
+  { 'user': 'fred',   'age': 40, 'active': true }
+];
 
+// lodash
+_.reject(users, o => !o.active);
+// => [ { user: 'fred', age: 40, active: true } ]
+_.reject(users, { 'age': 40, 'active': true });
+// => [ { user: 'barney', age: 36, active: false } ]
+_.reject(users, ['active', false]);
+// => [ { user: 'fred', age: 40, active: true } ]
+_.reject(users, 'active');
+// => [ { user: 'barney', age: 36, active: false } ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = [
+  { 'user': 'barney', 'age': 36, 'active': false },
+  { 'user': 'fred',   'age': 40, 'active': true }
+];
 
+users.filter(o => o.active);
+// => [ { user: 'fred', age: 40, active: true } ]
+users.filter(o => o.age != 40 && o.active !== true);
+// => [ { user: 'barney', age: 36, active: false } ]
+users.filter(o => o.active !== false);
+// => [ { user: 'fred', age: 40, active: true } ]
+users.filter(o => !o.active);
+// => [ { user: 'barney', age: 36, active: false } ]
       `
     },
     {
