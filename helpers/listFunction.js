@@ -3273,15 +3273,70 @@ done();
     {
       "key": "3:2",
       "name": "before",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func, с привязкой this и аргументами созданной функции, хотя она вызывается менее n раз.",
       "lodash": `
+const step  _.before(3, () => {
+  console.log('lodash before')
+  return 'return lodash before'
+});
 
+console.log(step);
+// => lodash before
+// => return lodash before
+console.log(step);
+// => lodash before
+// => return lodash before
+console.log(step);
+// => return lodash before
+console.log(step);
+// => return lodash before
       `,
       "underscore": `
+const step =  _.before(3, () => {
+  console.log('underscore before')
+  return 'return underscore before'
+});
 
+console.log(step());
+// => underscore before
+// => return underscore before
+console.log(step());
+// => underscore before
+// => return underscore before
+console.log(step());
+// => return underscore before
+console.log(step());
+// => return underscore before
       `,
       "vanillaJavaScript": `
+function before(funCallLength = 1, callback) {
+  let callLength = 1;
+  let result = undefined;
 
+  return function (){
+    if(callLength !== funCallLength) {
+      callLength++;
+      result = callback();
+    }
+    return result;
+  };
+}
+
+const step = before(3, () => {
+  console.log('my before');
+  return 'return my before';
+});
+
+console.log(step());
+// => my before
+// => return my before
+console.log(step());
+// => my before
+// => return my before
+console.log(step());
+// => return my before
+console.log(step());
+// => return my before
       `,
     },
     {
