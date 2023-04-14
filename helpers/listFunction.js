@@ -3373,15 +3373,36 @@ console.log(step());
     {
       "key": "3:3",
       "name": "bind",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с привязкой this для thisArg и партиалов, добавленных перед аргументами, которые она получает.",
       "lodash": `
+function greet(greeting) {
+  return greeting + ' ' + this.user;
+}
 
+const object = { 'user': 'Fred' };
+
+_.bind(greet, object, 'hi')();
+// => hi Fred
       `,
       "underscore": `
+function greet(greeting) {
+  return greeting + ' ' + this.user;
+}
 
+const object = { 'user': 'Fred' };
+
+_.bind(greet, object, 'hi')();
+// => hi Fred
       `,
       "vanillaJavaScript": `
+function greet(greeting) {
+  return greeting + ' ' + this.user;
+}
 
+const object = { 'user': 'Fred' };
+
+greet.bind(object)('hi');
+// => hi Fred
       `,
     },
     {
