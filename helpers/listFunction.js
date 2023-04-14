@@ -3408,15 +3408,31 @@ greet.bind(object)('hi');
     {
       "key": "3:4",
       "name": "bindKey",
-      "description": "",
+      "description": "Создает функцию, которая вызывает метод в object[key] с частью аргументов",
       "lodash": `
+const object = {
+  'user': 'Fred',
+  'greet': function(greeting, punctuation) {
+    return greeting + ' ' + this.user + punctuation;
+  }
+};
 
+const bound = _.bindKey(object, 'greet', 'Hi');
+bound('!');
+// => Hi Fred!
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const object = {
+  'user': 'Fred',
+  'greet': function(greeting, punctuation) {
+    return greeting + ' ' + this.user + punctuation;
+  }
+};
 
+const bound = object.greet.bind(object, 'Hi');
+bound('!');
+// => Hi Fred!
       `,
     },
     {
