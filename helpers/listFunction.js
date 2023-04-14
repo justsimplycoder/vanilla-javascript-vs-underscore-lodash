@@ -3196,5 +3196,334 @@ new Date(Date.now());
       `,
     }
   ]
-}
+},
+{
+  "key": 3,
+  "title": "Function",
+  "visible": true,
+  "content": [
+    {
+      "key": "3:0",
+      "name": "after",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:1",
+      "name": "ary",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:2",
+      "name": "before",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:3",
+      "name": "bind",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:4",
+      "name": "bindKey",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:5",
+      "name": "curry",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:6",
+      "name": "curryRight",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:7",
+      "name": "debounce",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:8",
+      "name": "defer",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:9",
+      "name": "delay",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:10",
+      "name": "flip",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:11",
+      "name": "memoize",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:12",
+      "name": "negate",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:13",
+      "name": "once",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:14",
+      "name": "overArgs",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:15",
+      "name": "partial",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:16",
+      "name": "partialRight",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:17",
+      "name": "rearg",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:18",
+      "name": "rest",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:19",
+      "name": "spread",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:20",
+      "name": "throttle",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:21",
+      "name": "unary",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "3:22",
+      "name": "wrap",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    }
+  ]
+},
 ];
