@@ -3259,15 +3259,46 @@ done();
     {
       "key": "3:1",
       "name": "ary",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с аргументами до n, игнорируя любые дополнительные аргументы.",
       "lodash": `
+function numberSquare(...args) {
+  return args.reduce((acc, cur) => {
+    acc.push(cur**2);
+    return acc;
+  }, []);
+}
 
-      `,
-      "underscore": `
+numberSquare(1, 2, 3, 4);
+// => [ 1, 4, 9, 16 ]
 
+const fAry = _.ary(numberSquare, 2);
+
+fAry(1, 2, 3, 4);
+// => [ 1, 4 ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function numberSquare(...args) {
+  return args.reduce((acc, cur) => {
+    acc.push(cur**2);
+    return acc;
+  }, []);
+}
 
+numberSquare(1, 2, 3, 4);
+// => [ 1, 4, 9, 16 ]
+
+function ary(fn, len) {
+  return function(){
+    let arg = Array.prototype.slice.call(arguments, 0, len);
+    return fn(...arg);
+  };
+}
+
+const myFAry = ary(numberSquare, 2);
+
+myFAry(1, 2, 3, 4);
+// => [ 1, 4 ]
       `,
     },
     {
