@@ -3205,15 +3205,55 @@ new Date(Date.now());
     {
       "key": "3:0",
       "name": "after",
-      "description": "",
+      "description": "Противоположность _.before; этот метод создает функцию, которая вызывает func после ее вызова n или более раз.",
       "lodash": `
+const saves = ['profile', 'settings'];
 
+const done = _.after(saves.length, () => console.log('lodash after'));
+
+done();
+// => undefined
+done();
+// => lodash after
+done();
+// => lodash after
       `,
       "underscore": `
+const saves = ['profile', 'settings'];
 
+const done = _.after(saves.length, () => console.log('underscore after'));
+
+done();
+// => undefined
+done();
+// => underscore after
+done();
+// => underscore after
       `,
       "vanillaJavaScript": `
+const saves = ['profile', 'settings'];
 
+function after(funCallLength = 1, callback) {
+  let callLength = 1;
+
+  return function (){
+    if(callLength !== funCallLength) {
+      callLength++;
+      return undefined;
+    } else {
+      return callback();
+    }
+  };
+}
+
+const done = after(saves.length, () => console.log('my after'));
+
+done();
+// => undefined
+done();
+// => my after
+done();
+// => my after
       `,
     },
     {
