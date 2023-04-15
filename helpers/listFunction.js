@@ -3438,15 +3438,47 @@ bound('!');
     {
       "key": "3:5",
       "name": "curry",
-      "description": "",
+      "description": "Каррирование",
       "lodash": `
+const abc = function (a, b, c) {
+  return [a, b, c];
+};
 
-      `,
-      "underscore": `
+const curried = _.curry(abc);
 
+curried(1)(2)(3);
+// => [1, 2, 3]
+curried(1, 2)(3);
+// => [1, 2, 3]
+curried(1, 2, 3);
+// => [1, 2, 3]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const abc = function (a, b, c) {
+  return [a, b, c];
+};
 
+function curry(func) {
+  return function curried(...args) {
+    if(args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function (...args2) {
+        return curried.apply(this, args.concat(args2));
+      };
+    }
+  };
+}
+
+const curried = curry(abc);
+
+curried(1)(2)(3);
+// => [1, 2, 3]
+curried(1, 2)(3);
+// => [1, 2, 3]
+curried(1, 2, 3);
+// => [1, 2, 3]
       `,
     },
     {
