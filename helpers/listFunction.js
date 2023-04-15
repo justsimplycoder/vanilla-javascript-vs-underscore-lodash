@@ -3484,15 +3484,44 @@ curried(1, 2, 3);
     {
       "key": "3:6",
       "name": "curryRight",
-      "description": "",
+      "description": "Каррирование, меняется порядок аргументов на обратный",
       "lodash": `
+const abc = function (a, b, c) {
+  return [a, b, c];
+};
 
-      `,
-      "underscore": `
+const curried = _.curryRight(abc);
 
+curried(1)(2)(3);
+// => [ 3, 2, 1 ]
+curried(1)(2, 3);
+// => [ 2, 3, 1 ]
+curried(1, 2, 3);
+// => [ 1, 2, 3 ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function curryRight(func) {
+  return function curried(...args) {
+    if(args.length >= func.length) {
+      return func.apply(this, args);
+    } else {
+      return function (...args2) {
+        args.unshift(...args2);
+        return curried.apply(this, args);
+      };
+    }
+  };
+}
 
+const curried = curryRight(abc);
+
+curried(1)(2)(3);
+// => [ 3, 2, 1 ]
+curried(1)(2, 3);
+// => [ 2, 3, 1 ]
+curried(1, 2, 3);
+// => [ 1, 2, 3 ]
       `,
     },
     {
