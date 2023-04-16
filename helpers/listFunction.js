@@ -3584,15 +3584,30 @@ console.log('at first');
     {
       "key": "3:10",
       "name": "flip",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с перевернутыми аргументами.",
       "lodash": `
+const flipped = _.flip(function () {
+  return _.toArray(arguments);
+});
 
+flipped('a', 'b', 'c', 'd');
+// => [ 'd', 'c', 'b', 'a' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function flip(callback) {
+  return function () {
+    arguments = [].reverse.apply(arguments);
+    return callback(...arguments);
+  };
+}
 
+const flipped = flip(function () {
+  return [...arguments];
+});
+
+flipped('a', 'b', 'c', 'd');
+// => [ 'd', 'c', 'b', 'a' ]
       `,
     },
     {
