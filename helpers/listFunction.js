@@ -3697,15 +3697,52 @@ arr.filter(e => !isEven(e));
     {
       "key": "3:13",
       "name": "once",
-      "description": "",
+      "description": "Создает функцию, которая ограничена однократным вызовом func.",
       "lodash": `
+function createApplication(number){
+  return 'application ' + number;
+}
 
+const initialize = _.once(createApplication);
+
+initialize(1);
+// => application 1
+initialize(2);
+// => application 1
       `,
       "underscore": `
+function createApplication(number){
+  return 'application ' + number;
+}
 
+const initialize = _.once(createApplication);
+
+initialize(1);
+// => application 1
+initialize(2);
+// => application 1
       `,
       "vanillaJavaScript": `
+function createApplication(number){
+  return 'application ' + number;
+}
 
+function once(callback) {
+  let init = null;
+  return function(args) {
+    if (init === null) {
+      init = callback(args);
+    }
+    return init;
+  };
+}
+
+const initialize = once(createApplication);
+
+initialize(1);
+// => application 1
+initialize(2);
+// => application 1
       `,
     },
     {
