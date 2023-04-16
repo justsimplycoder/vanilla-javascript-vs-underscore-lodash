@@ -3656,15 +3656,42 @@ fibonacci(1000); // => 4.346655768693743e+208
     {
       "key": "3:12",
       "name": "negate",
-      "description": "",
+      "description": "Создает функцию, которая инвертирует результат предиката func.",
       "lodash": `
+function isEven(n) {
+  return n % 2 == 0;
+}
 
+const arr = [1, 2, 3, 4, 5, 6];
+
+_.filter(arr, isEven);
+// => [ 2, 4, 6 ]
+_.filter(arr, _.negate(isEven));
+// => [ 1, 3, 5 ]
       `,
       "underscore": `
+function isEven(n) {
+  return n % 2 == 0;
+}
 
+const arr = [1, 2, 3, 4, 5, 6];
+
+_.filter(arr, isEven);
+// => [ 2, 4, 6 ]
+_.filter(arr, _.negate(isEven));
+// => [ 1, 3, 5 ]
       `,
       "vanillaJavaScript": `
+function isEven(n) {
+  return n % 2 == 0;
+}
 
+const arr = [1, 2, 3, 4, 5, 6];
+
+arr.filter(isEven);
+// => [ 2, 4, 6 ]
+arr.filter(e => !isEven(e));
+// => [ 1, 3, 5 ]
       `,
     },
     {
