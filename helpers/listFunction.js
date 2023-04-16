@@ -3555,15 +3555,30 @@ curried(1, 2, 3);
     {
       "key": "3:9",
       "name": "delay",
-      "description": "",
+      "description": "Вызывает функцию с задержкой",
       "lodash": `
-
+_.delay(function(text) {
+  console.log(text);
+}, 1000, 'later');
+console.log('at first');
+// => at first
+// => later
       `,
       "underscore": `
-
+_.delay(function(text) {
+  console.log(text);
+}, 1000, 'later');
+console.log('at first');
+// => at first
+// => later
       `,
       "vanillaJavaScript": `
-
+setTimeout(function(text) {
+  console.log(text);
+}, 1000, 'later');
+console.log('at first');
+// => at first
+// => later
       `,
     },
     {
