@@ -3613,15 +3613,44 @@ flipped('a', 'b', 'c', 'd');
     {
       "key": "3:11",
       "name": "memoize",
-      "description": "",
+      "description": "Мемоизация",
       "lodash": `
+const fibonacci = _.memoize(function(n) {
+  return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+});
 
+fibonacci(1000); // => 4.346655768693743e+208
+// => 7.174ms
+fibonacci(1000); // => 4.346655768693743e+208
+// => 3.729ms
       `,
       "underscore": `
+const fibonacci = _.memoize(function(n) {
+  return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+});
 
+fibonacci(1000); // => 4.346655768693743e+208
+// => 36.929ms
+fibonacci(1000); // => 4.346655768693743e+208
+// => 0.581ms
       `,
       "vanillaJavaScript": `
+function memoize(fn){
+  const cache = new Map();
+  return function(value){
+    if(!cache.has(value)) cache.set(value, fn(value));
+    return cache.get(value);
+  };
+}
 
+const fibonacci = memoize(function(n) {
+  return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+});
+
+fibonacci(1000); // => 4.346655768693743e+208
+// => 4.928ms
+fibonacci(1000); // => 4.346655768693743e+208
+// => 2.18ms
       `,
     },
     {
