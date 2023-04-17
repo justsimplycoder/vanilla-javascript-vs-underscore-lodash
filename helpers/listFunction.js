@@ -3748,15 +3748,48 @@ initialize(2);
     {
       "key": "3:14",
       "name": "overArgs",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с преобразованными аргументами.",
       "lodash": `
+function doubled(n) {
+  return n * 2;
+}
 
-      `,
-      "underscore": `
+function square(n) {
+  return n * n;
+}
 
+const func = _.overArgs((x, y) => [x, y], [square, doubled]);
+
+func(9, 3);
+// => [ 81, 6 ]
+func(10, 5);
+// => [ 100, 10 ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function doubled(n) {
+  return n * 2;
+}
 
+function square(n) {
+  return n * n;
+}
+
+function overArgs(fn, arrFn) {
+  return function(...arg){
+    let newArg = arg.map((el, index) => {
+      return arrFn[index](el);
+    });
+    return fn(...newArg);
+  };
+}
+
+const func = overArgs((x, y) => [x, y], [square, doubled]);
+
+func(9, 3);
+// => [ 81, 6 ]
+func(10, 5);
+// => [ 100, 10 ]
       `,
     },
     {
