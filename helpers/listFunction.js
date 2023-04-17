@@ -3795,15 +3795,58 @@ func(10, 5);
     {
       "key": "3:15",
       "name": "partial",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с частичными элементами, добавленными к аргументам, которые она получает.",
       "lodash": `
+function greet(greeting, name) {
+  return greeting + ' ' + name;
+}
 
-      `,
-      "underscore": `
+const sayHelloTo = _.partial(greet, 'Hello');
+sayHelloTo('Fred');
+// => Hello Fred
 
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const s = _.partial(sum, _, 2, _);
+s(1, 3);
+// => 6
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function partial(fn, ...args) {
+  return function(...args2){
+    let eArgs2 = args2.values();
 
+    let argFn = Array.from(Array(fn.length))
+      .map((el, index) => {
+        if(args[index] !== '_' && args[index] !== undefined) {
+          return el = args[index];
+        } else {
+          return el = eArgs2.next().value;
+        }
+      });
+
+    return fn.apply(this, [...argFn]);
+  };
+}
+
+function greet(greeting, name) {
+  return greeting + ' ' + name;
+}
+
+const sayHelloTo = partial(greet, 'Hello');
+sayHelloTo('Fred');
+// => Hello Fred
+
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const s = partial(sum, '_', 2, '_');
+s(1, 3);
+// => 6
       `,
     },
     {
