@@ -3852,15 +3852,54 @@ s(1, 3);
     {
       "key": "3:16",
       "name": "partialRight",
-      "description": "",
+      "description": "Этот метод подобен _.partial, за исключением того, что частично примененные аргументы добавляются к аргументам, которые он получает.",
       "lodash": `
+function greet(greeting, name) {
+  return greeting + ' ' + name;
+}
 
-      `,
-      "underscore": `
+const sayHelloTo = _.partialRight(greet, 'Fred');
+sayHelloTo('Hello');
+// => Hello Fred
 
+const sayHiTo = _.partialRight(greet, 'Hi', _);
+sayHiTo('Fred');
+// => Hi Fred
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function greet(greeting, name) {
+  return greeting + ' ' + name;
+}
 
+function partialRight(fn, ...args) {
+  return function(...args2){
+    if(fn.length !== args.length) {
+      return fn.apply(this, [...args, ...args2].reverse());
+    }
+
+    let eArgs2 = args2.values();
+
+    let argFn = Array.from(Array(fn.length))
+      .map((el, index) => {
+        if(args[index] !== '_' && args[index] !== undefined) {
+          return el = args[index];
+        } else {
+          return el = eArgs2.next().value;
+        }
+      });
+
+    return fn.apply(this, [...argFn]);
+  };
+}
+
+const sayHelloTo = partialRight(greet, 'Fred');
+sayHelloTo('Hello');
+// => Hello Fred
+
+const sayHiTo = partialRight(greet, 'Hi', '_');
+sayHiTo('Fred');
+// => Hi Fred
       `,
     },
     {
