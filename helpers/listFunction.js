@@ -3937,15 +3937,37 @@ rearged('b', 'c', 'a');
     {
       "key": "3:18",
       "name": "rest",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с привязкой this созданной функции и аргументами от начала и далее, предоставленными в виде массива.",
       "lodash": `
+const write = _.rest(function(author, portal) {
+  return author + '---' + portal;
+});
 
+write(['MySQL', 'Mongoodb'], ['JavaScript', 'PHP'], 'HTML', 'CSS');
+// => MySQL,Mongoodb---JavaScript,PHP,HTML,CSS
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function rest(callback) {
+  return function(...args) {
+    const newArgs = [];
+    for (let i = 0; i < callback.length; i++) {
+      if(i === callback.length - 1) {
+        newArgs.push(args.splice(i));
+      } else {
+        newArgs.push(args[i]);
+      }
+    }
+    return callback(...newArgs);
+  }
+}
 
+const write = rest(function(author, portal) {
+  return author + '---' + portal;
+})
+
+write(['MySQL', 'Mongoodb'], ['JavaScript', 'PHP'], 'HTML', 'CSS');
+// => MySQL,Mongoodb---JavaScript,PHP,HTML,CSS
       `,
     },
     {
