@@ -3973,15 +3973,20 @@ write(['MySQL', 'Mongoodb'], ['JavaScript', 'PHP'], 'HTML', 'CSS');
     {
       "key": "3:19",
       "name": "spread",
-      "description": "",
+      "description": "Создает функцию, которая вызывает func с привязкой this функции create и массивом аргументов, очень похожим на Function#apply.",
       "lodash": `
+const sum = (x, y) => x + y;
 
+const addition = lod.spread(sum);
+addition([56, 44]);
+// => 100
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const sum = (x, y) => x + y;
 
+sum(...[56, 44]);
+// => 100
       `,
     },
     {
