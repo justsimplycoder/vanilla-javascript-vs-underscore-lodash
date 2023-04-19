@@ -4387,15 +4387,32 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:22",
       "name": "trim",
-      "description": "",
+      "description": "Удаляет начальные и конечные пробелы или указанные символы из строки.",
       "lodash": `
-
+_.trim('  abc  ');
+// => abc
+_.trim('-_-abc-_-', '_-');
+// => abc
+_.trim(' -_-abc-_-', '_-');
+// =>  -_-abc
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function trim(str, value) {
+  if(value === undefined) {
+    return str.trim();
+  } else {
+    let reg = new RegExp("^[" + value + "]+|[" + value + "]+$", "g");
+    return str.replace(reg, '');
+  }
+}
 
+trim('  abc  ');
+// => abc
+trim('-_-abc-_-', '_-');
+// => abc
+trim(' -_-abc-_-', '_-');
+// =>  -_-abc
       `,
     },
     {
