@@ -4036,15 +4036,37 @@ unaryArg(1, 2, 3);
     {
       "key": "3:22",
       "name": "wrap",
-      "description": "",
+      "description": "Создает функцию, которая передает значение оболочке в качестве первого аргумента.",
       "lodash": `
-
+const p = _.wrap(_.escape, function(func, text) {
+  return '<p>' + func(text) + '</p>';
+});
+p('fred, barney, & pebbles');
+// <p>fred, barney, &amp; pebbles</p>
       `,
       "underscore": `
-
+const p = _.wrap(_.escape, function(func, text) {
+  return '<p>' + func(text) + '</p>';
+});
+p('fred, barney, & pebbles');
+// <p>fred, barney, &amp; pebbles</p>
       `,
       "vanillaJavaScript": `
-
+function escape(tag, str) {
+  let arr = [
+    ["&", "&amp;"],
+    ["<", "&lt;"],
+    [">", "&gt;"],
+    ['"', "&quot;"],
+    ["'", "&#39;"]
+  ];
+  arr.forEach((el, index) => {
+    str = str.replace(el[0], el[1]);
+  });
+  return \`\${tag[0]}\${str}\${tag[1]}\`;
+}
+escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
+// <p>fred, barney, &amp; pebbles</p>
       `,
     }
   ]
