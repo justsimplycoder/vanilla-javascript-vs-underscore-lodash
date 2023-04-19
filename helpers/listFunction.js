@@ -4071,4 +4071,431 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     }
   ]
 },
+{
+  "key": 9,
+  "title": "String",
+  "visible": true,
+  "content": [
+    {
+      "key": "9:0",
+      "name": "camelCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:1",
+      "name": "capitalize",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:2",
+      "name": "deburr",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:3",
+      "name": "endsWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:4",
+      "name": "escape",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:5",
+      "name": "escapeRegExp",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:6",
+      "name": "kebabCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:7",
+      "name": "lowerCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:8",
+      "name": "lowerFirst",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:9",
+      "name": "pad",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:10",
+      "name": "padEnd",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:11",
+      "name": "padStart",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:12",
+      "name": "parseInt",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:13",
+      "name": "repeat",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:14",
+      "name": "replace",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:15",
+      "name": "snakeCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:16",
+      "name": "split",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:17",
+      "name": "startCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:18",
+      "name": "startsWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:19",
+      "name": "template",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:20",
+      "name": "toLower",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:21",
+      "name": "toUpper",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:22",
+      "name": "trim",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:23",
+      "name": "trimEnd",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:24",
+      "name": "trimStart",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:25",
+      "name": "truncate",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:26",
+      "name": "unescape",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:27",
+      "name": "upperCase",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:28",
+      "name": "upperFirst",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "9:29",
+      "name": "words",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    }
+  ]
+},
 ];
