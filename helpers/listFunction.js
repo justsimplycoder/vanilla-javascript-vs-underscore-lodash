@@ -4006,15 +4006,31 @@ sum(...[56, 44]);
     {
       "key": "3:21",
       "name": "unary",
-      "description": "",
+      "description": "Создает функцию, которая принимает до одного аргумента, игнорируя любые дополнительные аргументы.",
       "lodash": `
+function argumArray(a, b, c) {
+  return [...arguments];
+}
 
+const unaryArg = _.unary(argumArray);
+unaryArg(1, 2, 3);
+// => [1]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function argumArray(a, b, c) {
+  return [...arguments];
+}
 
+function unary(fn) {
+  return function(...args) {
+    return fn(args[0]);
+  };
+}
+
+const unaryArg = unary(argumArray);
+unaryArg(1, 2, 3);
+// => [1]
       `,
     },
     {
