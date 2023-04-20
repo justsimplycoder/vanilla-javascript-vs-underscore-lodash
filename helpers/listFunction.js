@@ -4500,15 +4500,43 @@ trimStart('-_-abc-_-', '_-');
     {
       "key": "9:27",
       "name": "upperCase",
-      "description": "",
+      "description": "Преобразует строку в виде слов, разделенных пробелами, в верхний регистр.",
       "lodash": `
-
+_.upperCase('--foo-bar');
+// => FOO BAR
+_.upperCase('fooBar');
+// => FOO BAR
+_.upperCase('fooBAR');
+// => FOO BAR
+_.upperCase('__foo_bar__');
+// => FOO BAR
+_.upperCase('--123-12bb-bar');
+// => 123 12 BB BAR
+_.upperCase('текстДоп');
+// => ТЕКСТДОП
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function upperCase(str) {
+  let arrStr = str.match(/\\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null)
+    return str.toUpperCase();
+  else
+    return arrStr.map(s => s.toUpperCase()).join(' ');
+}
 
+upperCase('--foo-bar');
+// => FOO BAR
+upperCase('fooBar');
+// => FOO BAR
+upperCase('fooBAR');
+// => FOO BAR
+upperCase('__foo_bar__');
+// => FOO BAR
+upperCase('--123-12bb-bar');
+// => 123 12 BB BAR
+upperCase('текстДоп');
+// => ТЕКСТДОП
       `,
     },
     {
