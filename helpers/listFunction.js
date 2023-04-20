@@ -4303,15 +4303,15 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:16",
       "name": "split",
-      "description": "",
+      "description": "Разбивает строку по разделителю.",
       "lodash": `
-
+_.split('a-b-c-d', '-', 2);
+// => [ 'a', 'b' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'a-b-c-d'.split('-', 2);
+// => [ 'a', 'b' ]
       `,
     },
     {
