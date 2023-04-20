@@ -4418,15 +4418,28 @@ trim(' -_-abc-_-', '_-');
     {
       "key": "9:23",
       "name": "trimEnd",
-      "description": "",
+      "description": "Удаляет завершающие пробелы или указанные символы из строки.",
       "lodash": `
-
+_.trimEnd('  abc  ');
+// =>   abc
+_.trimEnd('-_-abc-_-', '_-');
+// => -_-abc
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function trimEnd(str, value) {
+  if(value === undefined) {
+    return str.trimEnd();
+  } else {
+    let reg = new RegExp("[" + value + "]+$", "g");
+    return str.replace(reg, '');
+  }
+}
 
+trimEnd('  abc  ');
+// =>   abc
+trimEnd('-_-abc-_-', '_-');
+// => -_-abc
       `,
     },
     {
