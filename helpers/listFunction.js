@@ -4205,15 +4205,36 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:9",
       "name": "pad",
-      "description": "",
+      "description": "Добавляет пробельные символы вокруг строки, если она короче длины",
       "lodash": `
-
+_.pad('abc', 8);
+// => '  abc   '
+_.pad('abc', 8, '_-');
+// => '_-abc_-_'
+_.pad('abc', 3);
+// => 'abc'
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function pad(str='', length=0, chars=' ') {
+  let strLength = str.length;
+  // количество символов на отступы с обоих сторон
+  let paddingSrt = length - strLength;
 
+  if(paddingSrt <= 0) return str;
+
+  let paddingLeft = strLength + Math.floor((paddingSrt) / 2);
+  let paddingRight = paddingLeft + Math.ceil((paddingSrt) / 2);
+
+  return str.padStart(paddingLeft, chars).padEnd(paddingRight, chars);
+}
+
+pad('abc', 8);
+// => '  abc   '
+pad('abc', 8, '_-');
+// => '_-abc_-_'
+pad('abc', 3);
+// => 'abc'
       `,
     },
     {
