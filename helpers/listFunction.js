@@ -4219,15 +4219,23 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:10",
       "name": "padEnd",
-      "description": "",
+      "description": "Добавляет пробельные символы в конце строки, если она короче длины",
       "lodash": `
-
+_.padEnd('abc', 6);
+// => 'abc   '
+_.padEnd('abc', 6, '_-');
+// => 'abc_-_'
+_.padEnd('abc', 3);
+// => 'abc'
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'abc'.padEnd(6);
+// => 'abc   '
+'abc'.padEnd(6, '_-');
+// => 'abc_-_'
+'abc'.padEnd(3);
+// => 'abc'
       `,
     },
     {
