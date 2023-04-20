@@ -4261,15 +4261,23 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:13",
       "name": "repeat",
-      "description": "",
+      "description": "Повторяет заданную строку n раз.",
       "lodash": `
-
+_.repeat('*', 3);
+// => ***
+_.repeat('abc', 2);
+// => abcabc
+_.repeat('abc', 0);
+// =>
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'*'.repeat(3);
+// => ***
+'abc'.repeat(2);
+// => abcabc
+'abc'.repeat(0);
+// =>
       `,
     },
     {
