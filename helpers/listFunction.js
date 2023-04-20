@@ -4445,15 +4445,28 @@ trimEnd('-_-abc-_-', '_-');
     {
       "key": "9:24",
       "name": "trimStart",
-      "description": "",
+      "description": "Удаляет начальные пробелы или указанные символы из строки.",
       "lodash": `
-
+_.trimStart('  abc  ');
+// => abc
+_.trimStart('-_-abc-_-', '_-');
+// => abc-_-
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function trimStart(str, value) {
+  if(value === undefined) {
+    return str.trimStart();
+  } else {
+    let reg = new RegExp("^[" + value + "]+", "g");
+    return str.replace(reg, '');
+  }
+}
 
+trimStart('  abc  ');
+// => abc
+trimStart('-_-abc-_-', '_-');
+// => abc-_-
       `,
     },
     {
