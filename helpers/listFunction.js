@@ -4283,15 +4283,15 @@ _.repeat('abc', 0);
     {
       "key": "9:14",
       "name": "replace",
-      "description": "",
+      "description": "Заменяет совпадения с шаблоном в строке заменой.",
       "lodash": `
-
+_.replace('Hi Fred', 'Fred', 'Barney');
+// => Hi Barney
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'Hi Fred'.replace('Fred', 'Barney');
+// => Hi Barney
       `,
     },
     {
