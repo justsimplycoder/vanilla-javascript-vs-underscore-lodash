@@ -4233,15 +4233,23 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:11",
       "name": "padStart",
-      "description": "",
+      "description": " Добавляет пробельные символы в начало строки, если она короче длины",
       "lodash": `
-
+_.padStart('abc', 6);
+// =>    abc
+_.padStart('abc', 6, '_-');
+// => _-_abc
+_.padStart('abc', 3);
+// => abc
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'abc'.padStart(6);
+// =>    abc
+'abc'.padStart(6, '_-');
+// => _-_abc
+'abc'.padStart(3);
+// => abc
       `,
     },
     {
