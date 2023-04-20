@@ -4542,15 +4542,23 @@ upperCase('текстДоп');
     {
       "key": "9:28",
       "name": "upperFirst",
-      "description": "",
+      "description": "Преобразует первый символ строки в верхний регистр.",
       "lodash": `
-
+_.upperFirst('fred');
+// => Fred
+_.upperFirst('FRED');
+// => FRED
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function upperFirst(match) {
+  return match.toUpperCase();
+}
 
+'fred'.replace(/(\\w)/, upperFirst);
+// => Fred
+'FRED'.replace(/(\\w)/, upperFirst);
+// => FRED
       `,
     },
     {
