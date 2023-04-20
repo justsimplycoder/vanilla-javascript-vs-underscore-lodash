@@ -4564,15 +4564,25 @@ function upperFirst(match) {
     {
       "key": "9:29",
       "name": "words",
-      "description": "",
+      "description": "Разбивает строку на массив слов.",
       "lodash": `
-
+_.words('fred, barney, & pebbles');
+// => [ 'fred', 'barney', 'pebbles' ]
+_.words('fred, barney, & pebbles', /[^, ]+/g);
+// => [ 'fred', 'barney', '&', 'pebbles' ]
+_.words('яблоки, груши, сливы');
+// => [ 'яблоки,', 'груши,', 'сливы' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'fred, barney, & pebbles'.match(/[^, &]+/g);
+// => [ 'fred', 'barney', 'pebbles' ]
+'fred, barney, & pebbles'.split(' ');
+// => [ 'fred', 'barney', '&', 'pebbles' ]
+'fred, barney, & pebbles'.match(/[^, ]+/g);
+// => [ 'fred', 'barney', '&', 'pebbles' ]
+'яблоки, груши, сливы'.split(' ');
+// => [ 'яблоки,', 'груши,', 'сливы' ]
       `,
     }
   ]
