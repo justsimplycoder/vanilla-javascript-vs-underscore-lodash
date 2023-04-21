@@ -4093,15 +4093,19 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:1",
       "name": "capitalize",
-      "description": "",
+      "description": "Преобразует первый символ строки в верхний регистр, а остальные — в нижний.",
       "lodash": `
-
+_.capitalize('FRED');
+// => Fred
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
+}
 
+capitalize('FRED');
+// => Fred
       `,
     },
     {
