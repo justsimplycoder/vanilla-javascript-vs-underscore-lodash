@@ -4079,15 +4079,49 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "9:0",
       "name": "camelCase",
-      "description": "",
+      "description": "Преобразует строку к верблюжьей нотацией",
       "lodash": `
-
+_.camelCase('--foo-bar');
+// => fooBar
+_.camelCase('foo Bar');
+// => fooBar
+_.camelCase('fooBAR');
+// => fooBar
+_.camelCase('fooBar');
+// => fooBar
+_.camelCase('__foo_bar__');
+// => fooBar
+_.camelCase('--123-12bb-bar');
+// => 12312BbBar
+_.camelCase('текстДоп');
+// => текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function camelCase(str) {
+  let arrStr = str.match(/\\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null) {
+    return str.toLowerCase();
+  } else {
+    let strCamelCase = arrStr.map(s => s[0].toUpperCase() + s.slice(1).toLowerCase()).join('');
+    return strCamelCase[0].toLowerCase() + strCamelCase.slice(1);
+  }
+}
 
+camelCase('--foo-bar');
+// => fooBar
+camelCase('foo Bar');
+// => fooBar
+camelCase('fooBAR');
+// => fooBar
+camelCase('fooBar');
+// => fooBar
+camelCase('__foo_bar__');
+// => fooBar
+camelCase('--123-12bb-bar');
+// => 12312BbBar
+camelCase('текстДоп');
+// => текстдоп
       `,
     },
     {
