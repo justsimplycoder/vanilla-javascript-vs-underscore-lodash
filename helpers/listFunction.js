@@ -4203,15 +4203,23 @@ _.endsWith('abc', 'b', 2);
     {
       "key": "9:8",
       "name": "lowerFirst",
-      "description": "",
+      "description": "Преобразует первый символ строки в нижний регистр.",
       "lodash": `
-
+_.lowerFirst('Fred');
+// => fred
+_.lowerFirst('FRED');
+// => fRED
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function lowerFirst(match) {
+  return match.toLowerCase();
+}
 
+'Fred'.replace(/(\w)/, lowerFirst);
+// => fred
+'FRED'.replace(/(\w)/, lowerFirst);
+// => fRED
       `,
     },
     {
