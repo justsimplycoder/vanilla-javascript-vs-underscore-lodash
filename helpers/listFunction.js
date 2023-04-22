@@ -4388,15 +4388,23 @@ _.split('a-b-c-d', '-', 2);
     {
       "key": "9:18",
       "name": "startsWith",
-      "description": "",
+      "description": "Проверяет, начинается ли строка с заданной целевой строки.",
       "lodash": `
-
+_.startsWith('abc', 'a');
+// => true
+_.startsWith('abc', 'b');
+// => false
+_.startsWith('abc', 'b', 1);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'abc'.startsWith('a');
+// => true
+'abc'.startsWith('b');
+// => false
+'abc'.startsWith('b', 1);
+// => true
       `,
     },
     {
