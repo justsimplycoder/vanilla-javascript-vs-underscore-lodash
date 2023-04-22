@@ -4470,15 +4470,35 @@ _.toLower('текстДоп');
     {
       "key": "9:21",
       "name": "toUpper",
-      "description": "",
+      "description": "Преобразует строку в верхний регистр",
       "lodash": `
-
+_.toUpper('--foo-bar');
+// => --FOO-BAR
+_.toUpper('fooBar');
+// => FOOBAR
+_.toUpper('fooBAR');
+// => FOOBAR
+_.toUpper('__foo_bar__');
+// => __FOO_BAR__
+_.toUpper('--123-12bb-bar');
+// => --123-12BB-BAR
+_.toUpper('текстДоп');
+// => ТЕКСТДОП
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'--foo-bar'.toUpperCase();
+// => --FOO-BAR
+'fooBar'.toUpperCase();
+// => FOOBAR
+'fooBAR'.toUpperCase();
+// => FOOBAR
+'__foo_bar__'.toUpperCase();
+// => __FOO_BAR__
+'--123-12bb-bar'.toUpperCase();
+// => --123-12BB-BAR
+'текстДоп'.toUpperCase();
+// => ТЕКСТДОП
       `,
     },
     {
