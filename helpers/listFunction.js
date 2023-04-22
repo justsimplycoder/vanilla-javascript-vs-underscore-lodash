@@ -4111,15 +4111,24 @@ capitalize('FRED');
     {
       "key": "9:2",
       "name": "deburr",
-      "description": "",
+      "description": "Удаляет заусенцы в строке путем преобразования букв Latin-1 Supplement и Latin Extended-A в основные латинские буквы и удаления комбинированных диакритических знаков.",
       "lodash": `
-
+_.deburr('déjà vu');
+// => deja vu
+_.deburr('ąśćńżółźćę');
+// => ascnzolzce
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function deburr(str) {
+  str = str.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");
+  return str.replace(/\\u0142/g, "l");
+}
 
+deburr('déjà vu');
+// => deja vu
+deburr('ąśćńżółźćę');
+// => ascnzolzce
       `,
     },
     {
