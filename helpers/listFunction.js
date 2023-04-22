@@ -4239,7 +4239,7 @@ function lowerCase(str) {
   if(arrStr === null)
     return str.toLowerCase();
   else
-    return arrStr.map(s => s.toLowerCase()).join('-');
+    return arrStr.map(s => s.toLowerCase()).join(' ');
 }
 
 lowerCase('--foo-bar');
@@ -4436,7 +4436,7 @@ function snakeCase(str) {
   if(arrStr === null)
     return str.toLowerCase();
   else
-    return arrStr.map(s => s.toLowerCase()).join('-');
+    return arrStr.map(s => s.toLowerCase()).join('_');
 }
 
 snakeCase('--foo-bar');
