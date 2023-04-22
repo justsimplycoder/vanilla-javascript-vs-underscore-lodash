@@ -4125,15 +4125,23 @@ capitalize('FRED');
     {
       "key": "9:3",
       "name": "endsWith",
-      "description": "",
+      "description": "Проверяет, заканчивается ли строка заданной целевой строкой.",
       "lodash": `
-
+_.endsWith('abc', 'c');
+// => true
+_.endsWith('abc', 'b');
+// => false
+_.endsWith('abc', 'b', 2);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'abc'.endsWith('c');
+// => true
+'abc'.endsWith('b');
+// => false
+'abc'.endsWith('b', 2);
+// => true
       `,
     },
     {
