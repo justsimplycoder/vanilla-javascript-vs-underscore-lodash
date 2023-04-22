@@ -4175,15 +4175,43 @@ _.endsWith('abc', 'b', 2);
     {
       "key": "9:6",
       "name": "kebabCase",
-      "description": "",
+      "description": "Преобразует строку к шашлычной нотации",
       "lodash": `
-
+_.kebabCase('--foo-bar');
+// => foo-bar
+_.kebabCase('fooBar');
+// => foo-bar
+_.kebabCase('fooBAR');
+// => foo-bar
+_.kebabCase('__foo_bar__');
+// => foo-bar
+_.kebabCase('--123-12bb-bar');
+// => 123-12-bb-bar
+_.kebabCase('текстДоп');
+// => текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function kebabCase(str) {
+  let arrStr = str.match(/\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null)
+    return str.toLowerCase();
+  else
+    return arrStr.map(s => s.toLowerCase()).join('-');
+}
 
+kebabCase('--foo-bar');
+// => foo-bar
+kebabCase('fooBar');
+// => foo-bar
+kebabCase('fooBAR');
+// => foo-bar
+kebabCase('__foo_bar__');
+// => foo-bar
+kebabCase('--123-12bb-bar');
+// => 123-12-bb-bar
+kebabCase('текстДоп');
+// => текстдоп
       `,
     },
     {
