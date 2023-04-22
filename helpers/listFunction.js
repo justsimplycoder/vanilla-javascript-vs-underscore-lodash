@@ -4472,13 +4472,42 @@ _.split('a-b-c-d', '-', 2);
       "name": "startCase",
       "description": "",
       "lodash": `
-
+_.startCase('--foo-bar');
+// => Foo bar
+_.startCase('fooBar');
+// => Foo bar
+_.startCase('fooBAR');
+// => Foo bar
+_.startCase('__foo_bar__');
+// => Foo bar
+_.startCase('--123-12bb-bar');
+// => 123 12 bb bar
+_.startCase('текстДоп');
+// => Текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function startCase(str) {
+  let arrStr = str.match(/\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null) {
+    return str[0].toUpperCase() + str.slice(1);
+  } else {
+    return arrStr.map(s => s[0].toUpperCase() + s.slice(1).toLowerCase()).join(' ');
+  }
+}
 
+startCase('--foo-bar');
+// => Foo bar
+startCase('fooBar');
+// => Foo bar
+startCase('fooBAR');
+// => Foo bar
+startCase('__foo_bar__');
+// => Foo bar
+startCase('--123-12bb-bar');
+// => 123 12 bb bar
+startCase('текстДоп');
+// => Текстдоп
       `,
     },
     {
