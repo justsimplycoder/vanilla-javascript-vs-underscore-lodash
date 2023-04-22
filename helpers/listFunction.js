@@ -4414,15 +4414,43 @@ _.replace('Hi Fred', 'Fred', 'Barney');
     {
       "key": "9:15",
       "name": "snakeCase",
-      "description": "",
+      "description": "Преобразует строку к змеиной нотации",
       "lodash": `
-
+_.snakeCase('--foo-bar');
+// => foo_bar
+_.snakeCase('fooBar');
+// => foo_bar
+_.snakeCase('fooBAR');
+// => foo_bar
+_.snakeCase('__foo_bar__');
+// => foo_bar
+_.snakeCase('--123-12bb-bar');
+// => 123_12_bb_bar
+_.snakeCase('текстДоп');
+// => текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function snakeCase(str) {
+  let arrStr = str.match(/\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null)
+    return str.toLowerCase();
+  else
+    return arrStr.map(s => s.toLowerCase()).join('-');
+}
 
+snakeCase('--foo-bar');
+// => foo_bar
+snakeCase('fooBar');
+// => foo_bar
+snakeCase('fooBAR');
+// => foo_bar
+snakeCase('__foo_bar__');
+// => foo_bar
+snakeCase('--123-12bb-bar');
+// => 123_12_bb_bar
+snakeCase('текстДоп');
+// => текстдоп
       `,
     },
     {
