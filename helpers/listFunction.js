@@ -4436,15 +4436,35 @@ _.startsWith('abc', 'b', 1);
     {
       "key": "9:20",
       "name": "toLower",
-      "description": "",
+      "description": "Преобразует строку в нижний регистр",
       "lodash": `
-
+_.toLower('--foo-bar');
+// => --foo-bar
+_.toLower('fooBar');
+// => foobar
+_.toLower('fooBAR');
+// => foobar
+_.toLower('__foo_bar__');
+// => __foo_bar__
+_.toLower('--123-12bb-bar');
+// => --123-12bb-bar
+_.toLower('текстДоп');
+// => текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+'--foo-bar'.toLowerCase();
+// => --foo-bar
+'fooBar'.toLowerCase();
+// => foobar
+'fooBAR'.toLowerCase();
+// => foobar
+'__foo_bar__'.toLowerCase();
+// => __foo_bar__
+'--123-12bb-bar'.toLowerCase();
+// => --123-12bb-bar
+'текстДоп'.toLowerCase();
+// => текстдоп
       `,
     },
     {
