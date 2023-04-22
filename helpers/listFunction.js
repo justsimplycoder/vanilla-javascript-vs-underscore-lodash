@@ -4190,15 +4190,26 @@ _.endsWith('abc', 'b', 2);
     {
       "key": "9:4",
       "name": "escape",
-      "description": "",
+      "description": `Преобразует символы "&", "<", ">", "\"", "'" в HMLL спецсимволы`,
       "lodash": `
-
+_.escape(\` & < > ' текст " text\`);
+// => &amp; &lt; &gt; &#39; текст &quot; text
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function escape(str) {
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  };
+  return str.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
 
+escape(\` & < > ' текст " text\`);
+// => &amp; &lt; &gt; &#39; текст &quot; text
       `,
     },
     {
