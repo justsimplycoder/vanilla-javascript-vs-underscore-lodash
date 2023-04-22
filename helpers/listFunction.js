@@ -4304,15 +4304,19 @@ _.padStart('abc', 3);
     {
       "key": "9:12",
       "name": "parseInt",
-      "description": "",
+      "description": "Преобразует строку в целое число по указанной системе счисления.",
       "lodash": `
-
+_.parseInt('08');
+// => 8
+_.map(['6', '08', '10'], _.parseInt);
+// => [ 6, 8, 10 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+parseInt('08');
+// => 8
+['6', '08', '10'].map(el => parseInt(el, 10));
+// => [ 6, 8, 10 ]
       `,
     },
     {
