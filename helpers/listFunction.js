@@ -4217,15 +4217,43 @@ kebabCase('текстДоп');
     {
       "key": "9:7",
       "name": "lowerCase",
-      "description": "",
+      "description": "Преобразует строку в виде слов, разделенных пробелами, в нижний регистр.",
       "lodash": `
-
+_.lowerCase('--foo-bar');
+// => foo bar
+_.lowerCase('fooBar');
+// => foo bar
+_.lowerCase('fooBAR');
+// => foo bar
+_.lowerCase('__foo_bar__');
+// => foo bar
+_.lowerCase('--123-12bb-bar');
+// => 123 12 bb bar
+_.lowerCase('текстДоп');
+// => текстдоп
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function lowerCase(str) {
+  let arrStr = str.match(/\d+|[a-z]+|[A-Z][a-z]+|[A-Z]{2,}/g);
+  if(arrStr === null)
+    return str.toLowerCase();
+  else
+    return arrStr.map(s => s.toLowerCase()).join('-');
+}
 
+lowerCase('--foo-bar');
+// => foo bar
+lowerCase('fooBar');
+// => foo bar
+lowerCase('fooBAR');
+// => foo bar
+lowerCase('__foo_bar__');
+// => foo bar
+lowerCase('--123-12bb-bar');
+// => 123 12 bb bar
+lowerCase('текстДоп');
+// => текстдоп
       `,
     },
     {
