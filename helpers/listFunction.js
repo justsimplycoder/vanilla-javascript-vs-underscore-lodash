@@ -4812,15 +4812,26 @@ trimStart('-_-abc-_-', '_-');
     {
       "key": "9:26",
       "name": "unescape",
-      "description": "",
+      "description": "Преобразует спецсимволы HTML &amp; &lt; &gt; &quot; &#39; в обычные",
       "lodash": `
-
+_.unescape("&amp; &lt; &gt; &quot; &#39; текст text");
+// => & < > " ' текст text
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function unescape(str) {
+  var map = {
+    "&amp;": "&",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&#39;": "'",
+    "&quot;": '"',
+  };
+  return str.replace(/(&amp;|&lt;|&gt;|&quot;|&#39;)/g, function(m) { return map[m]; });
+}
 
+unescape("&amp; &lt; &gt; &quot; &#39; текст text");
+// => & < > " ' текст text
       `,
     },
     {
