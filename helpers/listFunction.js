@@ -4072,6 +4072,223 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
   ]
 },
 {
+  "key": 5,
+  "title": "Math",
+  "visible": true,
+  "content": [
+    {
+      "key": "5:0",
+      "name": "add",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:1",
+      "name": "ceil",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:2",
+      "name": "divide",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:3",
+      "name": "floor",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:4",
+      "name": "max",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:5",
+      "name": "maxBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:6",
+      "name": "mean",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:7",
+      "name": "meanBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:8",
+      "name": "min",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:9",
+      "name": "minBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:10",
+      "name": "multiply",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:11",
+      "name": "round",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:12",
+      "name": "subtract",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:13",
+      "name": "sum",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "5:14",
+      "name": "sumBy",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    }
+  ]
+},
+{
   "key": 9,
   "title": "String",
   "visible": true,
