@@ -4592,15 +4592,54 @@ _.startsWith('abc', 'b', 1);
     {
       "key": "9:19",
       "name": "template",
-      "description": "",
+      "description": "template - шаблоны",
       "lodash": `
-
+const compil1 = und.template('hello <%= user %>!');
+compil1({ 'user': 'fred' });
+// => hello fred!
+const compil2 = und.template('<b><%- value %></b>');
+compil2({ 'value': '<script>' });
+// => <b>&lt;script&gt;</b>
+const compil3 = und.template('<% _.forEach(users, function(user) { %><li><%- user %></li><% }); %>');
+compil3({'users': ['fred', 'barney'] });
+// => <li>fred</li><li>barney</li>
       `,
       "underscore": `
-
+const compil1 = und.template('hello <%= user %>!');
+compil1({ 'user': 'fred' });
+// => hello fred!
+const compil2 = und.template('<b><%- value %></b>');
+compil2({ 'value': '<script>' });
+// => <b>&lt;script&gt;</b>
+const compil3 = und.template('<% _.forEach(users, function(user) { %><li><%- user %></li><% }); %>');
+compil3({'users': ['fred', 'barney'] });
+// => <li>fred</li><li>barney</li>
       `,
       "vanillaJavaScript": `
+function escape(str) {
+  let arr = [
+    ["&", "&amp;"],
+    ["<", "&lt;"],
+    [">", "&gt;"],
+    ['"', "&quot;"],
+    ["'", "&#39;"]
+  ];
+  arr.forEach((el, index) => {
+    str = str.replace(el[0], el[1]);
+  });
+  return str;
+}
 
+const o = {
+  user: 'fred'
+};
+
+\`hello \${o.user}!\`;
+// => hello fred!
+\`<b>\${escape('<script>')}</b>\`;
+// => <b>&lt;script&gt;</b>
+['fred', 'barney'].map((el)=> '<li>'+el+'</li>').join('');
+// => <li>fred</li><li>barney</li>
       `,
     },
     {
