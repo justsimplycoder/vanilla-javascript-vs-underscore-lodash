@@ -4215,15 +4215,18 @@ escape(\` & < > ' текст " text\`);
     {
       "key": "9:5",
       "name": "escapeRegExp",
-      "description": "",
+      "description": `Экранирование символов в RegExp "^", "$", "'", ".", "*", "+", "?", "(", ")", "[", "]", "{", "}", "|"`,
       "lodash": `
-
+_.escapeRegExp('[lodash](https://lodash.com/)');
+// \\[lodash\\]\\(https://lodash\\.com/\\)
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+function escapeRegExp(str) {
+  return str.replace(/[|\\\\{}()[\]^$+*?.-]/g, "\\$&");
+}
+escapeRegExp('[lodash](https://lodash.com/)');
+// \\[lodash\\]\\(https://lodash\\.com/\\)
       `,
     },
     {
