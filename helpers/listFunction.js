@@ -4079,15 +4079,19 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "5:0",
       "name": "add",
-      "description": "",
+      "description": "складывание 2-х чисел",
       "lodash": `
-
+_.add(4, 6);
+// => 10
+_.add('4', '6');
+// => '46'
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+4 + 6;
+// => 10
+'4' + '6';
+// => '46'
       `,
     },
     {
