@@ -4283,15 +4283,38 @@ floor(4060, -2);
     {
       "key": "5:11",
       "name": "round",
-      "description": "",
+      "description": "Округляет число до ближайшего числа",
       "lodash": `
-
+_.round(4.006);
+// => 4
+_.round(6.004, 2);
+// => 6
+_.round(6040, -2);
+// => 6000
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function round(value, decimals) {
+  if(decimals === undefined || +decimals === 0) {
+    return Math.round(value);
+  }
+  if (isNaN(value) || !(typeof decimals === 'number' && decimals % 1 === 0)) {
+    return NaN;
+  }
+  if (decimals > 0) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+  }
+  if (decimals < 0) {
+    return Number(Math.round(value+'e'+decimals)+'e'+ Math.abs(decimals));
+  }
+}
 
+round(4.006);
+// => 4
+round(6.004, 2);
+// => 6
+round(6040, -2);
+// => 6000
       `,
     },
     {
