@@ -4263,15 +4263,18 @@ objects.reduce((sum, current) => sum + current.n, 0) / objects.length;
     {
       "key": "5:8",
       "name": "min",
-      "description": "",
+      "description": "Минимальное значение массива",
       "lodash": `
-
+_.min([4, 2, 8, 6]);
+// => 2
       `,
       "underscore": `
-
+_.min([4, 2, 8, 6]);
+// => 2
       `,
       "vanillaJavaScript": `
-
+Math.min(...[4, 2, 8, 6]);
+// => 2
       `,
     },
     {
