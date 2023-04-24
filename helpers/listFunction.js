@@ -4148,15 +4148,38 @@ ceil(6040, -2);
     {
       "key": "5:3",
       "name": "floor",
-      "description": "",
+      "description": "Округляет число в меньшую стороун",
       "lodash": `
-
+_.floor(4.006);
+// => 4
+_.floor(0.046, 2);
+// => 0.04
+_.floor(4060, -2);
+// => 4000
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function floor(value, decimals) {
+  if(decimals === undefined || +decimals === 0) {
+    return Math.floor(value);
+  }
+  if (isNaN(value) || !(typeof decimals === 'number' && decimals % 1 === 0)) {
+    return NaN;
+  }
+  if (decimals > 0) {
+    return Number(Math.floor(value+'e'+decimals)+'e-'+decimals);
+  }
+  if (decimals < 0) {
+    return Number(Math.floor(value+'e'+decimals)+'e'+ Math.abs(decimals));
+  }
+}
 
+floor(4.006);
+// => 4
+floor(0.046, 2);
+// => 0.04
+floor(4060, -2);
+// => 4000
       `,
     },
     {
