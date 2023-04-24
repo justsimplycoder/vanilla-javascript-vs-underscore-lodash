@@ -4280,15 +4280,24 @@ Math.min(...[4, 2, 8, 6]);
     {
       "key": "5:9",
       "name": "minBy",
-      "description": "",
+      "description": "Минимальное значение массива состоящего из объектов",
       "lodash": `
+const objects = [{ 'n': 1 }, { 'n': 2 }, { 'n': 3 }, { 'n' : 2 }];
 
+_.minBy(objects, function(o) { return o.n; });
+// => {n: 1}
+_.minBy(objects, 'n';
+// => {n: 1}
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const objects = [{ 'n': 1 }, { 'n': 2 }, { 'n': 3 }, { 'n' : 2 }];
 
+objects.reduce((acc, cur) => {
+  if(acc.n > cur.n) acc = cur;
+  return acc;
+})
+// => {n: 1}
       `,
     },
     {
