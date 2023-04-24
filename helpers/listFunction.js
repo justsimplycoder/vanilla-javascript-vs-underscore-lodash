@@ -4202,15 +4202,24 @@ Math.max(...[4, 2, 8, 6]);
     {
       "key": "5:5",
       "name": "maxBy",
-      "description": "",
+      "description": "Максимальное значение массива состоящего из объектов",
       "lodash": `
+const objects = [{ 'n': 1 }, { 'n': 2 }, { 'n': 3 }, { 'n' : 2 }];
 
+_.maxBy(objects, function(o) { return o.n; });
+// => {n: 3}
+_.maxBy(objects, 'n');
+// => {n: 3}
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const objects = [{ 'n': 1 }, { 'n': 2 }, { 'n': 3 }, { 'n' : 2 }];
 
+objects.reduce((acc, cur) => {
+  if(acc.n < cur.n) acc = cur;
+  return acc;
+})
+// => {n: 3}
       `,
     },
     {
