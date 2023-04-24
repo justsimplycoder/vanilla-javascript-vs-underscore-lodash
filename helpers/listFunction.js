@@ -4097,15 +4097,38 @@ _.add('4', '6');
     {
       "key": "5:1",
       "name": "ceil",
-      "description": "",
+      "description": "Округляет число в большую сторону",
       "lodash": `
-
+_.ceil(4.006);
+// => 5
+_.ceil(6.004, 2);
+// => 6.01
+_.ceil(6040, -2);
+// => 6100
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function ceil(value, decimals) {
+  if(decimals === undefined || +decimals === 0) {
+    return Math.ceil(value);
+  }
+  if (isNaN(value) || !(typeof decimals === 'number' && decimals % 1 === 0)) {
+    return NaN;
+  }
+  if (decimals > 0) {
+    return Number(Math.ceil(value+'e'+decimals)+'e-'+decimals);
+  }
+  if (decimals < 0) {
+    return Number(Math.ceil(value+'e'+decimals)+'e'+ Math.abs(decimals));
+  }
+}
 
+ceil(4.006);
+// => 5
+ceil(6.004, 2);
+// => 6.01
+ceil(6040, -2);
+// => 6100
       `,
     },
     {
