@@ -4185,15 +4185,18 @@ floor(4060, -2);
     {
       "key": "5:4",
       "name": "max",
-      "description": "",
+      "description": "Максимальное значение массива",
       "lodash": `
-
+_.max([4, 2, 8, 6]);
+// => 8
       `,
       "underscore": `
-
+_.max([4, 2, 8, 6]);
+// => 8
       `,
       "vanillaJavaScript": `
-
+Math.max(...[4, 2, 8, 6]);
+// => 8
       `,
     },
     {
