@@ -4243,15 +4243,21 @@ arr.reduce((sum, current) => sum + current) / arr.length;
     {
       "key": "5:7",
       "name": "meanBy",
-      "description": "",
+      "description": "Среднее значение массива состоящее из объектов",
       "lodash": `
+const objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
 
+_.meanBy(objects, 'n');
+// => 5
+_.meanBy(objects, o => o.n);
+// => 5
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
 
+objects.reduce((sum, current) => sum + current.n, 0) / objects.length;
+// => 5
       `,
     },
     {
