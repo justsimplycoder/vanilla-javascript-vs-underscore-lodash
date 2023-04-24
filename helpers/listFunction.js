@@ -4134,15 +4134,15 @@ ceil(6040, -2);
     {
       "key": "5:2",
       "name": "divide",
-      "description": "",
+      "description": "Разделить два числа",
       "lodash": `
-
+_.divide(6, 4);
+// => 1.5
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+6 / 4;
+// => 1.5
       `,
     },
     {
