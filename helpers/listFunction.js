@@ -4225,15 +4225,19 @@ objects.reduce((acc, cur) => {
     {
       "key": "5:6",
       "name": "mean",
-      "description": "",
+      "description": "Среднее значение массива",
       "lodash": `
+const arr = [4, 2, 8, 6];
 
+_.mean(arr);
+// => 5
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const arr = [4, 2, 8, 6];
 
+arr.reduce((sum, current) => sum + current) / arr.length;
+// => 5
       `,
     },
     {
