@@ -4382,15 +4382,21 @@ _.sum([4, 2, 8, 6]);
     {
       "key": "5:14",
       "name": "sumBy",
-      "description": "",
+      "description": "Сумма всех элементов массива состоящего из объектов",
       "lodash": `
+const objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
 
+_.sumBy(objects, function(o) { return o.n; });
+// => 20
+_.sumBy(objects, 'n');
+// => 20
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
 
+objects.reduce((sum, current) => sum + current.n, 0);
+// => 20
       `,
     }
   ]
