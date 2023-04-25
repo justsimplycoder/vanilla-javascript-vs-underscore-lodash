@@ -4303,15 +4303,15 @@ objects.reduce((acc, cur) => {
     {
       "key": "5:10",
       "name": "multiply",
-      "description": "",
+      "description": "Умножение",
       "lodash": `
-
+_.multiply(6, 4);
+// => 24
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+6 * 4;
+// => 24
       `,
     },
     {
