@@ -4354,29 +4354,29 @@ round(6040, -2);
     {
       "key": "5:12",
       "name": "subtract",
-      "description": "",
+      "description": "Вычитание",
       "lodash": `
-
+_.subtract(6, 4);
+// => 2
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+6 - 4;
+// => 2
       `,
     },
     {
       "key": "5:13",
       "name": "sum",
-      "description": "",
+      "description": "Сумма всех элементов массива",
       "lodash": `
-
+_.sum([4, 2, 8, 6]);
+// => 20
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[4, 2, 8, 6].reduce((sum, current) => sum + current);
+// => 20
       `,
     },
     {
