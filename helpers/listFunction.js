@@ -4402,6 +4402,55 @@ objects.reduce((sum, current) => sum + current.n, 0);
   ]
 },
 {
+  "key": 6,
+  "title": "Number",
+  "visible": true,
+  "content": [
+    {
+      "key": "6:0",
+      "name": "clamp",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "6:1",
+      "name": "inRange",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "6:2",
+      "name": "random",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    }
+  ]
+},
+{
   "key": 9,
   "title": "String",
   "visible": true,
