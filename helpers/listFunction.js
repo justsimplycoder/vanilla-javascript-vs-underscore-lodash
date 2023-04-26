@@ -4490,15 +4490,50 @@ inRange(-3, -2, -6);
     {
       "key": "6:2",
       "name": "random",
-      "description": "",
+      "description": "Возвращает случайное число",
       "lodash": `
-
+_.random(0, 5);
+// => целое число от 0 до 5
+_.random(1.2, 5.2);
+// => число с плавающей точкой между 1.2 и 5.2
+_.random(5);
+// => целое число от 0 до 5
+_.random(5.2);
+// => число с плавающей точкой между 0 и 5.2
+_.random(5, true);
+// => число с плавающей точкой между 0 и 5
       `,
       "underscore": `
-
+_.random(0, 5);
+// => целое число от 0 до 5
+_.random(1.2, 5.2);
+// => число с плавающей точкой между 1.2 и 5.2
       `,
       "vanillaJavaScript": `
+function random(start, end) {
+  if(end === undefined)
+    if(Number.isInteger(start))
+      return Math.floor( Math.random( ) * (start+1) );
+    else
+      return Math.random() * (start+1);
+  if(end === true)
+    return Math.random( ) * (start+1);
+  if(Number.isInteger(start) && Number.isInteger(end) )
+    return Math.floor(Math.random( ) * (start - end + 1)) + end;
+  else
+    return Math.random( ) * (start - end + 1) + end;
+}
 
+random(0, 5);
+// => целое число от 0 до 5
+random(1.2, 5.2);
+// => число с плавающей точкой между 1.2 и 5.2
+random(5);
+// => целое число от 0 до 5
+random(5.2);
+// => число с плавающей точкой между 0 и 5.2
+random(5, true);
+// => число с плавающей точкой между 0 и 5
       `,
     }
   ]
