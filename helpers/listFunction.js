@@ -4409,15 +4409,37 @@ objects.reduce((sum, current) => sum + current.n, 0);
     {
       "key": "6:0",
       "name": "clamp",
-      "description": "",
+      "description": "Возвращает число если оно входит в диапазон, если нет то верхнюю или нижнюю границу в зависимости от того, число положительное или отрицательное.",
       "lodash": `
-
+_.clamp(-10, -5, 5);
+// => -5
+_.clamp(-3, -5, 5);
+// => -3
+_.clamp(0, -5, 5);
+// => 0
+_.clamp(4, -5, 5);
+// => 4
+_.clamp(10, -5, 5);
+// => 5
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function clamp(num, lower, upper) {
+  if(num >= lower && num <= upper) return num;
+  if(num < lower) return lower;
+  if(num > upper) return upper;
+}
 
+clamp(-10, -5, 5);
+// => -5
+clamp(-3, -5, 5);
+// => -3
+clamp(0, -5, 5);
+// => 0
+clamp(4, -5, 5);
+// => 4
+clamp(10, -5, 5);
+// => 5
       `,
     },
     {
