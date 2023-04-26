@@ -4445,15 +4445,46 @@ clamp(10, -5, 5);
     {
       "key": "6:1",
       "name": "inRange",
-      "description": "",
+      "description": "Проверяет входит ли число в заданный диапазон",
       "lodash": `
-
+_.inRange(4, 8);
+// => true
+_.inRange(-4, 8);
+// => false
+_.inRange(3, 2, 4);
+// => true
+_.inRange(4, 2);
+// => false
+_.inRange(2, 2);
+// => false
+_.inRange(-3, -2, -6);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function inRange(num, start, end){
+  if(arguments.length <= 1) return false
+  if(arguments.length == 2) {
+    end = start;
+    start = 0;
+  }
+  if(end < start) [start, end] = [end, start];
+  if(num > start && num < end) return true;
+  return false;
+}
 
+inRange(4, 8);
+// => true
+inRange(-4, 8);
+// => false
+inRange(3, 2, 4);
+// => true
+inRange(4, 2);
+// => false
+inRange(2, 2);
+// => false
+inRange(-3, -2, -6);
+// => true
       `,
     },
     {
