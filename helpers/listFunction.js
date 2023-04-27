@@ -4570,15 +4570,30 @@ isFinite('3');
     {
       "key": "4:23",
       "name": "isFunction",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект Function.",
       "lodash": `
-
+_.isFunction(lod);
+// => true
+_.isFunction(/abc/);
+// => false
+_.isFunction(String);
+// => true
       `,
       "underscore": `
-
+_.isFunction(lod);
+// => true
+_.isFunction(/abc/);
+// => false
+_.isFunction(String);
+// => true
       `,
       "vanillaJavaScript": `
-
+typeof lod === 'function';
+// => true
+typeof /abc/ === 'function';
+// => false
+typeof String === 'function';
+// => true
       `,
     },
     {
