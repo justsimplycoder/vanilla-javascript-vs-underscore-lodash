@@ -4263,15 +4263,24 @@ isArguments([1, 2, 3]);
     {
       "key": "4:10",
       "name": "isArray",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект Array.",
       "lodash": `
-
+_.isArray([1, 2, 3]);
+// => true
+_.isArray('abc');
+// => false
       `,
       "underscore": `
-
+_.isArray([1, 2, 3]);
+// => true
+_.isArray('abc');
+// => false
       `,
       "vanillaJavaScript": `
-
+Array.isArray([1, 2, 3]);
+// => true
+Array.isArray('abc');
+// => false
       `,
     },
     {
