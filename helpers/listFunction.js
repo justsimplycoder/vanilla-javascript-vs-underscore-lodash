@@ -4427,15 +4427,29 @@ isDate('Mon April 23 2012');
     {
       "key": "4:17",
       "name": "isElement",
-      "description": "",
+      "description": "Проверяет, вероятно ли значение является элементом DOM.",
       "lodash": `
-
+_.isElement(document.body);
+// => true
+_.isElement('<body>');
+// => false
       `,
       "underscore": `
-
+_.isElement(document.body);
+// => true
+_.isElement('<body>');
+// => false
       `,
       "vanillaJavaScript": `
+function isElement(value) {
+  if(value.nodeType === 1) return true;
+  return false;
+}
 
+isElement(document.body);
+// => true
+isElement('<body>');
+// => false
       `,
     },
     {
