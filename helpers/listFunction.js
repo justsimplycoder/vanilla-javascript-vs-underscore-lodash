@@ -4497,15 +4497,35 @@ isElement('<body>');
     {
       "key": "4:21",
       "name": "isError",
-      "description": "",
+      "description": "Проверяет, является ли значение объектом Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError или URIError.",
       "lodash": `
-
+_.isError(new Error);
+// => true
+_.isError(Error);
+// => false
+_.isError(new EvalError);
+// => true
       `,
       "underscore": `
-
+_.isError(new Error);
+// => true
+_.isError(Error);
+// => false
+_.isError(new EvalError);
+// => true
       `,
       "vanillaJavaScript": `
+function isError(value) {
+  if(Object.prototype.toString.call(value) === '[object Error]') return true;
+  return false;
+}
 
+isError(new Error);
+// => true
+isError(Error);
+// => false
+isError(new EvalError);
+// => true
       `,
     },
     {
