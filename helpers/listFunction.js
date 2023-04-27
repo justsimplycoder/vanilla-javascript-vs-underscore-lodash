@@ -4235,15 +4235,29 @@ castArray([1, 2, 3]);
     {
       "key": "4:9",
       "name": "isArguments",
-      "description": "",
+      "description": "Проверяет, является ли значение, вероятно, объектом аргументов.",
       "lodash": `
-
+_.isArguments(function() { return arguments; }());
+// => true
+_.isArguments([1, 2, 3]);
+// => false
       `,
       "underscore": `
-
+_.isArguments(function() { return arguments; }());
+// => true
+_.isArguments([1, 2, 3]);
+// => false
       `,
       "vanillaJavaScript": `
+function isArguments(arg) {
+  if(Object.prototype.toString.call(arg) === '[object Arguments]') return true;
+  else return false;
+}
 
+isArguments(function() { return arguments; }());
+// => true
+isArguments([1, 2, 3]);
+// => false
       `,
     },
     {
