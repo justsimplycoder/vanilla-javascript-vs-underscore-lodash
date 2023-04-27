@@ -4079,15 +4079,45 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
     {
       "key": "4:0",
       "name": "castArray",
-      "description": "",
+      "description": "Преобразует значение в виде массива, если это не так.",
       "lodash": `
-
+_.castArray(1);
+// => [1]
+_.castArray({ 'a': 1 });
+// => [{ 'a': 1 }]
+_.castArray('abc');
+// => ['abc']
+_.castArray(null);
+// => [null]
+_.castArray(undefined);
+// => [undefined]
+_.castArray();
+// => []
+_.castArray([1, 2, 3]);
+// => [1, 2, 3]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function castArray(prop) {
+  if(arguments.length === 0) return [];
+  if(Array.isArray(prop)) return prop;
+  return [prop]
+}
 
+castArray(1);
+// => [1]
+castArray({ 'a': 1 });
+// => [{ 'a': 1 }]
+castArray('abc');
+// => ['abc']
+castArray(null);
+// => [null]
+castArray(undefined);
+// => [undefined]
+castArray();
+// => []
+castArray([1, 2, 3]);
+// => [1, 2, 3]
       `,
     },
     {
