@@ -4286,15 +4286,24 @@ Array.isArray('abc');
     {
       "key": "4:11",
       "name": "isArrayBuffer",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект ArrayBuffer.",
       "lodash": `
-
+_.isArrayBuffer(new ArrayBuffer(2));
+// => true
+_.isArrayBuffer(new Array(2));
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function isArrayBuffer(arg) {
+  if(Object.prototype.toString.call(arg) === '[object ArrayBuffer]') return true;
+  else return false;
+}
 
+isArrayBuffer(new ArrayBuffer(2));
+// => true
+isArrayBuffer(new Array(2));
+// => false
       `,
     },
     {
