@@ -4599,15 +4599,36 @@ typeof String === 'function';
     {
       "key": "4:24",
       "name": "isInteger",
-      "description": "",
+      "description": "Проверяет, является ли значение целым числом.",
       "lodash": `
-
+_.isInteger(3);
+// => true
+_.isInteger(Number.MIN_VALUE);
+// => false
+_.isInteger(Infinity);
+// => false
+_.isInteger('3');
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+parseInt(3) === 3;
+// => true
+parseInt(Number.MIN_VALUE) === Number.MIN_VALUE;
+// => false
+parseInt(Infinity) === Infinity;
+// => false
+parseInt('3') === '3';
+// => false
 
+Number.isInteger(3);
+// => true
+Number.isInteger(Number.MIN_VALUE);
+// => false
+Number.isInteger(Infinity);
+// => false
+Number.isInteger('3');
+// => false
       `,
     },
     {
