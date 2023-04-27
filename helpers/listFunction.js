@@ -4381,15 +4381,19 @@ typeof null === 'boolean';
     {
       "key": "4:15",
       "name": "isBuffer",
-      "description": "",
+      "description": "Проверяет, является ли значение буфером.",
       "lodash": `
-
+_.isBuffer(new Buffer(2));
+// => true
+_.isBuffer(new Uint8Array(2));
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+Buffer.isBuffer(new Buffer(2));
+// => true
+Buffer.isBuffer(new Uint8Array(2));
+// => false
       `,
     },
     {
