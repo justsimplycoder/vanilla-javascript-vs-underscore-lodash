@@ -4399,15 +4399,29 @@ Buffer.isBuffer(new Uint8Array(2));
     {
       "key": "4:16",
       "name": "isDate",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект Date.",
       "lodash": `
-
+_.isDate(new Date);
+// => true
+_.isDate('Mon April 23 2012');
+// => false
       `,
       "underscore": `
-
+_.isDate(new Date);
+// => true
+_.isDate('Mon April 23 2012');
+// => false
       `,
       "vanillaJavaScript": `
+function isDate(value) {
+  if(Object.prototype.toString.call(value) === '[object Date]') return true;
+  return false;
+}
 
+isDate(new Date);
+// => true
+isDate('Mon April 23 2012');
+// => false
       `,
     },
     {
