@@ -4648,15 +4648,29 @@ Number.isInteger('3');
     {
       "key": "4:26",
       "name": "isMap",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект Map.",
       "lodash": `
-
+_.isMap(new Map);
+// => true
+_.isMap(new WeakMap);
+// => false
       `,
       "underscore": `
-
+_.isMap(new Map);
+// => true
+_.isMap(new WeakMap);
+// => false
       `,
       "vanillaJavaScript": `
+function isMap(value) {
+  if(Object.prototype.toString.call(value) === '[object Map]') return true;
+  return false;
+}
 
+isMap(new Map);
+// => true
+isMap(new WeakMap);
+// => false
       `,
     },
     {
