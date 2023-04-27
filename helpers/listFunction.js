@@ -4309,15 +4309,36 @@ isArrayBuffer(new Array(2));
     {
       "key": "4:12",
       "name": "isArrayLike",
-      "description": "",
+      "description": "Проверяет, является ли значение массивоподобным.",
       "lodash": `
-
+_.isArrayLike([1, 2, 3]);
+// => true
+_.isArrayLike(document.body.children);
+// => true
+_.isArrayLike('abc');
+// => true
+_.isArrayLike(_.noop);
+// => false
+_.isArrayLike(function(a, b){});
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function isArrayLike(value) {
+  if((value).length === undefined || typeof value === 'function') return false;
+  return true;
+}
 
+isArrayLike([1, 2, 3]);
+// => true
+isArrayLike(document.body.children);
+// => true
+isArrayLike('abc');
+// => true
+isArrayLike(_.noop);
+// => false
+isArrayLike(function(a, b){});
+// => false
       `,
     },
     {
