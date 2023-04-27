@@ -4072,6 +4072,797 @@ escape\`<p>\${'fred, barney, & pebbles'}</p>\`;
   ]
 },
 {
+  "key": 4,
+  "title": "Lang",
+  "visible": true,
+  "content": [
+    {
+      "key": "4:0",
+      "name": "castArray",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:1",
+      "name": "clone",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:2",
+      "name": "cloneDeep",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:3",
+      "name": "cloneDeepWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:4",
+      "name": "cloneWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:5",
+      "name": "conformsTo",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:6",
+      "name": "eq",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:7",
+      "name": "gt",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:8",
+      "name": "gte",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:9",
+      "name": "isArguments",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:10",
+      "name": "isArray",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:11",
+      "name": "isArrayBuffer",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:12",
+      "name": "isArrayLike",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:13",
+      "name": "isArrayLikeObject",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:14",
+      "name": "isBoolean",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:15",
+      "name": "isBuffer",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:16",
+      "name": "isDate",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:17",
+      "name": "isElement",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:18",
+      "name": "isEmpty",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:19",
+      "name": "isEqual",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:20",
+      "name": "isEqualWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:21",
+      "name": "isError",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:22",
+      "name": "isFinite",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:23",
+      "name": "isFunction",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:24",
+      "name": "isInteger",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:25",
+      "name": "isLength",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:26",
+      "name": "isMap",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:27",
+      "name": "isMatch",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:28",
+      "name": "isMatchWith",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:29",
+      "name": "isNaN",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:30",
+      "name": "isNative",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:31",
+      "name": "isNil",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:32",
+      "name": "isNull",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:33",
+      "name": "isNumber",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:34",
+      "name": "isObject",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:35",
+      "name": "isObjectLike",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:36",
+      "name": "isPlainObject",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:37",
+      "name": "isRegExp",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:38",
+      "name": "isSafeInteger",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:39",
+      "name": "isSet",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:40",
+      "name": "isString",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:41",
+      "name": "isSymbol",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:42",
+      "name": "isTypedArray",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:43",
+      "name": "isUndefined",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:44",
+      "name": "isWeakMap",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:45",
+      "name": "isWeakSet",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:46",
+      "name": "lt",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:47",
+      "name": "lte",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:48",
+      "name": "toArray",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:49",
+      "name": "toFinite",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:50",
+      "name": "toInteger",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:51",
+      "name": "toLength",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:52",
+      "name": "toNumber",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:53",
+      "name": "toPlainObject",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:54",
+      "name": "toSafeInteger",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    },
+    {
+      "key": "4:55",
+      "name": "toString",
+      "description": "",
+      "lodash": `
+
+      `,
+      "underscore": `
+
+      `,
+      "vanillaJavaScript": `
+
+      `,
+    }
+  ]
+},
+{
   "key": 5,
   "title": "Math",
   "visible": true,
