@@ -4531,15 +4531,40 @@ isError(new EvalError);
     {
       "key": "4:22",
       "name": "isFinite",
-      "description": "",
+      "description": "Проверяет, является ли значение конечным примитивным числом.",
       "lodash": `
-
+_.isFinite(3);
+// => true
+_.isFinite(Number.MIN_VALUE);
+// => true
+_.isFinite(Infinity);
+// => false
+_.isFinite('3');
+// => false
       `,
       "underscore": `
-
+_.isFinite(3);
+// => true
+_.isFinite(Number.MIN_VALUE);
+// => true
+_.isFinite(Infinity);
+// => false
+_.isFinite('3');
+// => true - хотя это строка
       `,
       "vanillaJavaScript": `
+function isFiniteValue(value) {
+  return isFinite(value) && typeof value !== 'string';
+}
 
+isFinite(3);
+// => true
+isFinite(Number.MIN_VALUE);
+// => true
+isFinite(Infinity);
+// => false
+isFinite('3');
+// => false
       `,
     },
     {
