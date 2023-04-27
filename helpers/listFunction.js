@@ -4358,15 +4358,24 @@ isArrayLike(function(a, b){});
     {
       "key": "4:14",
       "name": "isBoolean",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как логический примитив или объект.",
       "lodash": `
-
+_.isBoolean(false);
+// => true
+_.isBoolean(null);
+// => false
       `,
       "underscore": `
-
+_.isBoolean(false);
+// => true
+_.isBoolean(null);
+// => false
       `,
       "vanillaJavaScript": `
-
+typeof false === 'boolean';
+// => true
+typeof null === 'boolean';
+// => false
       `,
     },
     {
