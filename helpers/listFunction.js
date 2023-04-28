@@ -4926,15 +4926,64 @@ isNumber({})
     {
       "key": "4:34",
       "name": "isObject",
-      "description": "",
+      "description": "Проверяет, является ли значение языковым типом объекта. (например, array, function, object, regexp, new Number(0) и String(''))",
       "lodash": `
-
+_.isObject({});
+// => true
+_.isObject(() => {});
+// => true
+_.isObject([1, 2, 3]);
+// => true
+_.isObject(new Number(0));
+// => true
+_.isObject(new String(''));
+// => true
+_.isObject(/\w/);
+// => true
+_.isObject(null);
+// => false
+_.isObject(undefined);
+// => false
       `,
       "underscore": `
-
+_.isObject({});
+// => true
+_.isObject(() => {});
+// => true
+_.isObject([1, 2, 3]);
+// => true
+_.isObject(new Number(0));
+// => true
+_.isObject(new String(''));
+// => true
+_.isObject(/\w/);
+// => true
+_.isObject(null);
+// => false
+_.isObject(undefined);
+// => false
       `,
       "vanillaJavaScript": `
+function isObject(value) {
+  return typeof value === 'object' && value !== null || typeof value === 'function';
+}
 
+isObject({});
+// => true
+isObject(() => {});
+// => true
+isObject([1, 2, 3]);
+// => true
+isObject(new Number(0));
+// => true
+isObject(new String(''));
+// => true
+isObject(/\w/);
+// => true
+isObject(null);
+// => false
+isObject(undefined);
+// => false
       `,
     },
     {
