@@ -4704,15 +4704,59 @@ isMap(new WeakMap);
     {
       "key": "4:29",
       "name": "isNaN",
-      "description": "",
+      "description": "Проверяет, является ли значение NaN.",
       "lodash": `
-
+_.isNaN(NaN);
+// => true
+_.isNaN(new Number(NaN));
+// => true
+_.isNaN(undefined);
+// => false
+_.isNaN(null);
+// => false
       `,
       "underscore": `
-
+_.isNaN(NaN);
+// => true
+_.isNaN(new Number(NaN));
+// => true
+_.isNaN(undefined);
+// => false
+_.isNaN(null);
+// => false
       `,
       "vanillaJavaScript": `
+isNaN(NaN);
+// => true
+isNaN(new Number(NaN));
+// => true
+isNaN(undefined);
+// => true
+isNaN(null);
+// => false
 
+Number.isNaN(NaN);
+// => true
+Number.isNaN(new Number(NaN));
+// => false
+Number.isNaN(undefined);
+// => false
+Number.isNaN(null);
+// => false
+
+function isNotANumber(value) {
+  if(value === undefined) return false;
+  return isNaN(value);
+}
+
+isNotANumber(NaN);
+// => true
+isNotANumber(new Number(NaN));
+// => true
+isNotANumber(undefined);
+// => false
+isNotANumber(null);
+// => false
       `,
     },
     {
