@@ -4847,15 +4847,35 @@ isNil(NaN);
     {
       "key": "4:32",
       "name": "isNull",
-      "description": "",
+      "description": "Проверяет, является ли значение null.",
       "lodash": `
-
+_.isNull(null);
+// => true
+_.isNull(undefined);
+// => false
+_.isNull(void 0);
+// => false
       `,
       "underscore": `
-
+_.isNull(null);
+// => true
+_.isNull(undefined);
+// => false
+_.isNull(void 0);
+// => false
       `,
       "vanillaJavaScript": `
+function isNull(value) {
+  if(value === null) return true;
+  return false;
+}
 
+isNull(null);
+// => true
+isNull(undefined);
+// => false
+isNull(void 0);
+// => false
       `,
     },
     {
