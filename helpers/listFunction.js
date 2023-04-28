@@ -4816,15 +4816,32 @@ isNative(lod);
     {
       "key": "4:31",
       "name": "isNil",
-      "description": "",
+      "description": "Проверяет, является ли значение null или undefined.",
       "lodash": `
-
+_.isNil(null);
+// => true
+_.isNil(undefined);
+// => true
+_.isNil(void 0);
+// => true
+_.isNil(NaN);
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function isNil(value) {
+  if(value == null) return true;
+  return false;
+}
 
+isNil(null);
+// => true
+isNil(undefined);
+// => true
+isNil(void 0);
+// => true
+isNil(NaN);
+// => false
       `,
     },
     {
