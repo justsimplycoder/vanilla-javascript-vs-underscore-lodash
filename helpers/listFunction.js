@@ -5017,15 +5017,31 @@ isObject(undefined);
     {
       "key": "4:37",
       "name": "isRegExp",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как объект RegExp.",
       "lodash": `
-
+_.isRegExp(/abc/);
+// => true
+_.isRegExp('/abc/');
+// => false
       `,
       "underscore": `
-
+_.isRegExp(/abc/);
+// => true
+_.isRegExp('/abc/');
+// => false
       `,
       "vanillaJavaScript": `
-
+let re = /abc/;
+/abc/ instanceof RegExp
+re instanceof RegExp;
+// => true
+re.constructor === RegExp;
+// => false
+let str = '/abc/';
+str instanceof RegExp;
+// => true
+str.constructor === RegExp;
+// => false
       `,
     },
     {
