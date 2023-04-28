@@ -4881,15 +4881,46 @@ isNull(void 0);
     {
       "key": "4:33",
       "name": "isNumber",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как числовой примитив или объект.",
       "lodash": `
-
+_.isNumber(3);
+// => true
+_.isNumber(Number.MIN_VALUE);
+// => true
+_.isNumber(Infinity);
+// => true
+_.isNumber('3');
+// => false
+_.isNumber({});
+// => false
       `,
       "underscore": `
-
+_.isNumber(3);
+// => true
+_.isNumber(Number.MIN_VALUE);
+// => true
+_.isNumber(Infinity);
+// => true
+_.isNumber('3');
+// => false
+_.isNumber({});
+// => false
       `,
       "vanillaJavaScript": `
+function isNumber(n){
+  return Number(n) === n;
+}
 
+isNumber(3);
+// => true
+isNumber(Number.MIN_VALUE);
+// => true
+isNumber(Infinity);
+// => true
+isNumber('3');
+// => false
+isNumber({})
+// => false
       `,
     },
     {
