@@ -5089,15 +5089,35 @@ isSet(new WeakSet);
     {
       "key": "4:40",
       "name": "isString",
-      "description": "",
+      "description": "Проверяет, является ли значение примитивом типа String или объектом String.",
       "lodash": `
-
+_.isString('abc');
+// => true
+_.isString(new String('abc'));
+// => true
+_.isString(1);
+// => false
       `,
       "underscore": `
-
+_.isString('abc');
+// => true
+_.isString(new String('abc'));
+// => true
+_.isString(1);
+// => false
       `,
       "vanillaJavaScript": `
+function isString(value) {
+  if(Object.prototype.toString.call(value) === '[object String]') return true;
+  return false
+}
 
+isString('abc');
+// => true
+isString(new String('abc'));
+// => true
+isString(1);
+// => false
       `,
     },
     {
