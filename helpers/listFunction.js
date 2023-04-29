@@ -5061,15 +5061,29 @@ str.constructor === RegExp;
     {
       "key": "4:39",
       "name": "isSet",
-      "description": "",
+      "description": "Проверяет, является ли значение объектом Set",
       "lodash": `
-
+_.isSet(new Set);
+// => true
+_.isSet(new WeakSet);
+// => false
       `,
       "underscore": `
-
+_.isSet(new Set);
+// => true
+_.isSet(new WeakSet);
+// => false
       `,
       "vanillaJavaScript": `
+function isSet(value) {
+  if(Object.prototype.toString.call(value) === '[object Set]') return true;
+  return false;
+}
 
+isSet(new Set);
+// => true
+isSet(new WeakSet);
+// => false
       `,
     },
     {
