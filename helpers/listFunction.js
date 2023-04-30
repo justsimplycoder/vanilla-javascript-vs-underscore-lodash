@@ -5505,15 +5505,27 @@ toInteger(NaN);
     {
       "key": "4:52",
       "name": "toNumber",
-      "description": "",
+      "description": "Конвертирует значение в число",
       "lodash": `
-
+_.toNumber(3.2);
+// => 3.2
+_.toNumber(Number.MIN_VALUE);
+// => 5e-324
+_.toNumber(Infinity);
+// => Infinity
+_.toNumber('3.2');
+// => 3.2
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+parseFloat(3.2);
+// => 3.2
+parseFloat(Number.MIN_VALUE);
+// => 5e-324
+parseFloat(Infinity);
+// => Infinity
+parseFloat('3.2');
+// => 3.2
       `,
     },
     {
