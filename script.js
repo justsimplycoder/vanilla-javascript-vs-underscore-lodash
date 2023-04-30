@@ -1,3 +1,15 @@
+/**
+ * Изменение url без перезагрузки и добавление истории перехода по функциям
+ * @param {string} curLoc - название функции
+ */
+function setLocation(curLoc){
+	try {
+		history.pushState({name: curLoc}, '_.' + curLoc, '#' + curLoc);
+		return;
+	} catch(e) {}
+	location.hash = '#' + curLoc;
+}
+
 function MenuCategory(props) {
 	function handleMoveFunction(name, e) {
 		e.preventDefault();
@@ -9,6 +21,7 @@ function MenuCategory(props) {
 			top: offsetPosition,
 			behavior: 'smooth'
 		});
+		setLocation(name);
 	}
 
 	return (
