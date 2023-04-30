@@ -5123,15 +5123,41 @@ isString(1);
     {
       "key": "4:41",
       "name": "isSymbol",
-      "description": "",
+      "description": "Проверяет является ли выражение типом Symbol",
       "lodash": `
+let sym = Symbol('abc');
 
+_.isSymbol(Symbol.iterator);
+// => true
+_.isSymbol(sym);
+// => true
+_.isSymbol('abc');
+// => false
       `,
       "underscore": `
+let sym = Symbol('abc');
 
+_.isSymbol(Symbol.iterator);
+// => true
+_.isSymbol(sym);
+// => true
+_.isSymbol('abc');
+// => false
       `,
       "vanillaJavaScript": `
+let sym = Symbol('abc');
 
+function isSymbol(value) {
+  if(Object.prototype.toString.call(value) === '[object Symbol]') return true;
+  return false;
+}
+
+isSymbol(Symbol.iterator);
+// => true
+isSymbol(sym);
+// => true
+isSymbol('abc');
+// => false
       `,
     },
     {
