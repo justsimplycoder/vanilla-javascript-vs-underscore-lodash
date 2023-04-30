@@ -5624,15 +5624,51 @@ toSafeInteger(NaN);
     {
       "key": "4:55",
       "name": "toString",
-      "description": "",
+      "description": "Преобразует значение в строку",
       "lodash": `
-
+_.toString(null);
+// => ''
+_.toString(undefined);
+// => ''
+_.toString([1, 2, 3]);
+// => 1,2,3
+_.toString(-0);
+// => '-0'
+_.toString(0);
+// => '0'
+_.toString();
+// => ''
+_.toString('');
+// => ''
+_.toString('text');
+// => 'text'
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function toString(value) {
+  if(value == null) {
+    return '';
+  }
+  if(Object.is(-0, value)) return '-0';
+  return (value).toString();
+}
 
+toString(null);
+// => ''
+toString(undefined);
+// => ''
+toString([1, 2, 3]);
+// => 1,2,3
+toString(-0);
+// => '-0'
+toString(0);
+// => '0'
+toString();
+// => ''
+toString('');
+// => ''
+toString('text');
+// => 'text'
       `,
     }
   ]
