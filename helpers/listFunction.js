@@ -5531,15 +5531,39 @@ parseFloat('3.2');
     {
       "key": "4:53",
       "name": "toPlainObject",
-      "description": "",
+      "description": "Конвертирует объект в новый, но со свойствами прототипа",
       "lodash": `
+function Foo() {
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.assign({ 'a': 1 }, new Foo);
+// => { a: 1, b: 2 }
+_.assign({ 'a': 1 }, _.toPlainObject(new Foo));
+// => { a: 1, b: 2, c: 3 }
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function toPlainObject(obj) {
+  const objNew = {};
+  for (let prop in obj) {
+    objNew[prop] = obj[prop]
+  }
+  return objNew;
+}
+
+Object.assign({ 'a': 1 }, new Foo);
+// => { a: 1, b: 2 }
+Object.assign({ 'a': 1 }, toPlainObject(new Foo));
+// => { a: 1, b: 2, c: 3 }
       `,
     },
     {
