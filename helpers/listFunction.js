@@ -5323,15 +5323,27 @@ lt(3, 1);
     {
       "key": "4:47",
       "name": "lte",
-      "description": "",
+      "description": "Проверяет является ли первый параметр меньше или равен второму",
       "lodash": `
-
+_.lte(1, 3);
+// true
+_.lte(3, 3);
+// true
+_.lte(3, 1);
+// false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function lte(el1, el2) {
+  return el1 <= el2;
+}
 
+lte(1, 3);
+// true
+lte(3, 3);
+// true
+lte(3, 1);
+// false
       `,
     },
     {
