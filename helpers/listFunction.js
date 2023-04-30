@@ -5213,15 +5213,29 @@ ArrayBuffer.isView([]);
     {
       "key": "4:43",
       "name": "isUndefined",
-      "description": "",
+      "description": "Проверяет является ли выражение undefined",
       "lodash": `
-
+_.isUndefined(void 0);
+// => true
+_.isUndefined(null);
+// => false
       `,
       "underscore": `
-
+_.isUndefined(void 0);
+// => true
+_.isUndefined(null);
+// => false
       `,
       "vanillaJavaScript": `
+function isUndefined(value) {
+  if(value === undefined) return true;
+  return false
+}
 
+isUndefined(void 0);
+// => true
+isUndefined(null);
+// => false
       `,
     },
     {
