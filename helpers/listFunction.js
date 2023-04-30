@@ -5269,15 +5269,29 @@ isWeakMap(new Map);
     {
       "key": "4:45",
       "name": "isWeakSet",
-      "description": "",
+      "description": "Проверяет является ли выражение WeakSet",
       "lodash": `
-
+_.isWeakSet(new WeakSet);
+// => true
+_.isWeakSet(new Set);
+// => false
       `,
       "underscore": `
-
+_.isWeakSet(new WeakSet);
+// => true
+_.isWeakSet(new Set);
+// => false
       `,
       "vanillaJavaScript": `
+function isWeakSet(value) {
+  if(Object.prototype.toString.call(value) === '[object WeakSet]') return true;
+  return false;
+}
 
+isWeakSet(new WeakSet);
+// => true
+isWeakSet(new Set);
+// => false
       `,
     },
     {
