@@ -5569,15 +5569,56 @@ Object.assign({ 'a': 1 }, toPlainObject(new Foo));
     {
       "key": "4:54",
       "name": "toSafeInteger",
-      "description": "",
+      "description": "Преобразует значение в безопасное целое число. ",
       "lodash": `
-
+_.toSafeInteger(3.2);
+// => 3
+_.toSafeInteger(Number.MIN_VALUE);
+// => 0
+_.toSafeInteger(Infinity);
+// => 9007199254740991
+_.toSafeInteger(-Infinity);
+// => -9007199254740991
+_.toSafeInteger('3.2');
+// => 3
+_.toSafeInteger(NaN);
+// => 0
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+if (!Math.trunc) {
+  Math.trunc = function(v) {
+    v = +v;
+    return (v - v % 1) || (!isFinite(v) || v === 0 ? v : v < 0 ? -0 : 0);
+  };
+}
 
+function toSafeInteger(value) {
+  if(value === Infinity) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+  if(value === -Infinity) {
+    return -Number.MAX_SAFE_INTEGER;
+  }
+  value = Math.trunc(value);
+  if(Number.isSafeInteger(value)) {
+    return value;
+  }
+  return 0;
+}
+
+toSafeInteger(3.2);
+// => 3
+toSafeInteger(Number.MIN_VALUE);
+// => 0
+toSafeInteger(Infinity);
+// => 9007199254740991
+toSafeInteger(-Infinity);
+// => -9007199254740991
+toSafeInteger('3.2');
+// => 3
+toSafeInteger(NaN);
+// => 0
       `,
     },
     {
