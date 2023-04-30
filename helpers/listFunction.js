@@ -5297,15 +5297,27 @@ isWeakSet(new Set);
     {
       "key": "4:46",
       "name": "lt",
-      "description": "",
+      "description": "Проверяет является ли первый параметр меньше второго",
       "lodash": `
-
+_.lt(1, 3);
+// => true
+_.lt(3, 3);
+// => false
+_.lt(3, 1);
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function lt(el1, el2) {
+  return el1 < el2;
+}
 
+lt(1, 3);
+// => true
+lt(3, 3);
+// => false
+lt(3, 1);
+// => false
       `,
     },
     {
