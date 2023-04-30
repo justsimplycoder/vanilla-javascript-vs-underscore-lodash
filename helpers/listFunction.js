@@ -5380,15 +5380,51 @@ toArray(null);
     {
       "key": "4:49",
       "name": "toFinite",
-      "description": "",
+      "description": "Конвертирует значение в конечное число.",
       "lodash": `
-
+_.toFinite(3.2);
+// => 3.2
+_.toFinite(Number.MIN_VALUE);
+// => 5e-324
+_.toFinite(Number.MAX_VALUE);
+// => 1.7976931348623157e+308
+_.toFinite(Infinity);
+// => 1.7976931348623157e+308
+_.toFinite(-Infinity);
+// => -1.7976931348623157e+308
+_.toFinite('3.2');
+// => 3.2
+_.toFinite(NaN);
+// => 0
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function toFinite(value) {
+  if(isFinite(value)) {
+    return parseFloat(value);
+  } else if(value === Infinity){
+    return Number.MAX_VALUE;
+  } else if(value === -Infinity) {
+    return -Number.MAX_VALUE;
+  } else {
+    return 0;
+  }
+}
 
+toFinite(3.2);
+// => 3.2
+toFinite(Number.MIN_VALUE);
+// => 5e-324
+toFinite(Number.MAX_VALUE);
+// => 1.7976931348623157e+308
+toFinite(Infinity);
+// => 1.7976931348623157e+308
+toFinite(-Infinity);
+// => -1.7976931348623157e+308
+toFinite('3.2');
+// => 3.2
+toFinite(NaN);
+// => 0
       `,
     },
     {
