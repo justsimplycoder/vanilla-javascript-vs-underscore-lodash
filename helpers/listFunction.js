@@ -5430,15 +5430,62 @@ toFinite(NaN);
     {
       "key": "4:50",
       "name": "toInteger",
-      "description": "",
+      "description": "Конвертирует значение в целое число.",
       "lodash": `
-
+_.toInteger(3.2);
+// => 3
+_.toInteger(-3.2);
+// => -3
+_.toInteger(3.7);
+// => 3
+_.toInteger(Number.MIN_VALUE);
+// => 0
+_.toInteger(Infinity);
+// => 1.7976931348623157e+308
+_.toInteger(-Infinity);
+// => -1.7976931348623157e+308
+_.toInteger('3.2');
+// => 3
+_.toInteger(NaN);
+// => 0
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+if (!Math.trunc) {
+  Math.trunc = function(v) {
+    v = +v;
+    return (v - v % 1) || (!isFinite(v) || v === 0 ? v : v < 0 ? -0 : 0);
+  };
+}
 
+function toInteger(value) {
+  if(isFinite(value)) {
+    return Math.trunc(value)
+  } else if(value === Infinity){
+    return Number.MAX_VALUE;
+  } else if(value === -Infinity){
+    return -Number.MAX_VALUE;
+  } else {
+    return 0;
+  }
+}
+
+toInteger(3.2);
+// => 3
+toInteger(-3.2);
+// => -3
+toInteger(3.7);
+// => 3
+toInteger(Number.MIN_VALUE);
+// => 0
+toInteger(Infinity);
+// => 1.7976931348623157e+308
+toInteger(-Infinity);
+// => -1.7976931348623157e+308
+toInteger('3.2');
+// => 3
+toInteger(NaN);
+// => 0
       `,
     },
     {
