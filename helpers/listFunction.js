@@ -5349,15 +5349,32 @@ lte(3, 1);
     {
       "key": "4:48",
       "name": "toArray",
-      "description": "",
+      "description": "Конвертирует выражение в массив",
       "lodash": `
-
+_.toArray({ 'a': 1, 'b': 2 });
+// => [ 1, 2 ]
+_.toArray('abc');
+// => [ 'a', 'b', 'c' ]
+_.toArray(1);
+// => []
+_.toArray(null);
+// => []
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function toArray(value) {
+  if(value === null || value === undefined) return [];
+  return Array.from(value);
+}
 
+toArray({ 'a': 1, 'b': 2 });
+// => [ 1, 2 ]
+toArray('abc');
+// => [ 'a', 'b', 'c' ]
+toArray(1);
+// => []
+toArray(null);
+// => []
       `,
     },
     {
