@@ -5241,15 +5241,29 @@ isUndefined(null);
     {
       "key": "4:44",
       "name": "isWeakMap",
-      "description": "",
+      "description": "Проверяет является ли выражение WeakMap",
       "lodash": `
-
+_.isWeakMap(new WeakMap);
+// => true
+_.isWeakMap(new Map);
+// => false
       `,
       "underscore": `
-
+_.isWeakMap(new WeakMap);
+// => true
+_.isWeakMap(new Map);
+// => false
       `,
       "vanillaJavaScript": `
+function isWeakMap(value) {
+  if(Object.prototype.toString.call(value) === '[object WeakMap]') return true;
+  return false;
+}
 
+isWeakMap(new WeakMap);
+// => true
+isWeakMap(new Map);
+// => false
       `,
     },
     {
