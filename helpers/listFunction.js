@@ -5163,15 +5163,51 @@ isSymbol('abc');
     {
       "key": "4:42",
       "name": "isTypedArray",
-      "description": "",
+      "description": "Проверяет, классифицируется ли значение как типизированный массив.",
       "lodash": `
-
+_.isTypedArray(new Int8Array);
+// => true
+_.isTypedArray(new Uint8Array);
+// => true
+_.isTypedArray(new Uint8ClampedArray);
+// => true
+_.isTypedArray(new Int16Array);
+// => true
+_.isTypedArray(new Uint16Array);
+// => true
+_.isTypedArray(new Int32Array);
+// => true
+_.isTypedArray(new Uint32Array);
+// => true
+_.isTypedArray(new Float32Array);
+// => true
+_.isTypedArray(new Float64Array);
+// => true
+_.isTypedArray([]);
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+ArrayBuffer.isView(new Int8Array);
+// => true
+ArrayBuffer.isView(new Uint8Array);
+// => true
+ArrayBuffer.isView(new Uint8ClampedArray);
+// => true
+ArrayBuffer.isView(new Int16Array);
+// => true
+ArrayBuffer.isView(new Uint16Array);
+// => true
+ArrayBuffer.isView(new Int32Array);
+// => true
+ArrayBuffer.isView(new Uint32Array);
+// => true
+ArrayBuffer.isView(new Float32Array);
+// => true
+ArrayBuffer.isView(new Float64Array);
+// => true
+ArrayBuffer.isView([]);
+// => false
       `,
     },
     {
