@@ -4,7 +4,7 @@
  */
 function setLocation(curLoc){
 	try {
-		history.pushState({name: curLoc}, '_.' + curLoc, '#' + curLoc);
+		history.pushState({name: curLoc}, '_.' + curLoc, '#fn-' + curLoc);
 		return;
 	} catch(e) {}
 	location.hash = '#' + curLoc;
