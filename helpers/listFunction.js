@@ -847,7 +847,7 @@ intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
 const arr1 = [{'x':1, 'y':2}, {'x':2, 'y':1}];
 const arr2 = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
-_.intersectionWith(arr1, arr2, lod.isEqual);
+_.intersectionWith(arr1, arr2, _.isEqual);
 // => [ { x: 1, y: 2 } ]
       `,
       "underscore": undefined,
@@ -1132,7 +1132,7 @@ console.log('pulled', pulled);
       "description": "Удаляет все элементы из массива, для которого предикат возвращает истину, и возвращает массив удаленных элементов.",
       "lodash": `
 const arr = [1, 2, 3, 4];
-const evens = lod.remove(arr, n => n % 2 == 0);
+const evens = _.remove(arr, n => n % 2 == 0);
 
 console.log(evens);
 // => [ 2, 4 ]
@@ -1660,7 +1660,7 @@ unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
 var objectsUnionWith = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
 var othersUnionWith = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
-_.unionWith(objectsUnionWith, othersUnionWith, lod.isEqual);
+_.unionWith(objectsUnionWith, othersUnionWith, _.isEqual);
 // => [ { x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 1 } ]
       `,
       "underscore": undefined,
@@ -1776,7 +1776,7 @@ uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
       "lodash": `
 var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
 
-lod.uniqWith(objects, lod.isEqual);
+_.uniqWith(objects, _.isEqual);
 // => [ { x: 1, y: 2 }, { x: 2, y: 1 } ]
       `,
       "underscore": undefined,
@@ -3977,7 +3977,7 @@ write(['MySQL', 'Mongoodb'], ['JavaScript', 'PHP'], 'HTML', 'CSS');
       "lodash": `
 const sum = (x, y) => x + y;
 
-const addition = lod.spread(sum);
+const addition = _.spread(sum);
 addition([56, 44]);
 // => 100
       `,
@@ -4466,7 +4466,7 @@ _.isArrayLikeObject({});
 // => false
 _.isArrayLikeObject('abc');
 // => false
-_.isArrayLikeObject(lod.noop);
+_.isArrayLikeObject(_.noop);
 // => false
 _.isArrayLikeObject(function(a, b){});
 // => false
@@ -4499,7 +4499,7 @@ isArrayLikeObject({});
 // => false
 isArrayLikeObject('abc');
 // => false
-isArrayLikeObject(lod.noop);
+isArrayLikeObject(_.noop);
 // => false
 isArrayLikeObject(function(a, b){});
 // => false
@@ -6671,7 +6671,7 @@ function Foo() {
 
 Foo.prototype.c = 3;
 
-lod.forInRight(new Foo, function(value, key) {
+_.forInRight(new Foo, function(value, key) {
   console.log(key, value);
 });
 // => c 3
@@ -6717,7 +6717,7 @@ function Foo() {
 
 Foo.prototype.c = 3;
 
-lod.forOwn(new Foo, function(value, key) {
+_.forOwn(new Foo, function(value, key) {
   console.log(key, value);
 });
 // => a 1
