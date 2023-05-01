@@ -4233,15 +4233,27 @@ gt(3, 1);
     {
       "key": "4:8",
       "name": "gte",
-      "description": "",
+      "description": "Проверяет является ли первый параметр больше или равен второму",
       "lodash": `
-
+_.gte(1, 3);
+// => false
+_.gte(3, 3);
+// => true
+_.gte(3, 1);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function gte(el1, el2) {
+  return el1 >= el2;
+}
 
+gte(1, 3);
+// => false
+gte(3, 3);
+// => true
+gte(3, 1);
+// => true
       `,
     },
     {
