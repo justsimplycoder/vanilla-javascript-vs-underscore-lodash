@@ -5287,15 +5287,27 @@ str.constructor === RegExp;
     {
       "key": "4:38",
       "name": "isSafeInteger",
-      "description": "",
+      "description": "Проверяет является ли выражение безопасным целым числом",
       "lodash": `
-
+_.isSafeInteger(3);
+// => true
+_.isSafeInteger(Number.MIN_VALUE);
+// => false
+_.isSafeInteger(Infinity);
+// => false
+_.isSafeInteger('3');
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+Number.isSafeInteger(3);
+// => true
+Number.isSafeInteger(Number.MIN_VALUE);
+// => false
+Number.isSafeInteger(Infinity);
+// => false
+Number.isSafeInteger('3');
+// => false
       `,
     },
     {
