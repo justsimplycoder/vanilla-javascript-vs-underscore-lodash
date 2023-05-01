@@ -5743,15 +5743,39 @@ toInteger(NaN);
     {
       "key": "4:51",
       "name": "toLength",
-      "description": "",
+      "description": "Преобразует значение в целое число, подходящее для использования в качестве длины объекта, подобного массиву.",
       "lodash": `
-
+_.toLength(3.2);
+// => 3
+_.toLength(Number.MIN_VALUE);
+// => 0
+_.toLength(Infinity);
+// => 4294967295
+_.toLength('3.2');
+// => 3
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+if (!Math.trunc) {
+  Math.trunc = function(v) {
+    v = +v;
+    return (v - v % 1) || (!isFinite(v) || v === 0 ? v : v < 0 ? -0 : 0);
+  };
+}
 
+function toLength(value) {
+  if(Math.abs(value) === Infinity) return 4294967295;
+  return Math.trunc(value);
+}
+
+toLength(3.2);
+// => 3
+toLength(Number.MIN_VALUE);
+// => 0
+toLength(Infinity);
+// => 4294967295
+toLength('3.2');
+// => 3
       `,
     },
     {
