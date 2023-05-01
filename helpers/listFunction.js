@@ -4230,15 +4230,28 @@ deep[0] === objects[0];
     {
       "key": "4:5",
       "name": "conformsTo",
-      "description": "",
+      "description": "Проверяет, соответствует ли объект переданному значению",
       "lodash": `
+var object = { 'a': 1, 'b': 2 };
 
+_.conformsTo(object, { 'b': function(n) { return n > 1; } });
+// => true
+_.conformsTo(object, { 'b': function(n) { return n > 2; } });
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': 2 };
 
+function conformsTo(obj, objFn) {
+  let arr = Object.entries(objFn)[0];
+  return arr[1](obj[arr[0]]);
+}
+
+conformsTo(object, { 'b': function(n) { return n > 1; } });
+// => true
+conformsTo(object, { 'b': function(n) { return n > 2; } });
+// => false
       `,
     },
     {
