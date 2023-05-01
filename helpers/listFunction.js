@@ -6620,15 +6620,43 @@ random(5, true);
     {
       "key": "7:14",
       "name": "forIn",
-      "description": "",
+      "description": "Перебирает собственные и унаследованные перечисляемые строковые свойства объекта и вызывает итерацию для каждого свойства.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.forIn(new Foo, function(value, key) {
+  console.log(key, value);
+});
+// => a 1
+// => b 2
+// => c 3
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function forIn(obj, callback) {
+  for (let key in obj) {
+    callback(obj[key], key);
+  }
+}
+
+forIn(new Foo, function (value, key) {
+  console.log(key, value);
+});
+// => a 1
+// => b 2
+// => c 3
       `,
     },
     {
