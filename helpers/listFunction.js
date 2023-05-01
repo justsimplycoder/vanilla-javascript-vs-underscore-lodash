@@ -5219,15 +5219,39 @@ isObject(undefined);
     {
       "key": "4:36",
       "name": "isPlainObject",
-      "description": "",
+      "description": "Проверяет, является ли value простым объектом, то есть объектом, созданным конструктором Object, или объектом с [[Prototype]] равным null.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+}
 
+_.isPlainObject(new Foo);
+// => false
+_.isPlainObject([1, 2, 3]);
+// => false
+_.isPlainObject({ 'x': 0, 'y': 0 });
+// => true
+_.isPlainObject(Object.create(null));
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+}
 
+function isPlainObject(obj) {
+  return Object.getPrototypeOf(obj) === Object.prototype || Object.getPrototypeOf(obj) === null;
+}
+
+isPlainObject(new Foo);
+// => false
+isPlainObject([1, 2, 3]);
+// => false
+isPlainObject({ 'x': 0, 'y': 0 });
+// => true
+isPlainObject(Object.create(null));
+// => true
       `,
     },
     {
