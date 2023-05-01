@@ -4161,15 +4161,42 @@ newObjects2[0] === objects[0];
     {
       "key": "4:2",
       "name": "cloneDeep",
-      "description": "",
+      "description": "Этот метод похож на _.clone, за исключением того, что он рекурсивно клонирует значение.",
       "lodash": `
+const objects = [{ 'a': 1 }, { 'b': 2 }];
 
-      `,
-      "underscore": `
+const deep = _.cloneDeep(objects);
 
+deep === objects;
+// => false
+deep[0] === objects[0];
+// => false
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const objects = [{ 'a': 1 }, { 'b': 2 }];
 
+function copy(aObject) {
+  if (!aObject) {
+    return aObject;
+  }
+
+  let v;
+  let bObject = Array.isArray(aObject) ? [] : {};
+  for (const k in aObject) {
+    v = aObject[k];
+    bObject[k] = (typeof v === "object") ? copy(v) : v;
+  }
+
+  return bObject;
+}
+
+const deep = copy(objects);
+
+deep === objects;
+// => false
+deep[0] === objects[0];
+// => false
       `,
     },
     {
