@@ -4123,15 +4123,39 @@ castArray([1, 2, 3]);
     {
       "key": "4:1",
       "name": "clone",
-      "description": "",
+      "description": `Клонирование объектов, все вложенные объекты или массивы будут скопированы "по ссылке"`,
       "lodash": `
+const objects = [{ 'a': 1 }, { 'b': 2 }];
 
+const clone = _.clone(objects);
+clone === objects;
+// => false
+clone[0] === objects[0];
+// => true
       `,
       "underscore": `
+const objects = [{ 'a': 1 }, { 'b': 2 }];
 
+const clone = _.clone(objects);
+clone === objects;
+// => false
+clone[0] === objects[0];
+// => true
       `,
       "vanillaJavaScript": `
+const objects = [{ 'a': 1 }, { 'b': 2 }];
 
+const newObjects1 = [...objects];
+newObjects1 === objects;
+// => false
+newObjects1[0] === objects[0];
+// => true
+
+const newObjects2 = Object.assign([], objects);
+newObjects2 === objects;
+// => false
+newObjects2[0] === objects[0];
+// => true
       `,
     },
     {
