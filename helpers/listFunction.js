@@ -4454,15 +4454,59 @@ isArrayLike(function(a, b){});
     {
       "key": "4:13",
       "name": "isArrayLikeObject",
-      "description": "",
+      "description": "Этот метод похож на _.isArrayLike, за исключением того, что он также проверяет, является ли значение объектом.",
       "lodash": `
-
+_.isArrayLikeObject([1, 2, 3]);
+// => true
+_.isArrayLikeObject(document.body.children);
+// => true
+_.isArrayLikeObject(new Map());
+// => false
+_.isArrayLikeObject({});
+// => false
+_.isArrayLikeObject('abc');
+// => false
+_.isArrayLikeObject(lod.noop);
+// => false
+_.isArrayLikeObject(function(a, b){});
+// => false
+_.isArrayLikeObject(null);
+// => false
+_.isArrayLikeObject(undefined);
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function isArrayLikeObject(value) {
+  if(
+    value == null ||
+    (value).length === undefined ||
+    typeof value === 'function'
+  ) {
+    return false;
+  }
+  if(typeof value === 'object') return true;
+  return false;
+}
 
+isArrayLikeObject([1, 2, 3]);
+// => true
+isArrayLikeObject(document.body.children);
+// => true
+isArrayLikeObject(new Map());
+// => false
+isArrayLikeObject({});
+// => false
+isArrayLikeObject('abc');
+// => false
+isArrayLikeObject(lod.noop);
+// => false
+isArrayLikeObject(function(a, b){});
+// => false
+isArrayLikeObject(null);
+// => false
+isArrayLikeObject(undefined);
+// => false
       `,
     },
     {
