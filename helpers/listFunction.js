@@ -6708,15 +6708,43 @@ forInRight(new Foo, function (value, key) {
     {
       "key": "7:16",
       "name": "forOwn",
-      "description": "",
+      "description": "Перебирает собственные перечисляемые свойства объекта.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+lod.forOwn(new Foo, function(value, key) {
+  console.log(key, value);
+});
+// => a 1
+// => b 2
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function forOwn(obj, callback) {
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      callback(obj[key], key);
+    }
+  }
+}
+
+forOwn(new Foo, function (value, key) {
+  console.log(key, value);
+});
+// => a 1
+// => b 2
       `,
     },
     {
