@@ -4609,15 +4609,77 @@ isElement('<body>');
     {
       "key": "4:18",
       "name": "isEmpty",
-      "description": "",
+      "description": "Проверяет, является ли значение пустым объектом, коллекцией, map или set.",
       "lodash": `
-
+_.isEmpty(null);
+// => true
+_.isEmpty(undefined);
+// => true
+_.isEmpty('abc');
+// => false
+_.isEmpty(new Set());
+// => true
+_.isEmpty(new Set([1, 2, 3]));
+// => false
+_.isEmpty(new Map());
+// => true
+_.isEmpty(new Map([['a', 1]]));
+// => false
+_.isEmpty(() => {});
+// => true
+_.isEmpty({});
+// => true
+_.isEmpty({'a': 1});
+// => false
+_.isEmpty([]);
+// => true
+_.isEmpty([1, 2, 3]);
+// => false
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function isEmpty(value) {
+  // null or undefined
+  if(value == null) return true;
+  // function
+  if(typeof value === 'function') return true;
+  // Map or Set
+  if(value.size !== undefined) {
+    if(value.size === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // Object or Array
+  if(typeof value === 'object' && Object.entries(value).length === 0) return true;
+  return false;
+}
 
+isEmpty(null);
+// => true
+isEmpty(undefined);
+// => true
+isEmpty('abc');
+// => false
+isEmpty(new Set());
+// => true
+isEmpty(new Set([1, 2, 3]));
+// => false
+isEmpty(new Map());
+// => true
+isEmpty(new Map([['a', 1]]));
+// => false
+isEmpty(() => {});
+// => true
+isEmpty({});
+// => true
+isEmpty({'a': 1});
+// => false
+isEmpty([]);
+// => true
+isEmpty([1, 2, 3]);
+// => false
       `,
     },
     {
