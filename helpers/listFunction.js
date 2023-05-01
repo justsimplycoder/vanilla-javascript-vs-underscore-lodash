@@ -4207,15 +4207,27 @@ castArray([1, 2, 3]);
     {
       "key": "4:7",
       "name": "gt",
-      "description": "",
+      "description": "Проверяет является ли первый параметр больше второго",
       "lodash": `
-
+_.gt(1, 3);
+// => false
+_.gt(3, 3);
+// => false
+_.gt(3, 1);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function gt(el1, el2) {
+  return el1 > el2;
+}
 
+gt(1, 3);
+// => false
+gt(3, 3);
+// => false
+gt(3, 1);
+// => true
       `,
     },
     {
