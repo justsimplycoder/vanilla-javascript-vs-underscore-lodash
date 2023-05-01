@@ -6791,15 +6791,41 @@ forOwnRight(new Foo, function (value, key) {
     {
       "key": "7:18",
       "name": "functions",
-      "description": "",
+      "description": "Создает массив имен свойств функции из собственных перечисляемых свойств объекта.",
       "lodash": `
+function Foo() {
+  this.a = () => 'a';
+  this.b = function() { return 'b' };
+  this.c = 'c';
+}
 
-      `,
-      "underscore": `
+Foo.prototype.d = function() { return 'd' };
 
+_.functions(new Foo);
+// => [ 'a', 'b' ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = () => 'a';
+  this.b = function() { return 'b' };
+  this.c = 'c';
+}
 
+Foo.prototype.d = function() { return 'd' };
+
+function functions(obj) {
+  const result = [];
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop) && typeof obj[prop] === 'function') {
+      result.push(prop);
+    }
+  }
+  return result;
+}
+
+functions(new Foo);
+// => [ 'a', 'b' ]
       `,
     },
     {
