@@ -4257,15 +4257,37 @@ conformsTo(object, { 'b': function(n) { return n > 2; } });
     {
       "key": "4:6",
       "name": "eq",
-      "description": "",
+      "description": "Проверяет является значения эквивалентными",
       "lodash": `
+var object = { 'a': 1 };
+var other = { 'a': 1 };
 
+_.eq(object, object);
+// => true
+_.eq(object, other);
+// => false
+_.eq('a', 'a');
+// => true
+_.eq('a', Object('a'));
+// => false
+_.eq(NaN, NaN);
+// => true
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = { 'a': 1 };
+var other = { 'a': 1 };
 
+Object.is(object, object);
+// => true
+Object.is(object, other);
+// => false
+Object.is('a', 'a');
+// => true
+Object.is('a', Object('a'));
+// => false
+Object.is(NaN, NaN);
+// => true
       `,
     },
     {
