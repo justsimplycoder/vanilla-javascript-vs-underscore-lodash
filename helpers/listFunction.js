@@ -6831,15 +6831,41 @@ functions(new Foo);
     {
       "key": "7:19",
       "name": "functionsIn",
-      "description": "",
+      "description": "Создает массив имен свойств функций из собственных и унаследованных перечисляемых свойств объекта.",
       "lodash": `
+function Foo() {
+  this.a = () => 'a';
+  this.b = function() { return 'b' };
+  this.c = 'c';
+}
 
-      `,
-      "underscore": `
+Foo.prototype.d = function() { return 'd' };
 
+_.functionsIn(new Foo);
+// => [ 'a', 'b', 'd' ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = () => 'a';
+  this.b = function() { return 'b' };
+  this.c = 'c';
+}
 
+Foo.prototype.d = function() { return 'd' };
+
+function functionsIn(obj) {
+  const result = [];
+  for (let prop in obj) {
+    if (typeof obj[prop] === 'function') {
+      result.push(prop);
+    }
+  }
+  return result;
+}
+
+functionsIn(new Foo);
+// => [ 'a', 'b', 'd' ]
       `,
     },
     {
