@@ -6494,15 +6494,71 @@ random(5, true);
     {
       "key": "7:5",
       "name": "create",
-      "description": "",
+      "description": "Создает объект, который наследуется от объекта-прототипа.",
       "lodash": `
+function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
 
+function Circle() {
+  Shape.call(this);
+}
+
+Circle.prototype = _.create(Shape.prototype, {
+  'constructor': Circle
+});
+
+const circle = new Circle();
+
+circle instanceof Circle;
+// => true
+circle instanceof Shape;
+// => true
       `,
       "underscore": `
+function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
 
+function Circle() {
+  Shape.call(this);
+}
+
+Circle.prototype = _.create(Shape.prototype, {
+  'constructor': Circle
+});
+
+const circle = new Circle();
+
+circle instanceof Circle;
+// => true
+circle instanceof Shape;
+// => true
       `,
       "vanillaJavaScript": `
+function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
 
+function Circle() {
+  Shape.call(this);
+}
+
+Circle.prototype = Object.create(Shape.prototype, {
+  'constructor': {
+    value: Circle
+  }
+});
+
+const circle = new Circle();
+
+circle instanceof Circle;
+// => true
+circle instanceof Shape;
+// => true
       `,
     },
     {
