@@ -7027,15 +7027,35 @@ invert({ 'a': 1, 'b': 2, 'c': 1 });
     {
       "key": "7:24",
       "name": "invertBy",
-      "description": "",
+      "description": "Меняет местами ключи и значения, значение ключа можно изменить с помощью переданной функции",
       "lodash": `
+var object = { 'a': 1, 'b': 2, 'c': 1};
 
+_.invertBy(object);
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
+_.invertBy(object, value => 'group' + value);
+// => { group1: [ 'a', 'c' ], group2: [ 'b' ] }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': 2, 'c': 1};
 
+function invertBy(obj, fn = (value) => value) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if(!Array.isArray(newObj[fn(obj[prop])]))
+        newObj[fn(obj[prop])] = [];
+      newObj[fn(obj[prop])].push(prop)
+    }
+  }
+  return newObj;
+}
+
+invertBy(object);
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
+invertBy(object, value => 'group' + value);
+// => { group1: [ 'a', 'c' ], group2: [ 'b' ] }
       `,
     },
     {
