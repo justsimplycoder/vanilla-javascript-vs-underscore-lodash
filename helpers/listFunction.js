@@ -7119,15 +7119,47 @@ Object.keys('hi');
     {
       "key": "7:27",
       "name": "keysIn",
-      "description": "",
+      "description": "Создает массив имен собственных и унаследованных перечисляемых свойств объекта.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.keysIn(new Foo);
+// => [ 'a', 'b', 'c' ]
       `,
       "underscore": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.allKeys(new Foo);
+// => [ 'a', 'b', 'c' ]
       `,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function keysIn(obj) {
+  let arr = [];
+  for (let prop in obj) {
+    arr.push(prop);
+  }
+  return arr;
+}
+
+keysIn(new Foo);
+// => [ 'a', 'b', 'c' ]
       `,
     },
     {
