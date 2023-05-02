@@ -7000,15 +7000,28 @@ Object.hasOwn(other, 'a');
     {
       "key": "7:23",
       "name": "invert",
-      "description": "",
+      "description": "Создает объект, состоящий из инвертированных ключей и значений объекта.",
       "lodash": `
-
+_.invert({ 'a': 1, 'b': 2, 'c': 1 });
+// => { '1': 'c', '2': 'b' }
       `,
       "underscore": `
-
+_.invert({ 'a': 1, 'b': 2, 'c': 1 });
+// => { '1': 'c', '2': 'b' }
       `,
       "vanillaJavaScript": `
+function invert(obj) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      newObj[obj[prop]] = prop;
+    }
+  }
+  return newObj;
+}
 
+invert({ 'a': 1, 'b': 2, 'c': 1 });
+// => { '1': 'c', '2': 'b' }
       `,
     },
     {
