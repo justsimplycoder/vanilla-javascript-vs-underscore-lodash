@@ -7075,15 +7075,45 @@ invertBy(object, value => 'group' + value);
     {
       "key": "7:26",
       "name": "keys",
-      "description": "",
+      "description": "Создает массив имен собственных перечисляемых свойств объекта.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.keys(new Foo);
+// => [ 'a', 'b' ]
+_.keys('hi');
+// => [ '0', '1' ]
       `,
       "underscore": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.keys(new Foo);
+// => [ 'a', 'b' ]
+_.keys('hi');
+// => []
       `,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+Object.keys(new Foo);
+// => [ 'a', 'b' ]
+Object.keys('hi');
+// => [ '0', '1' ]
       `,
     },
     {
