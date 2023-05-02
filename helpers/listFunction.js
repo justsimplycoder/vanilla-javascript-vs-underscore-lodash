@@ -6941,15 +6941,46 @@ functionsIn(new Foo);
     {
       "key": "7:21",
       "name": "has",
-      "description": "",
+      "description": "Проверяет есть ли собственное свойство в объекте",
       "lodash": `
+const object = { 'a': { 'b': 2 } };
+const other = _.create({ 'a': _.create({ 'b': 2 }) });
 
+_.has(object, 'a');
+// => true
+_.has(object, 'a.b');
+// => true
+_.has(other, 'a');
+// => false
       `,
       "underscore": `
+const object = { 'a': { 'b': 2 } };
+const other = _.create({ 'a': _.create({ 'b': 2 }) });
 
+_.has(object, 'a');
+// => true
+_.has(object, 'a.b');
+// => false
+_.has(other, 'a');
+// => false
       `,
       "vanillaJavaScript": `
+const object = { 'a': { 'b': 2 } };
+const other = Object.create({ 'a': Object.create({'b': 2}) });
 
+object.hasOwnProperty('a');
+// => true
+object.a.hasOwnProperty('b');
+// => true
+other.hasOwnProperty('a');
+// => false
+
+Object.hasOwn(object, 'a');
+// => true
+Object.hasOwn(object.a, 'b');
+// => true
+Object.hasOwn(other, 'a');
+// => false
       `,
     },
     {
