@@ -7193,15 +7193,47 @@ mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
     {
       "key": "7:29",
       "name": "mapValues",
-      "description": "",
+      "description": "Создаёт объект с теми же ключами, но с изменёнными значениями",
       "lodash": `
+var users = {
+  'fred':    { 'user': 'fred',    'age': 40 },
+  'pebbles': { 'user': 'pebbles', 'age': 1 }
+};
 
+_.mapValues(users, function(o) { return o.age; });
+// => { fred: 40, pebbles: 1 }
+_.mapValues(users, 'age');
+// => { fred: 40, pebbles: 1 }
+_.mapValues(users, function(o) {return 12;});
+// => { fred: 12, pebbles: 12 }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = {
+  'fred':    { 'user': 'fred',    'age': 40 },
+  'pebbles': { 'user': 'pebbles', 'age': 1 }
+};
 
+function mapValues(obj, value) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if(typeof value === 'function'){
+        newObj[prop] = value(obj[prop]);
+      } else {
+        newObj[prop] = obj[prop][value];
+      }
+    }
+  }
+  return newObj;
+}
+
+mapValues(users, function(o) { return o.age; });
+// => { fred: 40, pebbles: 1 }
+mapValues(users, 'age');
+// => { fred: 40, pebbles: 1 }
+mapValues(users, function(o) {return 12;});
+// => { fred: 12, pebbles: 12 }
       `,
     },
     {
