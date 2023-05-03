@@ -7165,15 +7165,29 @@ keysIn(new Foo);
     {
       "key": "7:28",
       "name": "mapKeys",
-      "description": "",
+      "description": "Возвращает изменённый объект с новыми значениями свойств",
       "lodash": `
-
+_.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
+  return key + value;
+});
+// => { a1: 1, b2: 2 }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function mapKeys(obj, callback) {
+  let objKey = {};
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      objKey[callback(obj[prop], prop)] = obj[prop];
+    }
+  }
+  return objKey;
+}
 
+mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
+  return key + value;
+});
+// => { a1: 1, b2: 2 }
       `,
     },
     {
