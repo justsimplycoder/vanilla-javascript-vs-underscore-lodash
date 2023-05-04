@@ -6424,15 +6424,41 @@ random(5, true);
     {
       "key": "7:0",
       "name": "assign",
-      "description": "",
+      "description": "Присваивает собственные перечисляемые строковые свойства исходных объектов целевому объекту.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.b = 2;
 
+function Bar() {
+  this.c = 3;
+}
+
+Bar.prototype.d = 4;
+
+_.assign({ 'a': 0 }, new Foo, new Bar);
+// => { a: 1, c: 3 }
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+}
 
+Foo.prototype.b = 2;
+
+function Bar() {
+  this.c = 3;
+}
+
+Bar.prototype.d = 4;
+
+Object.assign({ 'a': 0 }, new Foo, new Bar);
+// => { a: 1, c: 3 }
+{...{'a': 0}, ...new Foo, ...new Bar};
+// => { a: 1, c: 3 }
       `,
     },
     {
