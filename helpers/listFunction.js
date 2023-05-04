@@ -6464,15 +6464,49 @@ Object.assign({ 'a': 0 }, new Foo, new Bar);
     {
       "key": "7:1",
       "name": "assignIn",
-      "description": "",
+      "description": "Этот метод похож на _.assign, за исключением того, что он перебирает собственные и унаследованные исходные свойства.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.b = 2;
 
+function Bar() {
+  this.c = 3;
+}
+
+Bar.prototype.d = 4;
+
+_.assignIn({ 'a': 0 }, new Foo, new Bar);
+// => { a: 1, b: 2, c: 3, d: 4 }
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+}
 
+Foo.prototype.b = 2;
+
+function Bar() {
+  this.c = 3;
+}
+
+Bar.prototype.d = 4;
+
+function assignIn(...objects) {
+  let newObj = {};
+  objects.forEach(obj => {
+    for (let prop in obj) {
+      newObj[prop] = obj[prop];
+    }
+  });
+  return newObj;
+}
+
+assignIn({ 'a': 0 }, new Foo, new Bar);
+// => { a: 1, b: 2, c: 3, d: 4 }
       `,
     },
     {
