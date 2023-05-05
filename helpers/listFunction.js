@@ -7327,15 +7327,36 @@ mapValues(users, function(o) {return 12;});
     {
       "key": "7:32",
       "name": "omit",
-      "description": "",
+      "description": "Противоположность _.pick; этот метод создает объект, состоящий из собственных и унаследованных перечисляемых путей свойств объекта, которые не опущены.",
       "lodash": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.omit(object, ['a', 'c']);
+// => { b: '2' }
       `,
       "underscore": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.omit(object, 'a', 'c');
+// => { b: '2' }
+_.omit(object, ['a', 'c']);
+// => { b: '2' }
       `,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+function omit(obj, arr) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (!arr.includes(prop) && obj.hasOwnProperty(prop)) {
+      newObj[prop] = obj[prop];
+    }
+  }
+  return newObj;
+}
+
+omit(object, ['a', 'c']);
+// => { b: '2' }
       `,
     },
     {
