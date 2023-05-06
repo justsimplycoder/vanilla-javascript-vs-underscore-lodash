@@ -7376,15 +7376,36 @@ omit(object, ['a', 'c']);
     {
       "key": "7:34",
       "name": "pick",
-      "description": "",
+      "description": "Создает объект, состоящий из выбранных свойств объекта.",
       "lodash": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.pick(object, ['a', 'c']);
+// => { a: 1, c: 3 }
       `,
       "underscore": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.pick(object, 'a', 'c');
+// => { a: 1, c: 3 }
+_.pick(object, ['a', 'c']);
+// => { a: 1, c: 3 }
       `,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+function pick(obj, arr) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (arr.includes(prop) && obj.hasOwnProperty(prop)) {
+      newObj[prop] = obj[prop];
+    }
+  }
+  return newObj;
+}
+
+pick(object, ['a', 'c']);
+// => { a: 1, c: 3 }
       `,
     },
     {
