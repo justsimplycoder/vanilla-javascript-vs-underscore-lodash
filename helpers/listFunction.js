@@ -7362,15 +7362,34 @@ omit(object, ['a', 'c']);
     {
       "key": "7:33",
       "name": "omitBy",
-      "description": "",
+      "description": "Противоположность _.pickBy; этот метод создает объект, состоящий из собственных и унаследованных перечисляемых строковых свойств с ключом объекта, для которого предикат не возвращает истинности.",
       "lodash": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.omit(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { b: '2' }
       `,
       "underscore": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.omit(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { b: '2' }
       `,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+function omitBy(obj, fn) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (!fn(obj[prop], prop, obj) && obj.hasOwnProperty(prop)) {
+      newObj[prop] = obj[prop];
+    }
+  }
+  return newObj;
+}
+
+omitBy(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { b: '2' }
       `,
     },
     {
