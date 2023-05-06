@@ -7430,15 +7430,34 @@ pick(object, ['a', 'c']);
     {
       "key": "7:35",
       "name": "pickBy",
-      "description": "",
+      "description": "Создаёт объект удовлетворяющим свойствам переданной функции",
       "lodash": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.pickBy(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { a: 1, c: 3 }
       `,
       "underscore": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+_.pick(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { a: 1, c: 3 }
       `,
       "vanillaJavaScript": `
+var object = { 'a': 1, 'b': '2', 'c': 3 };
 
+function pickBy(obj, fn) {
+  let newObj = {};
+  for (let prop in obj) {
+    if (fn(obj[prop], prop, obj) && obj.hasOwnProperty(prop)) {
+      newObj[prop] = obj[prop];
+    }
+  }
+  return newObj;
+}
+
+pickBy(object, (value, key, obj) => ['a', 'c'].includes(key));
+// => { a: 1, c: 3 }
       `,
     },
     {
