@@ -7505,15 +7505,31 @@ pickBy(object, (value, key, obj) => ['a', 'c'].includes(key));
     {
       "key": "7:39",
       "name": "toPairs",
-      "description": "",
+      "description": "Создает массив собственных перечисляемых пар ключ-значение",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.toPairs(new Foo);
+// => [ [ 'a', 1 ], [ 'b', 2 ] ]
+_.entries(new Foo); // alias
+// => [ [ 'a', 1 ], [ 'b', 2 ] ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+Object.entries(new Foo);
+// => [ [ 'a', 1 ], [ 'b', 2 ] ]
       `,
     },
     {
