@@ -6540,15 +6540,34 @@ assignIn({ 'a': 0 }, new Foo, new Bar);
     {
       "key": "7:4",
       "name": "at",
-      "description": "",
+      "description": "Создает массив значений, соответствующих путям объекта.",
       "lodash": `
+const object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
 
+_.at(object, ['a[0].b.c', 'a[1]', 'a[3]']);
+// => [ 3, 4, undefined ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
 
+[object.a[0].b.c, object.a[1], object.a[3]];
+// => [ 3, 4, undefined ]
+
+function at(obj, arr) {
+  arr = arr.map(patch => {
+    let el = patch.replace(']', '').split(/\\.|\\[/);
+    let o = obj;
+    el.forEach(pop => {
+      o = o[pop];
+    });
+    return o;
+  });
+  return arr;
+}
+
+at(object, ['a[0].b.c', 'a[1]', 'a[3]']);
+// => [ 3, 4, undefined ]
       `,
     },
     {
