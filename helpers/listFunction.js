@@ -7705,15 +7705,37 @@ Object.values('hi');
     {
       "key": "7:46",
       "name": "valuesIn",
-      "description": "",
+      "description": "Создает массив собственных и унаследованных перечисляемых строковых значений свойств объекта.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.valuesIn(new Foo);
+// => [ 1, 2, 3 ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function valuesIn(obj) {
+  let arr = [];
+  for (let prop in obj) {
+    arr.push(obj[prop]);
+  }
+  return arr;
+}
+
+valuesIn(new Foo);
+// => [ 1, 2, 3 ]
       `,
     }
   ]
