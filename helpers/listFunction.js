@@ -7535,15 +7535,39 @@ Object.entries(new Foo);
     {
       "key": "7:40",
       "name": "toPairsIn",
-      "description": "",
+      "description": "Создает массив собственных и унаследованных перечислимых пар ключ-значение строки для объекта",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.toPairsIn(new Foo);
+// => [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
+_.entriesIn(new Foo); // alias
+// => [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+function toPairsIn(obj) {
+  let arr = [];
+  for(let prop in obj) {
+    arr.push([prop, obj[prop]]);
+  }
+  return arr;
+}
+
+toPairsIn(new Foo);
+// => [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
       `,
     },
     {
