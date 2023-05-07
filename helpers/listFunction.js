@@ -6643,15 +6643,41 @@ circle instanceof Shape;
     {
       "key": "7:6",
       "name": "defaults",
-      "description": "",
+      "description": "Назначает собственные и унаследованные перечисляемые строковые свойства исходных объектов целевому объекту для всех свойств назначения, которые разрешаются в значение undefined. ",
       "lodash": `
+function Foo() {
+  this.a = 111;
+}
 
-      `,
-      "underscore": `
+Foo.prototype.c = 3;
 
+_.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+// => { a: 1, b: 2 }
+_.defaults({ 'a': 1 }, { 'b': 2 }, new Foo(), { 'a': 3 });
+// => { a: 1, b: 2, c: 3 }
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 111;
+}
 
+Foo.prototype.c = 3;
+
+function defaults(object, ...objects) {
+  let obj = Object.assign({}, object);
+  objects.forEach(o => {
+    for (let prop in o) {
+      if(!(prop in obj)) obj[prop] = o[prop];
+    }
+  });
+  return obj;
+}
+
+defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+// => { a: 1, b: 2 }
+defaults({ 'a': 1 }, { 'b': 2 }, new Foo(), { 'a': 3 });
+// => { a: 1, b: 2, c: 3 }
       `,
     },
     {
