@@ -7573,15 +7573,47 @@ toPairsIn(new Foo);
     {
       "key": "7:41",
       "name": "transform",
-      "description": "",
+      "description": "Альтернатива _.reduce; этот метод преобразует объект в новый объект-аккумулятор, который является результатом запуска каждого из его собственных перечисляемых строковых свойств с ключом через итерацию, при этом каждый вызов потенциально мутирует объект-аккумулятор.",
       "lodash": `
+_.transform({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+  (result[value] || (result[value] = [])).push(key);
+}, {});
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
 
+_.transform([2, 3, 4], function(result, n) {
+  result.push(n *= n);
+  return n % 2 == 0;
+}, []);
+// => [ 4, 9 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function transform(obj, callback, result = {}) {
+  if(Array.isArray(result)) {
+    for(let el of obj) {
+      let isBreak = callback(result, el);
+      if(!isBreak) break;
+    }
+  } else {
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        callback(result, obj[key], key);
+      }
+    }
+  }
+  return result;
+}
 
+transform({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+  (result[value] || (result[value] = [])).push(key);
+}, {});
+// => { '1': [ 'a', 'c' ], '2': [ 'b' ] }
+
+transform([2, 3, 4], function(result, n) {
+  result.push(n *= n);
+  return n % 2 == 0;
+}, [])
+// => [ 4, 9 ]
       `,
     },
     {
