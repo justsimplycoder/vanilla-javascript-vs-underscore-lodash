@@ -7661,15 +7661,45 @@ transform([2, 3, 4], function(result, n) {
     {
       "key": "7:45",
       "name": "values",
-      "description": "",
+      "description": "Создает массив значений собственных перечисляемых строковых ключей объекта.",
       "lodash": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.values(new Foo);
+// => [ 1, 2 ]
+_.values('hi');
+// => [ 'h', 'i' ]
       `,
       "underscore": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+_.values(new Foo);
+// => [ 1, 2 ]
+_.values('hi');
+// -> []
       `,
       "vanillaJavaScript": `
+function Foo() {
+  this.a = 1;
+  this.b = 2;
+}
 
+Foo.prototype.c = 3;
+
+Object.values(new Foo);
+// => [ 1, 2 ]
+Object.values('hi');
+// => [ 'h', 'i' ]
       `,
     },
     {
