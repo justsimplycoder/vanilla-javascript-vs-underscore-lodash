@@ -6843,15 +6843,89 @@ findKey(users, 'active');
     {
       "key": "7:13",
       "name": "findLastKey",
-      "description": "",
+      "description": "Этот метод похож на _.findKey, за исключением того, что он перебирает элементы коллекции в обратном порядке.",
       "lodash": `
+var users = {
+  'barney':  { 'age': 36, 'active': true },
+  'fred':    { 'age': 40, 'active': false },
+  'pebbles': { 'age': 1,  'active': true }
+};
 
+_.findLastKey(users, function(o) { return o.age < 40; });
+// => pebbles
+_.findLastKey(users, { 'age': 36, 'active': true });
+// => barney
+_.findLastKey(users, ['active', false]);
+// => fred
+_.findLastKey(users, 'active');
+// => pebbles
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var users = {
+  'barney':  { 'age': 36, 'active': true },
+  'fred':    { 'age': 40, 'active': false },
+  'pebbles': { 'age': 1,  'active': true }
+};
 
+const strategy = {};
+
+strategy.functionFindKey = (obj, value) => {
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if(value(obj[prop])) return prop;
+    }
+  }
+  return false;
+}
+
+strategy.stringFindKey = (obj, value) => {
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if(obj[prop][value] !== undefined) return prop;
+    }
+  }
+  return false;
+}
+
+strategy.arrayFindKey = (obj, value) => {
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      if(obj[prop][value[0]] === value[1]) return prop;
+    }
+  }
+  return false;
+}
+
+strategy.objectFindKey = (obj, value) => {
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      let isEqual = false;
+        for (let p in value) {
+          if(obj[prop][p] === value[p]) isEqual = true;
+          if(isEqual === false) break;
+        }
+        if(isEqual === true) return prop;
+    }
+  }
+  return false;
+}
+
+function findLastKey(obj, value) {
+  let arrObj = Object.entries(obj).reverse();
+  obj = Object.fromEntries(arrObj);
+  if(Array.isArray(value)) return strategy['arrayFindKey'](obj, value);
+  return strategy[typeof value + 'FindKey'](obj, value);
+}
+
+findLastKey(users, function(o) { return o.age < 40; });
+// => pebbles
+findLastKey(users, { 'age': 36, 'active': true });
+// => barney
+findLastKey(users, ['active', false]);
+// => fred
+findLastKey(users, 'active');
+// => pebbles
       `,
     },
     {
