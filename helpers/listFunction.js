@@ -7316,15 +7316,32 @@ invertBy(object, value => 'group' + value);
     {
       "key": "7:25",
       "name": "invoke",
-      "description": "",
+      "description": "Вызывает метод по пути объекта.",
       "lodash": `
+var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };
 
+_.invoke(object, 'a[0].b.c.slice', 1, 3);
+// => [ 2, 3 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };
 
+object.a[0].b.c.slice(1, 3);
+// => [ 2, 3 ]
+
+function invoke(obj, pathAndMethod, ...args) {
+  let pam = pathAndMethod.replace(']', '').split(/\\.|\\[/);
+  let o = obj;
+  pam.slice(0, -1).forEach(pop => {
+    o = o[pop];
+  });
+  const funcName = pam[pam.length - 1];
+  return o[funcName](...args);
+}
+
+invoke(object, 'a[0].b.c.slice', 1, 3);
+// => [ 2, 3 ]
       `,
     },
     {
