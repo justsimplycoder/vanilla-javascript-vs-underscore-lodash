@@ -7544,15 +7544,53 @@ Object.assign({ cpp: "12" }, { cpp: "23" }, { java: "23" }, { python:"35" });
     {
       "key": "7:31",
       "name": "mergeWith",
-      "description": "",
+      "description": "Этот метод похож на _.merge, за исключением того, что он принимает настройщик, который вызывается для создания объединенных значений свойств назначения и источника.",
       "lodash": `
+var object = {
+  'amit': [{ 'susanta': 20 }, { 'durgam': 40 }]
+};
 
-      `,
-      "underscore": `
+var other = {
+  'amit': [{ 'chinmoy': 30 }, { 'kripamoy': 50 }]
+};
 
+_.mergeWith(object, other)
+// => { ‘amit’: [{‘chinmoy’: 30, ‘susanta’: 20 }, { ‘durgam’: 40, ‘kripamoy’: 50 }] }
+
+function customizer(obj, src) {
+  if (_.isArray(obj)) {
+    return obj.concat(src);
+  }
+}
+
+var object1 = {
+  'amit': [{ 'susanta': 20 }, { 'durgam': 40 }]
+};
+
+_.mergeWith(object1, other, customizer);
+// => { ‘amit’: [{‘susanta’: 20 }, { ‘durgam’: 40}, {‘chinmoy’: 30}, {‘kripamoy’: 50 } ]}
       `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = {
+  'amit': [{ 'susanta': 20 }, { 'durgam': 40 }]
+};
 
+var other = {
+  'amit': [{ 'chinmoy': 30 }, { 'kripamoy': 50 }]
+};
+
+object.amit.map((el, i) => Object.assign(el, other.amit[i]));
+object;
+// => { ‘amit’: [{‘chinmoy’: 30, ‘susanta’: 20 }, { ‘durgam’: 40, ‘kripamoy’: 50 }] }
+
+var object1 = {
+  'amit': [{ 'susanta': 20 }, { 'durgam': 40 }]
+};
+
+object1.amit = object1.amit.concat(other.amit);
+object1;
+// => { ‘amit’: [{‘susanta’: 20 }, { ‘durgam’: 40}, {‘chinmoy’: 30}, {‘kripamoy’: 50 } ]}
       `,
     },
     {
