@@ -7511,15 +7511,34 @@ mapValues(users, function(o) {return 12;});
     {
       "key": "7:30",
       "name": "merge",
-      "description": "",
+      "description": "Этот метод аналогичен _.assign, за исключением того, что он рекурсивно объединяет собственные и унаследованные перечисляемые строковые свойства исходных объектов с целевым объектом.",
       "lodash": `
+const object = {
+  'a': [{ 'b': 2 }, { 'd': 4 }]
+};
+const other = {
+  'a': [{ 'c': 3 }, { 'e': 5 }]
+};
 
+_.merge(object, other);
+// => { a: [ { b: 2, c: 3 }, { d: 4, e: 5 } ] }
+_.merge({ cpp: "12" }, { cpp: "23" }, { java: "23" }, { python:"35" });
+// => { cpp: '23', java: '23', python: '35' }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const object = {
+  'a': [{ 'b': 2 }, { 'd': 4 }]
+};
+const other = {
+  'a': [{ 'c': 3 }, { 'e': 5 }]
+};
 
+object.a.map((el, i) => Object.assign(el, other.a[i]));
+object;
+// => { a: [ { b: 2, c: 3 }, { d: 4, e: 5 } ] }
+Object.assign({ cpp: "12" }, { cpp: "23" }, { java: "23" }, { python:"35" });
+// => { cpp: '23', java: '23', python: '35' }
       `,
     },
     {
