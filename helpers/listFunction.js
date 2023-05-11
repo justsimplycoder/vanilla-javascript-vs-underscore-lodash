@@ -8174,15 +8174,27 @@ valuesIn(new Foo);
     {
       "key": "8:8",
       "name": "_.prototype.next",
-      "description": "",
+      "description": "Возвращает следующее значение итератора",
       "lodash": `
+var wrapped = lod([1, 2]);
 
+wrapped.next();
+// => { done: false, value: 1 }
+wrapped.next();
+// => { done: false, value: 2 }
+wrapped.next();
+// => { done: true, value: undefined }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const wrapped = [1, 2].values();
 
+wrapped.next();
+// => { value: 1, done: false }
+wrapped.next();
+// => { value: 2, done: false }
+wrapped.next();
+// => { value: undefined, done: true }
       `,
     },
     {
