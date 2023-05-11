@@ -7182,15 +7182,44 @@ functionsIn(new Foo);
     {
       "key": "7:20",
       "name": "get",
-      "description": "",
+      "description": "Получает значение по пути объекта. ",
       "lodash": `
+var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
 
+_.get(object, 'a[0].b.c');
+// => 3
+_.get(object, ['a', '0', 'b', 'c']);
+// => 3
+_.get(object, 'a.b.c', 'default');
+// => default
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
 
+function get(obj, patch, defaultValue = undefined) {
+  let o = obj;
+  if(typeof patch === 'string') patch = patch.replace('[', '.').replace(']', '').split('.');
+  if (Array.isArray(patch)) {
+    for (let i = 0; i < patch.length; i++) {
+      if(patch[i] in o) {
+        o = o[patch[i]];
+      } else {
+        return defaultValue;
+      }
+    }
+    return o;
+  } else {
+    return defaultValue;
+  }
+}
+
+get(object, 'a[0].b.c');
+// => 3
+get(object, ['a', '0', 'b', 'c']);
+// => 3
+get(object, 'a.b.c', 'default');
+// => default
       `,
     },
     {
