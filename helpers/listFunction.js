@@ -6683,15 +6683,31 @@ defaults({ 'a': 1 }, { 'b': 2 }, new Foo(), { 'a': 3 });
     {
       "key": "7:7",
       "name": "defaultsDeep",
-      "description": "",
+      "description": "Этот метод похож на _.defaults, за исключением того, что он рекурсивно присваивает свойства по умолчанию.",
       "lodash": `
-
+_.defaultsDeep({ 'a': { 'b': 2 } }, { 'a': { 'b': 1, 'c': 3 } });
+// => { a: { b: 2, c: 3 } }
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function defaultsDeep(object, ...objects) {
+  objects.forEach(obj => {
+    for (let prop in obj) {
+      if(
+        Object.prototype.toString.call(obj[prop]) === "[object Object]" &&
+        obj[prop] !== null
+      ) {
+        object[prop] = Object.assign(obj[prop], object[prop]);
+      } else {
+        object[prop] = obj[prop];
+      }
+    }
+  });
+  return object;
+}
 
+defaultsDeep({ 'a': { 'b': 2 } }, { 'a': { 'b': 1, 'c': 3 } });
+// => { a: { b: 2, c: 3 } }
       `,
     },
     {
