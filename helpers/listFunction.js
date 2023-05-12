@@ -8078,13 +8078,71 @@ valuesIn(new Foo);
       "name": "_.chain",
       "description": "",
       "lodash": `
+const users = [
+  { 'user': 'barney',  'age': 36 },
+  { 'user': 'fred',    'age': 40 },
+  { 'user': 'pebbles', 'age': 1 }
+];
 
+const youngest = _
+  .chain(users)
+  .sortBy('age')
+  .map(function(o) {
+    return o.user + ' is ' + o.age;
+  })
+  .head()
+  .value();
+// => pebbles is 1
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+const users = [
+  { 'user': 'barney',  'age': 36 },
+  { 'user': 'fred',    'age': 40 },
+  { 'user': 'pebbles', 'age': 1 }
+];
 
+// Вариант 1
+const youngest = users.sort((a, b) => a.age - b.age).map(el => el.user + ' is ' + el.age)[0];
+// => pebbles is 1
+
+// Вариант 2
+class Chain {
+  #arr = null;
+
+  constructor(arr) {
+    this.#arr = JSON.parse(JSON.stringify(arr));
+  }
+
+  sortBy(prop) {
+    this.#arr = this.#arr.sort((a, b) => a[prop] - b[prop]);
+    return this;
+  }
+
+  map(callback) {
+    this.#arr = this.#arr.map(callback);
+    return this;
+  }
+
+  head() {
+    this.#arr = this.#arr.slice(0, 1);
+    return this;
+  }
+
+  value() {
+    return this.#arr.length === 1 ? this.#arr[0] : this.#arr;
+  }
+}
+
+const youngest = new Chain(users)
+  .sortBy('age')
+  .map(function(o) {
+    return o.user + ' is ' + o.age;
+  })
+  .head()
+  .value();
+
+// => pebbles is 1
       `,
     },
     {
