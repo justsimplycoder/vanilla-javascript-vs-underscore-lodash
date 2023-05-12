@@ -8061,7 +8061,7 @@ valuesIn(new Foo);
   "content": [
     {
       "key": "8:0",
-      "name": "_",
+      "name": "",
       "description": "",
       "lodash": `
 
@@ -8075,7 +8075,7 @@ valuesIn(new Foo);
     },
     {
       "key": "8:1",
-      "name": "_.chain",
+      "name": "chain",
       "description": "",
       "lodash": `
 const users = [
@@ -8147,7 +8147,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:2",
-      "name": "_.tap",
+      "name": "tap",
       "description": "",
       "lodash": `
 
@@ -8161,7 +8161,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:3",
-      "name": "_.thru",
+      "name": "thru",
       "description": "",
       "lodash": `
 
@@ -8175,7 +8175,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:4",
-      "name": "_.prototype[Symbol.iterator]",
+      "name": "prototype[Symbol.iterator]",
       "description": "",
       "lodash": `
 
@@ -8189,7 +8189,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:5",
-      "name": "_.prototype.at",
+      "name": "prototype.at",
       "description": "",
       "lodash": `
 
@@ -8203,7 +8203,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:6",
-      "name": "_.prototype.chain",
+      "name": "prototype.chain",
       "description": "",
       "lodash": `
 
@@ -8217,7 +8217,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:7",
-      "name": "_.prototype.commit",
+      "name": "prototype.commit",
       "description": "",
       "lodash": `
 
@@ -8231,7 +8231,7 @@ const youngest = new Chain(users)
     },
     {
       "key": "8:8",
-      "name": "_.prototype.next",
+      "name": "prototype.next",
       "description": "Возвращает следующее значение итератора",
       "lodash": `
 var wrapped = lod([1, 2]);
@@ -8257,7 +8257,7 @@ wrapped.next();
     },
     {
       "key": "8:9",
-      "name": "_.prototype.plant",
+      "name": "prototype.plant",
       "description": "",
       "lodash": `
 
@@ -8271,7 +8271,7 @@ wrapped.next();
     },
     {
       "key": "8:10",
-      "name": "_.prototype.reverse",
+      "name": "prototype.reverse",
       "description": "",
       "lodash": `
 
@@ -8285,7 +8285,7 @@ wrapped.next();
     },
     {
       "key": "8:11",
-      "name": "_.prototype.toJSON -> value",
+      "name": "prototype.toJSON -> value",
       "description": "",
       "lodash": `
 
@@ -8299,7 +8299,7 @@ wrapped.next();
     },
     {
       "key": "8:12",
-      "name": "_.prototype.value",
+      "name": "prototype.value",
       "description": "",
       "lodash": `
 
@@ -8313,7 +8313,7 @@ wrapped.next();
     },
     {
       "key": "8:13",
-      "name": "_.prototype.valueOf -> value",
+      "name": "prototype.valueOf -> value",
       "description": "",
       "lodash": `
 
