@@ -8300,15 +8300,15 @@ wrapped.next();
     {
       "key": "8:10",
       "name": "prototype.reverse",
-      "description": "",
+      "description": "Изменяет порядок следования элементов в массиве на обратный",
       "lodash": `
-
+_([1, 2, 3]).reverse().value();
+// => [ 3, 2, 1 ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
-
+[1, 2, 3].reverse();
+// => [ 3, 2, 1 ]
       `,
     },
     {
