@@ -8190,15 +8190,49 @@ new Tap([1, 2, 3])
     {
       "key": "8:3",
       "name": "thru",
-      "description": "",
+      "description": "Этот метод подобен _.tap, за исключением того, что он возвращает результат перехватчика.",
       "lodash": `
-
+_('  abc  ')
+  .chain()
+  .trim()
+  .thru(function(value) {
+   return [value];
+  })
+  .value();
+// => [ 'abc' ]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+// Вариант 1
+['  abc  '.trim()];
+// => [ 'abc' ]
 
+// Вариант 2
+class Thru {
+  #str = null;
+  constructor(str) {
+    this.#str = str;
+  }
+  trim() {
+    this.#str = this.#str.trim();
+    return this;
+  }
+  thru(callback) {
+    this.#str = callback(this.#str);
+    return this;
+  }
+  value() {
+    return this.#str;
+  }
+}
+
+new Thru('  abc  ')
+  .trim()
+  .thru(function(value) {
+   return [value];
+  })
+  .value();
+// => [ 'abc' ]
       `,
     },
     {
