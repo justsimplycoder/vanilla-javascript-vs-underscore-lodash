@@ -9501,15 +9501,23 @@ _.words('яблоки, груши, сливы');
     {
       "key": "10:18",
       "name": "over",
-      "description": "",
+      "description": "Создает функцию, которая вызывает итерации с аргументами, которые она получает, и возвращает их результаты.",
       "lodash": `
-
+const func = _.over([Math.max, Math.min]);
+func(1, 2, 3, 4);
+// => [4, 1]
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+function over(arr) {
+  return function(...args){
+    return arr.map(f => f(...args));
+  };
+}
 
+const func = over([Math.max, Math.min]);
+func(1, 2, 3, 4);
+// => [4, 1]
       `,
     },
     {
