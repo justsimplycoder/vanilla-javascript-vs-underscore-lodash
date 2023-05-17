@@ -9892,15 +9892,27 @@ range()
     {
       "key": "10:33",
       "name": "uniqueId",
-      "description": "",
+      "description": "Создает уникальный идентификатор",
       "lodash": `
-
+_.uniqueId('contact_');
+// => contact_1
+_.uniqueId();
+// => 2
       `,
-      "underscore": `
-
-      `,
+      "underscore": undefined,
       "vanillaJavaScript": `
+let uniqueId = (function () {
+  let id = 0;
+  return function(prefix=''){
+    id++;
+    return prefix + id;
+  };
+})();
 
+uniqueId('contact_');
+// => contact_1
+uniqueId();
+// => 2
       `,
     }
   ]
