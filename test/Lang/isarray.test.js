@@ -1,7 +1,3 @@
-function isArray(value) {
-	return Array.isArray(value);
-}
-
 describe('isArray', function() {
 	it('должен возвращать `true` для массивов', function() {
 		assert.strictEqual(isArray([1, 2, 3]), true);

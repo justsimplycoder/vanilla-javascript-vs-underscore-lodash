@@ -14,5 +14,9 @@ console.log("lod.isArray([1, 2, 3])", lod.isArray([1, 2, 3]));
 console.log("lod.isArray('abc')", lod.isArray('abc'));
 
 // es6
-console.log("Array.isArray([1, 2, 3])", Array.isArray([1, 2, 3]));
-console.log("Array.isArray('abc')", Array.isArray('abc'));
+function isArray(value) {
+  return Array.isArray(value);
+}
+
+console.log("isArray([1, 2, 3])", isArray([1, 2, 3]));
+console.log("isArray('abc')", isArray('abc'));
