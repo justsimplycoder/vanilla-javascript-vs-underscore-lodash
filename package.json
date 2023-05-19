@@ -8,8 +8,14 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "lodash": "^4.17.21",
-    "underscore": "^1.13.6"
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "chai": "^4.3.7",
+    "highlight.js": "^11.8.0",
+    "lodash-es": "^4.17.21",
+    "mocha": "^10.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "underscore-es": "^1.9.8"
   }
 }
