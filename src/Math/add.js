@@ -10,5 +10,8 @@ console.log("lod.add(4, 6)", lod.add(4, 6));
 console.log("lod.add('4', '6')", lod.add('4', '6'));
 
 // es6
-console.log("4 + 6", 4 + 6);
-console.log("'4' + '6'", '4' + '6');
+function add(a, b) {
+  return a + b;
+}
+console.log("add(4, 6)", add(4, 6));
+console.log("add('4', '6')", add('4', '6'));
