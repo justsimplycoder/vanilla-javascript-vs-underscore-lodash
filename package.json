@@ -13,6 +13,7 @@
     "babel-standalone": "^6.26.0",
     "chai": "^4.3.7",
     "highlight.js": "^11.8.0",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "mocha": "^10.2.0",
     "react": "^18.2.0",
