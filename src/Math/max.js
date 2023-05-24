@@ -1,15 +1,13 @@
-const und = require('underscore');
-const lod = require('lodash');
-
 /**
  * max - максимальное значение массива
  */
+function max(arr) {
+  if(arr.length === 0) return undefined;
+  let current = arr[0];
+  for (let elem of arr) {
+    if(elem > current) current = elem;
+  }
+  return current;
+}
 
-// underscore
-console.log("und.max([4, 2, 8, 6])", und.max([4, 2, 8, 6]));
-
-// lodash
-console.log("lod.max([4, 2, 8, 6])", lod.max([4, 2, 8, 6]));
-
-// es6
-console.log("Math.max(...[4, 2, 8, 6])", Math.max(...[4, 2, 8, 6]));
+export default max;
