@@ -1,15 +1,20 @@
-const und = require('underscore');
-const lod = require('lodash');
-
 /**
  * min - минимальное значение массива
  */
 
-// underscore
-console.log("und.min([4, 2, 8, 6])", und.min([4, 2, 8, 6]));
+function min(arr) {
+	if(arr.length === 0 && !Array.isArray(arr)) return undefined;
+	if(typeof arr[0] === 'number') {
+		return Math.min(...arr);
+	}  else if(typeof arr[0] === 'string') {
+		let current = arr[0];
+		for (let elem of arr) {
+			if(elem < current) current = elem;
+		}
+		return current;
+	} else {
+		return undefined;
+	}
+}
 
-// lodash
-console.log("lod.min([4, 2, 8, 6])", lod.min([4, 2, 8, 6]));
-
-// es6
-console.log("Math.min(...[4, 2, 8, 6])", Math.min(...[4, 2, 8, 6]));
+export default min;
