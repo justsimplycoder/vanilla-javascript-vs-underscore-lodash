@@ -1,19 +1,7 @@
-const und = require('underscore');
-const lod = require('lodash');
-
 /**
  * toSafeIntege - Преобразует значение в безопасное целое число.
  */
 
-// lodash
-console.log("lod.toSafeInteger(3.2)", lod.toSafeInteger(3.2));
-console.log("lod.toSafeInteger(Number.MIN_VALUE)", lod.toSafeInteger(Number.MIN_VALUE));
-console.log("lod.toSafeInteger(Infinity)", lod.toSafeInteger(Infinity));
-console.log("lod.toSafeInteger(-Infinity)", lod.toSafeInteger(-Infinity));
-console.log("lod.toSafeInteger('3.2')", lod.toSafeInteger('3.2'));
-console.log("lod.toSafeInteger(NaN)", lod.toSafeInteger(NaN));
-
-// es6
 if (!Math.trunc) {
 	Math.trunc = function(v) {
 		v = +v;
@@ -35,10 +23,4 @@ function toSafeInteger(value) {
 	return 0;
 }
 
-console.log("toSafeInteger(3.2)", toSafeInteger(3.2));
-console.log("toSafeInteger(Number.MIN_VALUE)", toSafeInteger(Number.MIN_VALUE));
-console.log("toSafeInteger(Infinity)", toSafeInteger(Infinity));
-console.log("toSafeInteger(-Infinity)", toSafeInteger(-Infinity));
-console.log("toSafeInteger('3.2')", toSafeInteger('3.2'));
-console.log("toSafeInteger(NaN)", toSafeInteger(NaN));
-
+export default toSafeInteger;
