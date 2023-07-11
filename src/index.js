@@ -1,3 +1,12 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import listFunction from './helpers/listFunction.js';
+import './styles/style.css';
+import './styles/atom-one-dark.min.css';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+
 /**
  * Изменение url без перезагрузки и добавление истории перехода по функциям
  * @param {string} curLoc - название функции
@@ -39,10 +48,10 @@ function MenuCategory(props) {
 
 function Menu() {
 	return (
-		<aside class="l-toc" id="toc">
+		<aside className="l-toc" id="toc">
 			{listFunction.map(category => {
 				return (
-					<React.Fragment>
+					<React.Fragment key={category.key}>
 						<p>{category.title}</p>
 						<MenuCategory category={category} />
 					</React.Fragment>
@@ -57,22 +66,22 @@ function ContentCategory(props) {
 		<React.Fragment>
 			{props.category.content.map(item => {
 				return (
-					<section>
+					<section key={item.key}>
 						<h3><a id={'fn-' + item.name}></a>{'_.' + item.name}</h3>
 						<p>{item.description}</p>
 
 						<h4>Lodash</h4>
-						<pre><code class="language-js">
+						<pre><code className="language-js">
 							{item.lodash ? item.lodash : `\nНет реализации.\n\n`}
 						</code></pre>
 
 						<h4>Underscore</h4>
-						<pre><code class="language-js">
+						<pre><code className="language-js">
 							{item.underscore ? item.underscore : `\nНет реализации.\n\n`}
 						</code></pre>
 
 						<h4>Vanilla JavaScript</h4>
-						<pre><code class="language-js">
+						<pre><code className="language-js">
 							{item.vanillaJavaScript}
 						</code></pre>
 					</section>
@@ -88,10 +97,10 @@ function Content() {
 	}, []);
 
 	return (
-		<main class="l-content" id="content">
-			{listFunction.map(category => {
+		<main className="l-content" id="content">
+			{listFunction.map((category, index) => {
 				return (
-					<React.Fragment>
+					<React.Fragment key={category.key}>
 						<h2>{category.title}</h2>
 						<ContentCategory category={category} />
 					</React.Fragment>
@@ -104,7 +113,7 @@ function Content() {
 function App() {
 	return (
 		<React.Fragment>
-			<header class="l-header">
+			<header className="l-header">
 				<h1>Vanilla JavaScript vs <a href="https://underscorejs.org">Underscore.js</a> and <a href="https://lodash.com">Lodash.js</a></h1>
 			</header>
 			<Menu />
