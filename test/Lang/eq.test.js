@@ -1,4 +1,4 @@
-import eq from '../../src/Lang/eq.js'
+import eq from '../../fn/Lang/eq.js';
 import lod_eq from '../../node_modules/lodash-es/eq.js';
 const lod = {};
 lod.eq = lod_eq;
@@ -22,7 +22,6 @@ console.log("eq('a', Object('a'))", eq('a', Object('a')));
 console.log("eq(NaN, NaN)", eq(NaN, NaN));
 
 // Тесты
-let assert = chai.assert;
 
 describe('eq', function() {
 	it('должен выполнить `SameValueZero` сравнение двух значений', function() {
@@ -43,4 +42,3 @@ describe('eq', function() {
 	});
 });
 
-mocha.run();

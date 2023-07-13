@@ -1,4 +1,4 @@
-import toString from '../../src/Lang/toString.js'
+import toString from '../../fn/Lang/toString.js'
 import lod_toString from '../../node_modules/lodash-es/toString.js';
 const lod = {};
 lod.toString = lod_toString;
@@ -17,7 +17,7 @@ console.log("toString(0)", toString(0));
 console.log("toString('text')", toString('text'));
 
 // Тесты
-let assert = chai.assert;
+// let assert = chai.assert;
 
 describe('toString', function() {
 	it('должен обрабатывать нулевые значения как пустые строки', function() {
@@ -47,4 +47,3 @@ describe('toString', function() {
 	});
 });
 
-mocha.run();

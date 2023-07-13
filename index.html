@@ -12,8 +12,15 @@
 	<script src="node_modules/chai/chai.js"></script>
 </head>
 <body>
+	<script>
+		let assert = chai.assert;
+	</script>
 	<h1>Тестирование</h1>
 	<div id="mocha"></div>
+	<!-- Lang -->
+	<script type="module" src="test/Lang/eq.test.js"></script>
 	<script type="module" src="test/Lang/toString.test.js"></script>
+
+	<script type="module" src="test/run-mocha.js"></script>
 </body>
 </html>
