@@ -21,10 +21,6 @@ function App() {
 		<div className="page">
 			<header className="page__header header">
 				<h1 className="header__title">Vanilla JavaScript vs <a href="https://underscorejs.org">Underscore.js</a> and <a href="https://lodash.com">Lodash.js</a></h1>
-				<ul className="header__menu menu">
-					<li className="menu__item"><a href="/" className="menu__link">Функции</a></li>
-					<li className="menu__item"><a href="/testing" className="menu__link">Тесты</a></li>
-				</ul>
 			</header>
 			<aside className="page__toc">
 				{listFunction.map(category => {

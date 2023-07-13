@@ -12,7 +12,7 @@ module.exports = {
 			import: path.resolve(__dirname, './src/index.js'),
 			dependOn: 'react-vendors'
 		},
-		'react-vendors': ['react', 'react-dom', 'react-router-dom'],
+		'react-vendors': ['react', 'react-dom'],
 	},
 	// точка выхода
 	output: {
