@@ -5,6 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Тестирование</title>
 	<link rel="stylesheet" href="node_modules/mocha/mocha.css">
+	<style>
+		h1, h2 {
+			margin-left: 50px;
+			margin-right: 50px;
+			text-decoration: underline;
+		}
+	</style>
 	<script src="node_modules/mocha/mocha.js"></script>
 	<script>
 		mocha.setup('bdd');
@@ -15,8 +22,10 @@
 	<script>
 		let assert = chai.assert;
 	</script>
+
 	<h1>Тестирование</h1>
 	<div id="mocha"></div>
+
 	<!-- Lang -->
 	<script type="module" src="test/Lang/eq.test.js"></script>
 	<script type="module" src="test/Lang/toString.test.js"></script>
