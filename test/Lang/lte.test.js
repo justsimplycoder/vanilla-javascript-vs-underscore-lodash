@@ -1,4 +1,4 @@
-import lte from '../../src/Lang/lte.js'
+import lte from '../../fn/Lang/lte.js'
 import lod_lte from '../../node_modules/lodash-es/lte.js';
 const lod = {};
 lod.lte = lod_lte;
@@ -15,8 +15,6 @@ console.log("lte(3, 3)", lte(3, 3));
 console.log("lte(3, 1)", lte(3, 1));
 
 // Тесты
-let assert = chai.assert;
-
 describe('lte', function() {
 	it('должен возвращать `true`, если `value` <= `other`', function() {
 		assert.strictEqual(lte(1, 3), true);
@@ -31,4 +29,3 @@ describe('lte', function() {
 	})
 });
 
-mocha.run();

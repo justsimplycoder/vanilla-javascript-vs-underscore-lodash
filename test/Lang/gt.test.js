@@ -1,4 +1,4 @@
-import gt from '../../src/Lang/gt.js'
+import gt from '../../fn/Lang/gt.js'
 import lod_gt from '../../node_modules/lodash-es/gt.js';
 const lod = {};
 lod.gt = lod_gt;
@@ -15,8 +15,6 @@ console.log("gt(3, 3)", gt(3, 3));
 console.log("gt(3, 1)", gt(3, 1));
 
 // Тесты
-let assert = chai.assert;
-
 describe('gt', function() {
 	it('должен возвращать `true`, если `value` > `other`', function() {
 		assert.strictEqual(gt(3, 1), true);
@@ -30,5 +28,3 @@ describe('gt', function() {
 		assert.strictEqual(gt('def', 'def'), false);
 	})
 });
-
-mocha.run();

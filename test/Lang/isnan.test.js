@@ -1,4 +1,4 @@
-import isNotANumber from '../../src/Lang/isNaN.js'
+import isNotANumber from '../../fn/Lang/isNaN.js'
 import lod_isNaN from '../../node_modules/lodash-es/isNaN.js';
 const lod = {};
 lod.isNaN = lod_isNaN;
@@ -20,8 +20,6 @@ console.log("isNotANumber(NaN)", isNotANumber(NaN));
 console.log("isNotANumber(new Number(NaN))", isNotANumber(new Number(NaN)));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isNaN', function() {
 	it('должен возвращать `true` для NaN', function() {
 		assert.strictEqual(isNotANumber(NaN), true);
@@ -44,4 +42,3 @@ describe('isNaN', function() {
 	});
 });
 
-mocha.run();

@@ -1,4 +1,4 @@
-import isEmpty from '../../src/Lang/isEmpty.js'
+import isEmpty from '../../fn/Lang/isEmpty.js'
 import lod_isEmpty from '../../node_modules/lodash-es/isEmpty.js';
 const lod = {};
 lod.isEmpty = lod_isEmpty;
@@ -17,8 +17,6 @@ console.log("isEmpty(null)", isEmpty(null));
 console.log("isEmpty(undefined)", isEmpty(undefined));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isEmpty', function() {
 	it('должен возвращать `true` для пустых значений', function() {
 		assert.strictEqual(isEmpty(null), true);
@@ -83,5 +81,3 @@ describe('isEmpty', function() {
 		assert.strictEqual(isEmpty(new Foo), true);
 	});
 });
-
-mocha.run();

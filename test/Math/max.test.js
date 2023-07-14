@@ -1,4 +1,4 @@
-import max from '../../src/Math/max.js'
+import max from '../../fn/Math/max.js'
 import lod_max from '../../node_modules/lodash-es/max.js';
 const lod = {};
 lod.max = lod_max;
@@ -18,9 +18,7 @@ console.log('-------------------ES-------------------');
 console.log("Math.max(...[4, 2, 8, 6])", Math.max(...[4, 2, 8, 6]));
 
 // Тесты
-let assert = chai.assert;
-
-describe('sum', function() {
+describe('max', function() {
 	it('должен вернуть наибольшее значение из коллекции', () => {
 		assert.strictEqual(max([1, 2, 3]), 3);
 	});
@@ -34,4 +32,3 @@ describe('sum', function() {
 	});
 });
 
-mocha.run();

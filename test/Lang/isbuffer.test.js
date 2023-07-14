@@ -2,7 +2,7 @@
  * Запуск на сервере, так как в браузере нет объекта Buffer
  */
 import chai from 'chai';
-import isBuffer from '../../src/Lang/isBuffer.js'
+import isBuffer from '../../fn/Lang/isBuffer.js'
 import lod_isBuffer from '../../node_modules/lodash-es/isBuffer.js';
 const lod = {};
 lod.isBuffer = lod_isBuffer;
@@ -28,8 +28,6 @@ console.log("isBuffer(new Buffer(2))", isBuffer(Buffer.alloc(2)));
 console.log("isBuffer(new Uint8Array(2))", isBuffer(new Uint8Array(2)));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isBuffer', function() {
 	it('должен возвращать `true` для Buffer', function() {
 		assert.strictEqual(isBuffer(new Buffer(2)), true);

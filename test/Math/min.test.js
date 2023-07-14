@@ -1,4 +1,4 @@
-import min from '../../src/Math/min.js'
+import min from '../../fn/Math/min.js'
 import lod_min from '../../node_modules/lodash-es/min.js';
 const lod = {};
 lod.min = lod_min;
@@ -18,9 +18,7 @@ console.log('-------------------ES-------------------');
 console.log("min([4, 2, 8, 6])", min([4, 2, 8, 6]));
 
 // Тесты
-let assert = chai.assert;
-
-describe('sum', function() {
+describe('min', function() {
 	it('должен вернуть наименьшее значение из коллекции', () => {
 		assert.strictEqual(min([1, 2, 3]), 1);
 	});
@@ -39,4 +37,3 @@ describe('sum', function() {
 	});
 });
 
-mocha.run();

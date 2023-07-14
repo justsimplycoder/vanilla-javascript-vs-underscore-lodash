@@ -1,4 +1,4 @@
-import isArray from '../../src/Lang/isArray.js'
+import isArray from '../../fn/Lang/isArray.js'
 import lod_isArray from '../../node_modules/lodash-es/isArray.js';
 import und_isArray from '../../node_modules/underscore/modules/isarray.js';
 const lod = {};
@@ -22,8 +22,6 @@ console.log("isArray('abc')", isArray('abc'));
 
 
 // Тесты
-let assert = chai.assert;
-
 describe('isArray', function() {
 	it('должен возвращать `true` для массивов', function() {
 		assert.strictEqual(isArray([1, 2, 3]), true);
@@ -42,5 +40,3 @@ describe('isArray', function() {
 		assert.strictEqual(isArray(Symbol('x')), false);
 	});
 });
-
-mocha.run();

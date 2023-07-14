@@ -1,4 +1,4 @@
-import multiply from '../../src/Math/multiply.js'
+import multiply from '../../fn/Math/multiply.js'
 import lod_multiply from '../../node_modules/lodash-es/multiply.js';
 const lod = {};
 lod.multiply = lod_multiply;
@@ -11,8 +11,6 @@ console.log('-------------------ES-------------------');
 console.log("multiply(6, 4)", multiply(6, 4));
 
 // Тесты
-let assert = chai.assert;
-
 describe('multiply', function() {
 	it('надо умножить два числа', () => {
 		assert.strictEqual(multiply(6, 4), 24);
@@ -26,4 +24,3 @@ describe('multiply', function() {
 	});
 });
 
-mocha.run();

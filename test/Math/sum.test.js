@@ -1,4 +1,4 @@
-import sum from '../../src/Math/sum.js'
+import sum from '../../fn/Math/sum.js'
 import lod_sum from '../../node_modules/lodash-es/sum.js';
 const lod = {};
 lod.sum = lod_sum;
@@ -11,8 +11,6 @@ console.log('-------------------ES-------------------');
 console.log("sum([4, 2, 8, 6])", sum([4, 2, 8, 6]));
 
 // Тесты
-let assert = chai.assert;
-
 describe('sum', function() {
 	it('метод sum должен возвращать сумму массива чисел', function() {
 		assert.strictEqual(sum([1, 2, 3]), 6);
@@ -35,4 +33,3 @@ describe('sum', function() {
 	});
 });
 
-mocha.run();

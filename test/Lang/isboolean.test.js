@@ -1,4 +1,4 @@
-import isBoolean from '../../src/Lang/isBoolean.js'
+import isBoolean from '../../fn/Lang/isBoolean.js'
 import lod_isBoolean from '../../node_modules/lodash-es/isBoolean.js';
 const lod = {};
 lod.isBoolean = lod_isBoolean;
@@ -20,8 +20,6 @@ console.log("isBoolean(false)", isBoolean(false));
 console.log("isBoolean(null)", isBoolean(null));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isBoolean', function() {
 	it('должен возвращать `true` для логических значений', function() {
 		assert.strictEqual(isBoolean(true), true);
@@ -45,4 +43,3 @@ describe('isBoolean', function() {
 	});
 });
 
-mocha.run();

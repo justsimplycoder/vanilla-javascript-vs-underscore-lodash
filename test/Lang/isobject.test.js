@@ -1,4 +1,4 @@
-import isObject from '../../src/Lang/isObject.js'
+import isObject from '../../fn/Lang/isObject.js'
 import lod_isObject from '../../node_modules/lodash-es/isObject.js';
 const lod = {};
 lod.isObject = lod_isObject;
@@ -38,8 +38,6 @@ console.log("isObject(null)", isObject(null));
 console.log("isObject(undefined)", isObject(undefined));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isObject', function() {
 	it('должен возвращать `true` для объектов', function() {
 		(function() {
@@ -70,4 +68,3 @@ describe('isObject', function() {
 	});
 });
 
-mocha.run();

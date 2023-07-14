@@ -1,4 +1,4 @@
-import isWeakMap from '../../src/Lang/isWeakMap.js'
+import isWeakMap from '../../fn/Lang/isWeakMap.js'
 import lod_isWeakMap from '../../node_modules/lodash-es/isWeakMap.js';
 const lod = {};
 lod.isWeakMap = lod_isWeakMap;
@@ -20,8 +20,6 @@ console.log("isWeakMap(new WeakMap)", isWeakMap(new WeakMap));
 console.log("isWeakMap(new Map)", isWeakMap(new Map));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isWeakMap', function() {
 	it('должен возвращать `true` для WeakMap', function() {
 		if (WeakMap) {
@@ -45,4 +43,3 @@ describe('isWeakMap', function() {
 	});
 });
 
-mocha.run();

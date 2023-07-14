@@ -1,4 +1,4 @@
-import toInteger from '../../src/Lang/toInteger.js'
+import toInteger from '../../fn/Lang/toInteger.js'
 import lod_toInteger from '../../node_modules/lodash-es/toInteger.js';
 const lod = {};
 lod.toInteger = lod_toInteger;
@@ -25,8 +25,6 @@ console.log("toInteger('3.2')", toInteger('3.2'));
 console.log("toInteger(NaN)", toInteger(NaN));
 
 // Тесты
-let assert = chai.assert;
-
 describe('toInteger', function() {
 	it('должен преобразовывать значения в целые числа', function() {
 		assert.strictEqual(toInteger(-5.6), -5);
@@ -44,4 +42,3 @@ describe('toInteger', function() {
 	});
 });
 
-mocha.run();

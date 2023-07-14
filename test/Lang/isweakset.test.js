@@ -1,4 +1,4 @@
-import isWeakSet from '../../src/Lang/isWeakSet.js'
+import isWeakSet from '../../fn/Lang/isWeakSet.js'
 import lod_isWeakSet from '../../node_modules/lodash-es/isWeakSet.js';
 const lod = {};
 lod.isWeakSet = lod_isWeakSet;
@@ -20,8 +20,6 @@ console.log("isWeakSet(new WeakSet)", isWeakSet(new WeakSet));
 console.log("isWeakSet(new Set)", isWeakSet(new Set));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isWeakSet', function() {
 	it('должен возвращать `true` для WeakSet', function() {
 		if (WeakSet) {
@@ -45,4 +43,3 @@ describe('isWeakSet', function() {
 	});
 });
 
-mocha.run();

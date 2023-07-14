@@ -1,4 +1,4 @@
-import isFunction from '../../src/Lang/isFunction.js'
+import isFunction from '../../fn/Lang/isFunction.js'
 import lod_isFunction from '../../node_modules/lodash-es/isFunction.js';
 const lod = {};
 lod.isFunction = lod_isFunction;
@@ -20,8 +20,6 @@ console.log("isFunction(/abc/)", isFunction(/abc/));
 console.log("isFunction(String)", isFunction(String));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isFunction', function() {
 	it('должен возвращать `true` для функций', function() {
 		assert.strictEqual(isFunction(Array.prototype.slice), true);
@@ -54,4 +52,3 @@ describe('isFunction', function() {
 	});
 });
 
-mocha.run();

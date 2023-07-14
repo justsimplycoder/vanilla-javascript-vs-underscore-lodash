@@ -1,4 +1,4 @@
-import isInteger from '../../src/Lang/isInteger.js'
+import isInteger from '../../fn/Lang/isInteger.js'
 import lod_isInteger from '../../node_modules/lodash-es/isInteger.js';
 const lod = {};
 lod.isInteger = lod_isInteger;
@@ -17,8 +17,6 @@ console.log("isInteger(Infinity)", isInteger(Infinity));
 console.log("isInteger('3')", isInteger('3'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isInteger', function() {
 	it('должен возвращать `true` для целочисленных значений', function() {
 		assert.strictEqual(isInteger(1), true);
@@ -45,4 +43,3 @@ describe('isInteger', function() {
 	});
 });
 
-mocha.run();

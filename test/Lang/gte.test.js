@@ -1,4 +1,4 @@
-import gte from '../../src/Lang/gte.js'
+import gte from '../../fn/Lang/gte.js'
 import lod_gte from '../../node_modules/lodash-es/gte.js';
 const lod = {};
 lod.gte = lod_gte;
@@ -15,9 +15,7 @@ console.log("gte(3, 3)", gte(3, 3));
 console.log("gte(3, 1)", gte(3, 1));
 
 // Тесты
-let assert = chai.assert;
-
-describe('gt', function() {
+describe('gte', function() {
 	it('должен возвращать `true`, если `value` >= `other`', function() {
 		assert.strictEqual(gte(3, 1), true);
 		assert.strictEqual(gte(3, 3), true);
@@ -30,5 +28,3 @@ describe('gt', function() {
 		assert.strictEqual(gte('abc', 'def'), false);
 	})
 });
-
-mocha.run();

@@ -1,4 +1,4 @@
-import add from '../../src/Math/add.js'
+import add from '../../fn/Math/add.js'
 import lod_add from '../../node_modules/lodash-es/add.js';
 const lod = {};
 lod.add = lod_add;
@@ -13,8 +13,6 @@ console.log("add(4, 6)", add(4, 6));
 console.log("add('4', '6')", add('4', '6'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('add', function() {
 	it('нужно добавить два числа', function() {
 		assert.strictEqual(add(6, 4), 10);
@@ -28,4 +26,3 @@ describe('add', function() {
 	});
 });
 
-mocha.run();

@@ -1,4 +1,4 @@
-import mean from '../../src/Math/mean.js'
+import mean from '../../fn/Math/mean.js'
 import lod_mean from '../../node_modules/lodash-es/mean.js';
 const lod = {};
 lod.mean = lod_mean;
@@ -11,9 +11,7 @@ console.log('-------------------ES-------------------');
 console.log("mean([4, 2, 8, 6])", mean([4, 2, 8, 6]));
 
 // Тесты
-let assert = chai.assert;
-
-describe('sum', function() {
+describe('mean', function() {
 	it('должен возвращать среднее значение массива чисел', () => {
 		assert.strictEqual(mean([4, 2, 8, 6]), 5);
 	});
@@ -27,5 +25,3 @@ describe('sum', function() {
 		assert.isNaN(mean([{}, {}]));
 	});
 });
-
-mocha.run();

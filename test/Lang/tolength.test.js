@@ -1,4 +1,4 @@
-import toLength from '../../src/Lang/toLength.js'
+import toLength from '../../fn/Lang/toLength.js'
 import lod_toLength from '../../node_modules/lodash-es/toLength.js';
 const lod = {};
 lod.toLength = lod_toLength;
@@ -17,8 +17,6 @@ console.log("toLength(Infinity)", toLength(Infinity));
 console.log("toLength('3.2')", toLength('3.2'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('toLength', function() {
 	const MAX_ARRAY_LENGTH = 4294967295;
 	const MAX_INTEGER = Number.MAX_SAFE_INTEGER;
@@ -48,4 +46,3 @@ describe('toLength', function() {
 	});
 });
 
-mocha.run();

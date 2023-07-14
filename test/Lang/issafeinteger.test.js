@@ -1,4 +1,4 @@
-import isSafeInteger from '../../src/Lang/isSafeInteger.js'
+import isSafeInteger from '../../fn/Lang/isSafeInteger.js'
 import lod_isSafeInteger from '../../node_modules/lodash-es/isSafeInteger.js';
 const lod = {};
 lod.isSafeInteger = lod_isSafeInteger;
@@ -17,8 +17,6 @@ console.log("Number.isSafeInteger(Infinity)", Number.isSafeInteger(Infinity));
 console.log("Number.isSafeInteger('3')", Number.isSafeInteger('3'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isSafeInteger', function() {
 	it('должен возвращать `true` для целочисленных значений', function() {
 		assert.strictEqual(isSafeInteger(1), true);
@@ -45,4 +43,3 @@ describe('isSafeInteger', function() {
 	});
 });
 
-mocha.run();

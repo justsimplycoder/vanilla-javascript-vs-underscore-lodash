@@ -1,4 +1,4 @@
-import isError from '../../src/Lang/isError.js'
+import isError from '../../fn/Lang/isError.js'
 import lod_isError from '../../node_modules/lodash-es/isError.js';
 const lod = {};
 lod.isError = lod_isError;
@@ -23,8 +23,6 @@ console.log("isError(Error)", isError(Error));
 console.log("isError(new EvalError)", isError(new EvalError));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isError', function() {
 	it('должен возвращать `true` для объектов ошибок', function() {
 		assert.strictEqual(lod.isError(new Error), true);
@@ -60,4 +58,3 @@ describe('isError', function() {
 	});
 });
 
-mocha.run();

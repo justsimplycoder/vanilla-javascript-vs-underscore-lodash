@@ -1,4 +1,4 @@
-import isNative from '../../src/Lang/isNative.js'
+import isNative from '../../fn/Lang/isNative.js'
 // Ошбика isNative.js:35 Uncaught Error: Unsupported core-js use.
 // Напрямую используется _baseIsNative.js
 // import lod_isNative from '../../node_modules/lodash-es/isNative.js';
@@ -16,8 +16,6 @@ console.log("isNative(Array.prototype.push)", isNative(Array.prototype.push));
 console.log("isNative(lod)", isNative(() => {}));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isNative', function() {
 	it('должен возвращать `true` для нативного метода', function() {
 		assert.strictEqual(isNative(Array.prototype.map), true);
@@ -40,4 +38,3 @@ describe('isNative', function() {
 	});
 });
 
-mocha.run();

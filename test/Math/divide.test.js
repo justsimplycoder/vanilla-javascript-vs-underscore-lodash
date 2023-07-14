@@ -1,4 +1,4 @@
-import divide from '../../src/Math/divide.js'
+import divide from '../../fn/Math/divide.js'
 import lod_divide from '../../node_modules/lodash-es/divide.js';
 const lod = {};
 lod.divide = lod_divide;
@@ -11,8 +11,6 @@ console.log('-------------------ES-------------------');
 console.log("divide(6, 4)", divide(6, 4));
 
 // Тесты
-let assert = chai.assert;
-
 describe('divide', function() {
 	it('надо делить два числа', () => {
 		assert.strictEqual(divide(6, 4), 1.5);
@@ -26,4 +24,3 @@ describe('divide', function() {
 	});
 });
 
-mocha.run();

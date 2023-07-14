@@ -1,4 +1,4 @@
-import isNull from '../../src/Lang/isNull.js'
+import isNull from '../../fn/Lang/isNull.js'
 import lod_isNull from '../../node_modules/lodash-es/isNull.js';
 const lod = {};
 lod.isNull = lod_isNull;
@@ -24,8 +24,6 @@ console.log("isNull(undefined)", isNull(undefined));
 console.log("isNull(void 0)", isNull(void 0));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isNull', function() {
 	it('должен возвращать `true` для значений `null`', function() {
 		assert.strictEqual(isNull(null), true);
@@ -47,4 +45,3 @@ describe('isNull', function() {
 	});
 });
 
-mocha.run();

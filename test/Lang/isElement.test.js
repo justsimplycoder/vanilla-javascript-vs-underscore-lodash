@@ -1,4 +1,4 @@
-import isElement from '../../src/Lang/isElement.js'
+import isElement from '../../fn/Lang/isElement.js'
 import lod_isElement from '../../node_modules/lodash-es/isElement.js';
 const lod = {};
 lod.isElement = lod_isElement;
@@ -20,8 +20,6 @@ console.log("isElement(document.body)", isElement(document.body));
 console.log("isElement('<body>')", isElement('<body>'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isElement', function() {
 	it('должен возвращать `true` для элементов', function() {
 		if (document) {
@@ -60,4 +58,3 @@ describe('isElement', function() {
 	});
 });
 
-mocha.run();

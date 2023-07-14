@@ -1,4 +1,4 @@
-import isFiniteValue from '../../src/Lang/isFinite.js'
+import isFiniteValue from '../../fn/Lang/isFinite.js'
 import lod_isFinite from '../../node_modules/lodash-es/isFinite.js';
 const lod = {};
 lod.isFinite = lod_isFinite;
@@ -26,8 +26,6 @@ console.log("isFiniteValue(Infinity)", isFiniteValue(Infinity));
 console.log("isFiniteValue('3')", isFiniteValue('3'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isFinite', function() {
 	it('должен возвращать `true` для конечных значений', function() {
 		const values = [0, 1, 3.14, -1, Number(1)];
@@ -67,4 +65,3 @@ describe('isFinite', function() {
 	});
 });
 
-mocha.run();

@@ -1,4 +1,4 @@
-import isNumber from '../../src/Lang/isNumber.js'
+import isNumber from '../../fn/Lang/isNumber.js'
 import lod_isNumber from '../../node_modules/lodash-es/isNumber.js';
 const lod = {};
 lod.isNumber = lod_isNumber;
@@ -20,8 +20,6 @@ console.log("isNumber(3)", isNumber(3));
 console.log("isNumber('3')", isNumber('3'));
 
 // Тесты
-let assert = chai.assert;
-
 describe('isNumber', function() {
 	it('должен возвращать `true` для чисел', function() {
 		assert.strictEqual(isNumber(0), true);
@@ -47,4 +45,3 @@ describe('isNumber', function() {
 	});
 });
 
-mocha.run();

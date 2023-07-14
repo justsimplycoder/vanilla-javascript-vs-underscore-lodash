@@ -1,4 +1,4 @@
-import toSafeInteger from '../../src/Lang/toSafeInteger.js'
+import toSafeInteger from '../../fn/Lang/toSafeInteger.js'
 import lod_toSafeInteger from '../../node_modules/lodash-es/toSafeInteger.js';
 const lod = {};
 lod.toSafeInteger = lod_toSafeInteger;
@@ -21,8 +21,6 @@ console.log("toSafeInteger('3.2')", toSafeInteger('3.2'));
 console.log("toSafeInteger(NaN)", toSafeInteger(NaN));
 
 // Тесты
-let assert = chai.assert;
-
 describe('toSafeInteger', function() {
 	it('должен преобразовывать значения в целые числа', function() {
 		assert.strictEqual(toSafeInteger(-5.6), -5);
@@ -39,5 +37,3 @@ describe('toSafeInteger', function() {
 		assert.strictEqual(1 / toSafeInteger(-0), -Infinity);
 	});
 });
-
-mocha.run();
